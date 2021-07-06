@@ -1,3 +1,3 @@
 # Dotfiles
 
-Managed using homeshick. Licensed under the terms of the Unlicense.
+Managed using [homeshick](https://github.com/andsens/homeshick/). Licensed under the terms of the [Unlicense](LICENSE.md).
