@@ -59,7 +59,10 @@
   programs.bat.enable = true;
   programs.fzf.enable = true;
   programs.gh.enable = true;
-  # home.packages = with pkgs; [ steam ];
+
+  home.packages = with pkgs; [ 
+    age
+   ];
 
   # Enable home-manager and git
   programs.home-manager.enable = true;
@@ -76,6 +79,8 @@
       user.signingkey = "sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAIAcHy4OLWLYz3mrLJRPtJjSbuB0ovD2rKDrKzxjQmgSwAAAABHNzaDo= olivia@olivia.dev";
     };
   };
+
+  
 
   # Nicely reload system units when changing configs
   # systemd.user.startServices = "sd-switch";
