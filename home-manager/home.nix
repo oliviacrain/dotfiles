@@ -63,8 +63,11 @@
 
   home.packages = with pkgs; [ 
     age
+    diffoscope
+    f3
     just
     ripgrep
+    rmapi
     shellcheck
     yubikey-manager
    ];
