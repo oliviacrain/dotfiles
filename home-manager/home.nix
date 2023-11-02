@@ -59,9 +59,14 @@
   programs.bat.enable = true;
   programs.fzf.enable = true;
   programs.gh.enable = true;
+  programs.direnv.enable = true;
 
   home.packages = with pkgs; [ 
     age
+    just
+    ripgrep
+    shellcheck
+    yubikey-manager
    ];
 
   # Enable home-manager and git
