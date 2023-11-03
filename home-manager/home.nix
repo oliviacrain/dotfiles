@@ -55,7 +55,6 @@
 
   # Add stuff for your user as you see fit:
   programs.neovim.enable = true;
-  programs.alacritty.enable = true;
   programs.bat.enable = true;
   programs.fzf.enable = true;
   programs.gh.enable = true;
