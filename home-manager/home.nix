@@ -69,6 +69,7 @@
     rmapi
     shellcheck
     yubikey-manager
+    unstable.nixd
    ];
 
   # Enable home-manager and git
