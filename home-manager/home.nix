@@ -65,11 +65,12 @@
     diffoscope
     f3
     just
+    nixpkgs-fmt
     ripgrep
     rmapi
+    rnix-lsp
     shellcheck
     yubikey-manager
-    unstable.nixd
    ];
 
   # Enable home-manager and git
