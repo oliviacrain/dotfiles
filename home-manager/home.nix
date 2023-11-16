@@ -1,13 +1,12 @@
 # This is your home-manager configuration file
 # Use this to configure your home environment (it replaces ~/.config/nixpkgs/home.nix)
-{
-  inputs,
-  outputs,
-  lib,
-  config,
-  pkgs,
-  user,
-  ...
+{ inputs
+, outputs
+, lib
+, config
+, pkgs
+, user
+, ...
 }: {
   # You can import other home-manager modules here
   imports = [
@@ -60,7 +59,7 @@
   programs.gh.enable = true;
   programs.direnv.enable = true;
 
-  home.packages = with pkgs; [ 
+  home.packages = with pkgs; [
     age
     diffoscope
     f3
@@ -71,7 +70,7 @@
     rnix-lsp
     shellcheck
     yubikey-manager
-   ];
+  ];
 
   # Enable home-manager and git
   programs.home-manager.enable = true;
@@ -88,8 +87,17 @@
       user.signingkey = "sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAIAcHy4OLWLYz3mrLJRPtJjSbuB0ovD2rKDrKzxjQmgSwAAAABHNzaDo= olivia@olivia.dev";
     };
   };
-
-  
+  programs.fzf = {
+    enable = true;
+    enableFishIntegration = true;
+  };
+  programs.direnv = {
+    enable = true;
+    enableFishIntegration = true;
+  };
+  programs.nushell = {
+    enable = true;
+  };
 
   # Nicely reload system units when changing configs
   # systemd.user.startServices = "sd-switch";
