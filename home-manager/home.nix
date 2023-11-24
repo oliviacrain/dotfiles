@@ -57,7 +57,6 @@
   programs.bat.enable = true;
   programs.fzf.enable = true;
   programs.gh.enable = true;
-  programs.direnv.enable = true;
 
   home.packages = with pkgs; [
     age
@@ -87,16 +86,12 @@
       user.signingkey = "sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAIAcHy4OLWLYz3mrLJRPtJjSbuB0ovD2rKDrKzxjQmgSwAAAABHNzaDo= olivia@olivia.dev";
     };
   };
-  programs.fzf = {
+  programs.nushell = {
     enable = true;
-    enableFishIntegration = true;
   };
   programs.direnv = {
     enable = true;
-    enableFishIntegration = true;
-  };
-  programs.nushell = {
-    enable = true;
+    nix-direnv.enable = true;
   };
 
   # Nicely reload system units when changing configs
