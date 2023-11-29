@@ -68,6 +68,7 @@
     rmapi
     rnix-lsp
     shellcheck
+    typst
     yubikey-manager
   ];
 
