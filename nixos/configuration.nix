@@ -51,6 +51,7 @@
     ];
   };
 
+  programs.steam.enable = true;
   services.openssh = {
     enable = true;
     settings = {
