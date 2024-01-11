@@ -59,5 +59,7 @@
     allowedTCPPorts = [22];
   };
 
+  services.jellyfin.enable = true;
+
   system.stateVersion = "23.11";
 }
