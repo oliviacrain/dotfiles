@@ -1,5 +1,5 @@
 {
-  description = "Olivia's Nix Config";
+  description = "Olivia's Nix Configs";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
@@ -46,10 +46,17 @@
 
     # Available through 'nixos-rebuild --flake .#your-hostname'
     nixosConfigurations = {
+      apteryx = nixpkgs.lib.nixosSystem{
+        specialArgs = {inherit inputs outputs;};
+        modules = [
+          ./nixos/apteryx/configuration.nix
+          vscode-server.nixosModules.default
+        ]
+      };
       cardinalis = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
         modules = [
-          ./nixos/configuration.nix
+          ./nixos/cardinalis/configuration.nix
           vscode-server.nixosModules.default
           home-manager.nixosModules.home-manager
           {
