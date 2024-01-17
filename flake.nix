@@ -51,7 +51,7 @@
         modules = [
           ./nixos/apteryx/configuration.nix
           vscode-server.nixosModules.default
-        ]
+        ];
       };
       cardinalis = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
