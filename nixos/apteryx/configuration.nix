@@ -17,6 +17,7 @@
     jellyfin
     jellyfin-web
     jellyfin-ffmpeg
+    jellyseerr
   ];
 
   nixpkgs = {
@@ -113,6 +114,8 @@
     enable = true;
     openFirewall = true;
   };
+
+  services.jellyseerr.enable = true;
 
   system.stateVersion = "23.11";
 }
