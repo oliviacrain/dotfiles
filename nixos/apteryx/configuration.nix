@@ -125,9 +125,9 @@
     enable = true;
     configFile = pkgs.writeText "Caddyfile" ''
       apteryx.tail15aab.ts.net
-      redir /requests 127.0.0.1:5055
+      redir /requests http://apteryx.tail15aab.ts.net:5055/
       redir /jellyfin /jellyfin/
-      reverse_proxy /jellyfin/* 127.0.0.1:8096
+      reverse_proxy /jellyfin/* :8096
     '';
   };
 
