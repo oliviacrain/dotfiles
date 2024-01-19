@@ -105,6 +105,7 @@
   services.tailscale = {
     enable = true;
     package = pkgs.unstable.tailscale;
+    permitCertUid = config.services.caddy.user;
   };
   networking.firewall = {
     enable = true;
@@ -119,6 +120,16 @@
   };
 
   services.jellyseerr.enable = true;
+
+  services.caddy = {
+    enable = true;
+    configFile = pkgs.writeText "Caddyfile" ''
+      apteryx.tail15aab.ts.net
+      redir /requests 127.0.0.1:5055
+      redir /jellyfin /jellyfin/
+      reverse_proxy /jellyfin/* 127.0.0.1:8096
+    '';
+  };
 
   system.stateVersion = "23.11";
 }
