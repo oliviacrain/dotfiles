@@ -91,6 +91,8 @@
     ];
   };
 
+  users.users.jellyfin.extraGroups = ["render" "video"];
+
   services.openssh = {
     enable = true;
     settings = {
