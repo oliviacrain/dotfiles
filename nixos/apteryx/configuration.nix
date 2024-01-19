@@ -127,7 +127,7 @@
       apteryx.tail15aab.ts.net
       redir /requests http://apteryx.tail15aab.ts.net:5055/
       redir /jellyfin /jellyfin/
-      reverse_proxy /jellyfin/* :8096
+      reverse_proxy /jellyfin/* http://localhost:8096
     '';
   };
 
