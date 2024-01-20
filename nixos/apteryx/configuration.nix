@@ -123,6 +123,7 @@
 
   services.caddy = {
     enable = true;
+    package = pkgs.caddy-with-porkbun;
     configFile = pkgs.writeText "Caddyfile" ''
       apteryx.tail15aab.ts.net
       redir /requests http://apteryx.tail15aab.ts.net:5055/
