@@ -126,6 +126,7 @@
     package = pkgs.caddy-with-porkbun;
     configFile = pkgs.writeText "Caddyfile" ''
       apteryx.tail15aab.ts.net
+      redir /requests/ /requests
       redir /requests http://apteryx.tail15aab.ts.net:5055/
       redir /jellyfin /jellyfin/
       reverse_proxy /jellyfin/* http://localhost:8096
