@@ -7,4 +7,6 @@
       { name = "porkbun"; repo = "github.com/caddy-dns/porkbun"; version = "v0.1.4"; }
     ];
   };
+
+  witchhazel-helix = pkgs.callPackage ./witchhazel-helix.nix {};
 }
