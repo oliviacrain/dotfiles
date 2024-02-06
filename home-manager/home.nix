@@ -31,6 +31,7 @@
   programs.neovim.enable = true;
   programs.bat.enable = true;
   programs.fzf.enable = true;
+  programs.helix.enable = true;
 
   home.packages = with pkgs; [
     age
