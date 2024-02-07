@@ -51,10 +51,12 @@
     f3
     just
     nixpkgs-fmt
+    rename
     ripgrep
     rmapi
     rnix-lsp
     shellcheck
+    tree
     typst
     yubikey-manager
   ];
