@@ -93,6 +93,16 @@
     ];
   };
 
+
+  users.users.slug = {
+    isNormalUser = true;
+    home = "/home/slug";
+    packages = with pkgs; [
+      firefox
+      kate
+    ];
+  };
+  
   users.users.jellyfin.extraGroups = ["render" "video"];
 
   services.openssh = {
@@ -100,9 +110,11 @@
     settings = {
       PermitRootLogin = "no";
       PasswordAuthentication = false;
+      AllowUsers = [ "olivia" ];
     };
     openFirewall = true;
   };
+  
   services.vscode-server.enable = true;
   services.tailscale = {
     enable = true;
