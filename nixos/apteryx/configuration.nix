@@ -102,6 +102,14 @@
       kate
     ];
   };
+
+  users.users.margie = {
+    isNormalUser = true;
+    home = "/home/margie";
+    openssh.authorizedKeys.keys = [
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEbSgwkKC4XJWX1OgB9uyeeMookTrOuhe3cJuExtgUjx eddsa-key-20240214"
+    ];
+  };
   
   users.users.jellyfin.extraGroups = ["render" "video"];
 
@@ -110,7 +118,7 @@
     settings = {
       PermitRootLogin = "no";
       PasswordAuthentication = false;
-      AllowUsers = [ "olivia" ];
+      AllowUsers = [ "olivia" "margie" ];
     };
     openFirewall = true;
   };
