@@ -23,15 +23,13 @@
   imports = [
     ./git.nix
     ./editor.nix
+    ./shell.nix
   ];
 
   home = {
     username = "olivia";
     homeDirectory = "/home/olivia";
   };
-
-  programs.bat.enable = true;
-  programs.fzf.enable = true;
 
   home.packages = with pkgs; [
     age
@@ -49,14 +47,6 @@
   ];
 
   programs.home-manager.enable = true;
-
-  programs.nushell = {
-    enable = true;
-  };
-  programs.direnv = {
-    enable = true;
-    nix-direnv.enable = true;
-  };
 
   # Nicely reload system units when changing configs
   # systemd.user.startServices = "sd-switch";
