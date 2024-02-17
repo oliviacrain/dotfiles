@@ -5,7 +5,8 @@
   config,
   pkgs,
   ...
-}: {
+}:
+{
   nixpkgs = {
     overlays = [
       outputs.overlays.additions
@@ -19,9 +20,7 @@
     };
   };
 
-  imports = [
-    ./git.nix
-  ];
+  imports = [ ./git.nix ];
 
   home = {
     username = "olivia";

@@ -6,10 +6,9 @@
   pkgs,
   user,
   ...
-}: {
-  imports = [
-    ./hardware-configuration.nix
-  ];
+}:
+{
+  imports = [ ./hardware-configuration.nix ];
 
   environment.systemPackages = with pkgs; [
     vim
@@ -29,7 +28,10 @@
     config.allowUnfree = true;
   };
 
-  nix.settings.experimental-features = ["nix-command" "flakes"];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -58,12 +60,12 @@
   services.xserver.enable = true;
   services.xserver.displayManager.sddm.enable = true;
   services.xserver.desktopManager.plasma5.enable = true;
-    services.xserver = {
+  services.xserver = {
     layout = "us";
     xkbVariant = "";
   };
   services.printing.enable = true;
-    sound.enable = true;
+  sound.enable = true;
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
@@ -81,7 +83,10 @@
 
   users.users.olivia = {
     isNormalUser = true;
-    extraGroups = ["wheel" "networkmanager"];
+    extraGroups = [
+      "wheel"
+      "networkmanager"
+    ];
     home = "/home/olivia";
     packages = with pkgs; [
       firefox
@@ -92,7 +97,6 @@
       "sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAIAcHy4OLWLYz3mrLJRPtJjSbuB0ovD2rKDrKzxjQmgSwAAAABHNzaDo= olivia@olivia.dev"
     ];
   };
-
 
   users.users.slug = {
     isNormalUser = true;
@@ -110,19 +114,25 @@
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEbSgwkKC4XJWX1OgB9uyeeMookTrOuhe3cJuExtgUjx eddsa-key-20240214"
     ];
   };
-  
-  users.users.jellyfin.extraGroups = ["render" "video"];
+
+  users.users.jellyfin.extraGroups = [
+    "render"
+    "video"
+  ];
 
   services.openssh = {
     enable = true;
     settings = {
       PermitRootLogin = "no";
       PasswordAuthentication = false;
-      AllowUsers = [ "olivia" "margie" ];
+      AllowUsers = [
+        "olivia"
+        "margie"
+      ];
     };
     openFirewall = true;
   };
-  
+
   services.vscode-server.enable = true;
   services.tailscale = {
     enable = true;
@@ -131,9 +141,9 @@
   };
   networking.firewall = {
     enable = true;
-    trustedInterfaces = ["tailscale0"];
-    allowedUDPPorts = [config.services.tailscale.port];
-    allowedTCPPorts = [22];
+    trustedInterfaces = [ "tailscale0" ];
+    allowedUDPPorts = [ config.services.tailscale.port ];
+    allowedTCPPorts = [ 22 ];
   };
 
   services.jellyfin = {

@@ -1,22 +1,43 @@
 # https://github.com/NixOS/nixpkgs/blob/a33b02fa9d664f31dadc8a874eb1a5dbaa9f4ecf/pkgs/servers/caddy/default.nix
-{ lib
-, buildGoModule
-, fetchFromGitHub
-, gnused
-, nixosTests
-, caddy
-, testers
-, installShellFiles
-, externalPlugins ? []
-, vendorHash ? "sha256-ebnSehuhbCY58ctM8IRVMfNxxbJBp6ht9cbuLdGFNek="
+{
+  lib,
+  buildGoModule,
+  fetchFromGitHub,
+  gnused,
+  nixosTests,
+  caddy,
+  testers,
+  installShellFiles,
+  externalPlugins ? [ ],
+  vendorHash ? "sha256-ebnSehuhbCY58ctM8IRVMfNxxbJBp6ht9cbuLdGFNek=",
 }:
-
 let
-  attrsToModules = attrs:
-    builtins.map ({name, repo, version}: "${repo}") attrs;
-  attrsToSources = attrs:
-    builtins.map ({name, repo, version}: "${repo}@${version}") attrs;
-in buildGoModule rec {
+  attrsToModules =
+    attrs:
+    builtins.map
+      (
+        {
+          name,
+          repo,
+          version,
+        }:
+        "${repo}"
+      )
+      attrs;
+  attrsToSources =
+    attrs:
+    builtins.map
+      (
+        {
+          name,
+          repo,
+          version,
+        }:
+        "${repo}@${version}"
+      )
+      attrs;
+in
+buildGoModule rec {
   pname = "caddy";
   version = "2.7.6";
 
@@ -39,11 +60,15 @@ in buildGoModule rec {
   subPackages = [ "cmd/caddy" ];
 
   ldflags = [
-    "-s" "-w"
+    "-s"
+    "-w"
     "-X github.com/caddyserver/caddy/v2.CustomVersion=${version}"
   ];
 
-  nativeBuildInputs = [ gnused installShellFiles ];
+  nativeBuildInputs = [
+    gnused
+    installShellFiles
+  ];
 
   modBuildPhase = ''
     for module in ${builtins.toString (attrsToModules externalPlugins)}; do
@@ -100,6 +125,6 @@ in buildGoModule rec {
     description = "Fast and extensible multi-platform HTTP/1-2-3 web server with automatic HTTPS";
     license = licenses.asl20;
     mainProgram = "caddy";
-    maintainers = [];
+    maintainers = [ ];
   };
 }
