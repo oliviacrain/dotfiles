@@ -20,29 +20,18 @@
     };
   };
 
-  imports = [ ./git.nix ];
+  imports = [
+    ./git.nix
+    ./editor.nix
+  ];
 
   home = {
     username = "olivia";
     homeDirectory = "/home/olivia";
   };
 
-  programs.neovim.enable = true;
   programs.bat.enable = true;
   programs.fzf.enable = true;
-  programs.helix = {
-    enable = true;
-    settings = {
-      theme = "witchhazel-hyper";
-      editor = {
-        line-number = "relative";
-      };
-    };
-    themes = {
-      witchhazel = lib.importTOML "${pkgs.witchhazel-helix}/witchhazel.toml";
-      witchhazel-hyper = lib.importTOML "${pkgs.witchhazel-helix}/witchhazel_hyper.toml";
-    };
-  };
 
   home.packages = with pkgs; [
     age
