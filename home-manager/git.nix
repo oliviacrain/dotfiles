@@ -11,6 +11,7 @@
       merge.conflictStyle = "zdiff3";
       pull.ff = "only";
       rebase.autosquash = "true";
+      rebase.updateRefs = "true";
       init.defaultBranch = "main";
       diff.external = "difft";
       gpg.format = "ssh";
