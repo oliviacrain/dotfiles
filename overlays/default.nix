@@ -21,4 +21,10 @@
       config.allowUnfree = true;
     };
   };
+
+  litchipi-packages = final: _prev: {
+    litchipi = {
+      inherit (inputs.nixpkgs-mealie.legacyPackages.${final.system}) mealie;
+    };
+  };
 }

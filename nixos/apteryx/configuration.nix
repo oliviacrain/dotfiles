@@ -8,7 +8,10 @@
   ...
 }:
 {
-  imports = [ ./hardware-configuration.nix ];
+  imports = [
+    ./hardware-configuration.nix
+    "${inputs.nixpkgs-mealie}/nixos/modules/services/web-apps/mealie.nix"
+  ];
 
   environment.systemPackages = with pkgs; [
     vim
@@ -24,6 +27,7 @@
       outputs.overlays.additions
       outputs.overlays.modifications
       outputs.overlays.unstable-packages
+      outputs.overlays.litchipi-packages
     ];
     config.allowUnfree = true;
   };
@@ -157,12 +161,30 @@
     enable = true;
     package = pkgs.caddy-with-porkbun;
     configFile = pkgs.writeText "Caddyfile" ''
-      apteryx.tail15aab.ts.net
-      redir /requests/ /requests
-      redir /requests http://apteryx.tail15aab.ts.net:5055/
-      redir /jellyfin /jellyfin/
-      reverse_proxy /jellyfin/* http://localhost:8096
+      https://apteryx.tail15aab.ts.net:443 {
+        redir /requests/ /requests
+        redir /requests https://apteryx.tail15aab.ts.net:5066
+        redir /mealie/ /mealie
+        redir /mealie https://apteryx.tail15aab.ts.net:8989
+        redir /jellyfin /jellyfin/
+        reverse_proxy /jellyfin/* http://localhost:8096
+      }
+      https://apteryx.tail15aab.ts.net:8989 {
+        reverse_proxy http://localhost:9000
+      }
+      https://apteryx.tail15aab.ts.net:5066 {
+        reverse_proxy http://localhost:5055
+      }
+
     '';
+  };
+
+  services.mealie = {
+    enable = true;
+    package = pkgs.litchipi.mealie;
+    settings = {
+      BASE_URL = https://apteryx.tail15aab.ts.net:8999/;
+    };
   };
 
   system.stateVersion = "23.11";
