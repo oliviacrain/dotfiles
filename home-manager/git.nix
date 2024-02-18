@@ -1,6 +1,6 @@
-{ pkgs, ...}:
+{ pkgs, ... }:
 {
-  home.packages = [pkgs.difftastic];
+  home.packages = [ pkgs.difftastic ];
   programs.gh.enable = true;
   programs.git = {
     enable = true;
