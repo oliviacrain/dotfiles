@@ -44,6 +44,7 @@
     tree
     typst
     yubikey-manager
+    nil
   ];
 
   programs.home-manager.enable = true;
