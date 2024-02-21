@@ -32,10 +32,13 @@
     config.allowUnfree = true;
   };
 
-  nix.settings.experimental-features = [
-    "nix-command"
-    "flakes"
-  ];
+  nix.settings = {
+    experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
+    trusted-users = [ "nixremote" ];
+  };
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -119,6 +122,14 @@
     ];
   };
 
+  users.users.nixremote = {
+    isNormalUser = true;
+    home = "/home/nixremote";
+    openssh.authorizedKeys.keys = [
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIgetZN4IN8ngswhuBm1jWUCP0k0TbSg9BMGvqI6o2+i root@corvus"
+    ];
+  };
+
   users.users.jellyfin.extraGroups = [
     "render"
     "video"
@@ -132,6 +143,7 @@
       AllowUsers = [
         "olivia"
         "margie"
+        "nixremote"
       ];
     };
     openFirewall = true;
