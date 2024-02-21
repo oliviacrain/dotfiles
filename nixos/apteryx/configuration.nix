@@ -195,7 +195,7 @@
     enable = true;
     package = pkgs.litchipi.mealie;
     settings = {
-      BASE_URL = https://apteryx.tail15aab.ts.net:8999/;
+      BASE_URL = "https://apteryx.tail15aab.ts.net:8999/";
     };
   };
 
