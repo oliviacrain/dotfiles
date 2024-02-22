@@ -5,17 +5,19 @@
   ...
 }:
 {
-  networking.hostName = "apteryx";
-  networking.networkmanager.enable = true;
+  networking = {
+    hostName = "apteryx";
+    networkmanager.enable = true;
+    firewall = {
+      enable = true;
+      trustedInterfaces = [ "tailscale0" ];
+      allowedUDPPorts = [ config.services.tailscale.port ];
+      allowedTCPPorts = [ 22 ];
+    };
+  };
+
   # https://github.com/NixOS/nixpkgs/issues/180175
   systemd.services.NetworkManager-wait-online.enable = lib.mkForce false;
-
-  networking.firewall = {
-    enable = true;
-    trustedInterfaces = [ "tailscale0" ];
-    allowedUDPPorts = [ config.services.tailscale.port ];
-    allowedTCPPorts = [ 22 ];
-  };
 
   services.tailscale = {
     enable = true;
