@@ -13,5 +13,5 @@
     ];
   };
 
-  witchhazel-helix = pkgs.callPackage ./witchhazel-helix.nix { };
+  witchhazel = pkgs.callPackage ./witchhazel.nix { };
 }

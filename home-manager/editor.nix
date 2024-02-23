@@ -29,8 +29,8 @@
     };
 
     themes = {
-      witchhazel = lib.importTOML "${pkgs.witchhazel-helix}/witchhazel.toml";
-      witchhazel-hyper = lib.importTOML "${pkgs.witchhazel-helix}/witchhazel_hyper.toml";
+      witchhazel = lib.importTOML "${pkgs.witchhazel}/helix/witchhazel.toml";
+      witchhazel-hyper = lib.importTOML "${pkgs.witchhazel}/helix/witchhazel_hyper.toml";
     };
   };
 }

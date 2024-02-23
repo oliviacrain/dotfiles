@@ -3,8 +3,8 @@
   fetchFromGitHub,
   stdenvNoCC,
 }:
-stdenvNoCC.mkDerivation rec {
-  pname = "witchhazel-helix";
+stdenvNoCC.mkDerivation {
+  pname = "witchhazel";
   version = "0-unstable-2024-01-26";
 
   src = fetchFromGitHub {
@@ -16,8 +16,11 @@ stdenvNoCC.mkDerivation rec {
 
   installPhase = ''
     runHook preInstall
-    mkdir $out
-    install -Dm644 helix/*.toml $out/
+
+    mkdir -p $out/helix $out/alacritty
+    install -m644 helix/*.toml $out/helix/
+    install -m644 alacritty/*.toml $out/alacritty/
+
     runHook postInstall
   '';
 
