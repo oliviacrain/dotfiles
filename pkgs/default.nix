@@ -14,4 +14,6 @@
   };
 
   witchhazel = pkgs.callPackage ./witchhazel.nix { };
+
+  berkeley-mono = pkgs.callPackage ./berkeley-mono.nix { };
 }

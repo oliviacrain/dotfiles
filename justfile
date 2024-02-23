@@ -19,3 +19,6 @@ deploy hostname:
         --fast --flake {{justfile_directory()}}#{{hostname}} \
         --target-host {{hostname}} --build-host {{hostname}} \
         --use-remote-sudo
+
+font-to-store:
+    nix-prefetch-url --type sha256 file://{{justfile_directory()}}/pkgs/berkeley-mono-typeface.zip

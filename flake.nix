@@ -34,7 +34,15 @@
       forAllSystems = nixpkgs.lib.genAttrs systems;
     in
     {
-      packages = forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
+      packages = forAllSystems (
+        system:
+        import ./pkgs (
+          import nixpkgs {
+            inherit system;
+            config.allowUnfree = true;
+          }
+        )
+      );
       formatter = forAllSystems (system: nixpkgs-unstable.legacyPackages.${system}.nixfmt-rfc-style);
 
       overlays = import ./overlays { inherit inputs; };
