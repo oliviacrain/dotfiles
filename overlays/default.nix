@@ -19,4 +19,6 @@
       inherit (inputs.nixpkgs-mealie.legacyPackages.${final.system}) mealie;
     };
   };
+
+  apple-silicon = inputs.apple-silicon.overlays.apple-silicon-overlay;
 }
