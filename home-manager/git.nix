@@ -12,6 +12,7 @@
     extraConfig = {
       merge.conflictStyle = "zdiff3";
       pull.ff = "only";
+      push.autoSetupRemote = "true";
       rebase.autosquash = "true";
       rebase.updateRefs = "true";
       init.defaultBranch = "main";
