@@ -57,17 +57,6 @@
 
       overlays = import ./overlays { inherit inputs; };
 
-      # Available through 'home-manager --flake .#your-username@your-hostname'
-      homeConfigurations = {
-        "olivia@corvus" = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages.aarch64-linux;
-          extraSpecialArgs = {
-            inherit inputs outputs;
-          };
-          modules = [ ./home-manager/home.nix ];
-        };
-      };
-
       # Available through 'nixos-rebuild --flake .#your-hostname'
       nixosConfigurations = {
         apteryx = nixpkgs.lib.nixosSystem {
