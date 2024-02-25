@@ -24,21 +24,34 @@
     "nix-command"
     "flakes"
   ];
+  nix.registry.nixpkgs.flake = inputs.nixpkgs-unstable;
 
   hardware.asahi = {
     useExperimentalGPUDriver = true;
     addEdgeKernelConfig = true;
   };
-
+  programs.zsh.enable = true;
+  programs.ssh.startAgent = true;
+  services.xserver.enable = true;
+  services.xserver.displayManager.sddm.enable = true;
+  services.xserver.desktopManager.plasma6.enable = true;
+  
   sound.enable = true;
-
+  users.users.olivia = {
+    isNormalUser = true;
+    extraGroups = ["wheel" "networkmanager"];
+    home = "/home/olivia";
+  };
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = false;
 
-  environment.systemPackages = with pkgs; [ vim ];
+  environment.systemPackages = with pkgs; [ vim firefox ];
 
   networking.hostName = "corvus";
   networking.networkmanager.enable = true;
+  networking.networkmanager.wifi.backend = "iwd";
+  networking.wireless.iwd.enable = true;
+  networking.wireless.iwd.settings.General.EnableNetworkConfiguration = true;
   time.timeZone = "America/Chicago";
   services.tailscale.enable = true;
   networking.firewall = {
@@ -49,5 +62,5 @@
   };
   i18n.defaultLocale = "en_US.UTF-8";
 
-  system.stateVersion = "23.11";
+  system.stateVersion = "24.05";
 }

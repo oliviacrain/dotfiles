@@ -17,6 +17,9 @@
 
     vscode-server.url = "github:nix-community/nixos-vscode-server";
     vscode-server.inputs.nixpkgs.follows = "nixpkgs";
+
+    kde2nix.url = "github:nix-community/kde2nix";
+    kde2nix.inputs.nixpkgs.follows = "nixpkgs-unstable";
   };
 
   outputs =
@@ -25,6 +28,8 @@
       nixpkgs,
       nixpkgs-unstable,
       home-manager,
+      home-manager-unstable,
+      kde2nix,
       vscode-server,
       ...
     }@inputs:
@@ -100,8 +105,10 @@
           };
           modules = [
             ./nixos/corvus/configuration.nix
-            home-manager.nixosModules.home-manager
+            kde2nix.nixosModules.plasma6
+            home-manager-unstable.nixosModules.home-manager
             {
+              home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.users.olivia = import ./home-manager/home.nix;
               home-manager.extraSpecialArgs = {

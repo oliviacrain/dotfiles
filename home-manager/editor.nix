@@ -9,14 +9,14 @@
       gotools
       rust-analyzer
       nodePackages.bash-language-server
-      unstable.nixfmt-rfc-style
+      nixfmt-rfc-style
     ];
 
     languages = {
       language = [
         {
           name = "nix";
-          formatter.command = "${lib.getExe pkgs.unstable.nixfmt-rfc-style}";
+          formatter.command = "${lib.getExe pkgs.nixfmt-rfc-style}";
         }
       ];
     };

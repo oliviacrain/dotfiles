@@ -1,11 +1,7 @@
 local := `hostname -s`
 
 switch:
-    if [ '{{local}}' == 'corvus'  ]; then \
-        home-manager switch --flake {{justfile_directory()}}#olivia@{{local}}; \
-    else \
-        nixos-rebuild switch --flake {{justfile_directory()}}#{{local}}; \
-    fi
+    sudo nixos-rebuild switch --impure --flake {{justfile_directory()}}#{{local}}
 
 check:
     nix run github:DeterminateSystems/flake-checker
