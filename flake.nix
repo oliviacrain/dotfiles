@@ -51,11 +51,20 @@
       );
       formatter = forAllSystems (system: nixpkgs-unstable.legacyPackages.${system}.nixfmt-rfc-style);
 
-      devShells = forAllSystems (system: let pkgs = nixpkgs-unstable.legacyPackages.${system}; in {
-        default = pkgs.mkShell {
-          packages = with pkgs; [ just nix-output-monitor ];
-        };
-      });
+      devShells = forAllSystems (
+        system:
+        let
+          pkgs = nixpkgs-unstable.legacyPackages.${system};
+        in
+        {
+          default = pkgs.mkShell {
+            packages = with pkgs; [
+              just
+              nix-output-monitor
+            ];
+          };
+        }
+      );
 
       overlays = import ./overlays { inherit inputs; };
 
