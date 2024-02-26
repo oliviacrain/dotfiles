@@ -1,6 +1,7 @@
 local := `hostname -s`
 
 switch:
+    nom build --impure {{justfile_directory()}}#nixosConfigurations.{{local}}.config.system.build.toplevel
     sudo nixos-rebuild switch --impure --flake {{justfile_directory()}}#{{local}}
 
 check:
