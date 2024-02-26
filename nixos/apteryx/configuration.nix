@@ -7,11 +7,11 @@
 {
   imports = [
     ./hardware-configuration.nix
+    ../common
     ./networking.nix
     ./users.nix
     ./media-server.nix
     ./desktop.nix
-    ./locale.nix
     "${inputs.nixpkgs-mealie}/nixos/modules/services/web-apps/mealie.nix"
   ];
 

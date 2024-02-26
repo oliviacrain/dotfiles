@@ -8,6 +8,7 @@
 {
   imports = [
     ./hardware-configuration.nix
+    ../common
     inputs.apple-silicon.nixosModules.apple-silicon-support
   ];
 
@@ -66,7 +67,6 @@
     allowedUDPPorts = [ config.services.tailscale.port ];
     allowedTCPPorts = [ 22 ];
   };
-  i18n.defaultLocale = "en_US.UTF-8";
 
   system.stateVersion = "24.05";
 }

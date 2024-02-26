@@ -8,7 +8,7 @@
   ...
 }:
 {
-  imports = [ ./hardware-configuration.nix ];
+  imports = [ ./hardware-configuration.nix ../common ];
 
   nixpkgs = {
     overlays = [
