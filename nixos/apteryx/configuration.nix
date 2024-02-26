@@ -25,11 +25,6 @@
     config.allowUnfree = true;
   };
 
-  nix.settings.experimental-features = [
-    "nix-command"
-    "flakes"
-  ];
-
   environment.systemPackages = with pkgs; [ vim ];
 
   boot.loader.systemd-boot.enable = true;
