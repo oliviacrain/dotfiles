@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
-    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-unstable.url = "github:K900/nixpkgs/plasma-6";
     # https://github.com/NixOS/nixpkgs/pull/278454/files
     nixpkgs-mealie.url = "github:litchipi/nixpkgs/c93337127a5b733d1cb4c0a2e6c285095e06e97d";
 
@@ -17,9 +17,6 @@
 
     vscode-server.url = "github:nix-community/nixos-vscode-server";
     vscode-server.inputs.nixpkgs.follows = "nixpkgs";
-
-    kde2nix.url = "github:nix-community/kde2nix";
-    kde2nix.inputs.nixpkgs.follows = "nixpkgs-unstable";
   };
 
   outputs =
@@ -29,7 +26,6 @@
       nixpkgs-unstable,
       home-manager,
       home-manager-unstable,
-      kde2nix,
       vscode-server,
       ...
     }@inputs:
@@ -94,7 +90,6 @@
           };
           modules = [
             ./nixos/corvus/configuration.nix
-            kde2nix.nixosModules.plasma6
             home-manager-unstable.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
