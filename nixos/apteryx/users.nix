@@ -1,22 +1,5 @@
 { pkgs, ... }:
 {
-  users.users.olivia = {
-    isNormalUser = true;
-    extraGroups = [
-      "wheel"
-      "networkmanager"
-    ];
-    home = "/home/olivia";
-    packages = with pkgs; [
-      firefox
-      kate
-      git
-    ];
-    openssh.authorizedKeys.keys = [
-      "sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAIAcHy4OLWLYz3mrLJRPtJjSbuB0ovD2rKDrKzxjQmgSwAAAABHNzaDo= olivia@olivia.dev"
-    ];
-  };
-
   users.users.slug = {
     isNormalUser = true;
     home = "/home/slug";
@@ -50,7 +33,6 @@
       PermitRootLogin = "no";
       PasswordAuthentication = false;
       AllowUsers = [
-        "olivia"
         "margie"
         "nixremote"
       ];

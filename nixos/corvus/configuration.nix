@@ -37,14 +37,7 @@
   services.xserver.desktopManager.plasma6.enable = true;
 
   sound.enable = true;
-  users.users.olivia = {
-    isNormalUser = true;
-    extraGroups = [
-      "wheel"
-      "networkmanager"
-    ];
-    home = "/home/olivia";
-  };
+
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = false;
 

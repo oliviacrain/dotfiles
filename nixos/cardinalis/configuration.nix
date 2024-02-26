@@ -47,18 +47,6 @@
 
   programs.hyprland.enable = true;
 
-  users.users.olivia = {
-    isNormalUser = true;
-    extraGroups = [
-      "wheel"
-      "networkmanager"
-    ];
-    home = "/home/olivia";
-    openssh.authorizedKeys.keys = [
-      "sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAIAcHy4OLWLYz3mrLJRPtJjSbuB0ovD2rKDrKzxjQmgSwAAAABHNzaDo= olivia@olivia.dev"
-    ];
-  };
-
   programs.steam.enable = true;
   services.openssh = {
     enable = true;
