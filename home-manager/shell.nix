@@ -1,6 +1,13 @@
-{ ... }:
+{ pkgs, ... }:
 {
-  programs.alacritty.enable = true;
+  programs.alacritty = {
+    enable = true;
+    settings = {
+      import = [
+        "${pkgs.witchhazel}/alacritty/witchhazel_hyper.toml"
+      ];
+    };
+  };
   programs.atuin.enable = true;
   programs.bat.enable = true;
   programs.bash.enable = true;
