@@ -20,11 +20,7 @@
   };
 
   home.packages = with pkgs; [
-    age
     diffoscope
-    difftastic
-    f3
-    just
     rename
     ripgrep
     rmapi
