@@ -6,7 +6,7 @@
     desktopManager.plasma5.enable = true;
     layout = "us";
     xkbVariant = "";
-  }
+  };
 
   services.printing.enable = true;
   sound.enable = true;
