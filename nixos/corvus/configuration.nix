@@ -31,27 +31,35 @@
     useExperimentalGPUDriver = true;
     addEdgeKernelConfig = true;
   };
+
+  networking = {
+    hostName = "corvus";
+    networkmanager.enable = true;
+    networkmanager.wifi.backend = "iwd";
+    wireless.iwd.enable = true;
+    wireless.iwd.settings.General.EnableNetworkConfiguration = true;
+  }
+
   programs.zsh.enable = true;
-  services.xserver.enable = true;
-  services.xserver.displayManager.sddm.enable = true;
-  services.xserver.desktopManager.plasma6.enable = true;
+
+  services.xserver = {
+    enable = true;
+    displayManager.sddm.enable = true;
+    desktopManager.plasma6.enable = true;
+  }
 
   sound.enable = true;
 
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = false;
+  boot.loader = {
+    systemd-boot.enable = true;
+    efi.canTouchEfiVariables = false;
+  }
 
   environment.systemPackages = with pkgs; [
     vim
     firefox
     vscode-with-extensions
   ];
-
-  networking.hostName = "corvus";
-  networking.networkmanager.enable = true;
-  networking.networkmanager.wifi.backend = "iwd";
-  networking.wireless.iwd.enable = true;
-  networking.wireless.iwd.settings.General.EnableNetworkConfiguration = true;
 
   system.stateVersion = "24.05";
 }
