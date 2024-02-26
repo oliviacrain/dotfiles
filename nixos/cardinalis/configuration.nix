@@ -57,16 +57,7 @@
     openFirewall = true;
   };
   services.vscode-server.enable = true;
-  services.tailscale = {
-    enable = true;
-    package = pkgs.unstable.tailscale;
-  };
-  networking.firewall = {
-    enable = true;
-    trustedInterfaces = [ "tailscale0" ];
-    allowedUDPPorts = [ config.services.tailscale.port ];
-    allowedTCPPorts = [ 22 ];
-  };
+  services.tailscale.package = pkgs.unstable.tailscale;
 
   security.rtkit.enable = true;
   services.pipewire = {

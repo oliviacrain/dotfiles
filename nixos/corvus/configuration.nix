@@ -52,14 +52,6 @@
   networking.networkmanager.wifi.backend = "iwd";
   networking.wireless.iwd.enable = true;
   networking.wireless.iwd.settings.General.EnableNetworkConfiguration = true;
-  time.timeZone = "America/Chicago";
-  services.tailscale.enable = true;
-  networking.firewall = {
-    enable = true;
-    trustedInterfaces = [ "tailscale0" ];
-    allowedUDPPorts = [ config.services.tailscale.port ];
-    allowedTCPPorts = [ 22 ];
-  };
 
   system.stateVersion = "24.05";
 }

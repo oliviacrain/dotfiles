@@ -8,19 +8,12 @@
   networking = {
     hostName = "apteryx";
     networkmanager.enable = true;
-    firewall = {
-      enable = true;
-      trustedInterfaces = [ "tailscale0" ];
-      allowedUDPPorts = [ config.services.tailscale.port ];
-      allowedTCPPorts = [ 22 ];
-    };
   };
 
   # https://github.com/NixOS/nixpkgs/issues/180175
   systemd.services.NetworkManager-wait-online.enable = lib.mkForce false;
 
   services.tailscale = {
-    enable = true;
     package = pkgs.unstable.tailscale;
     permitCertUid = config.services.caddy.user;
   };
