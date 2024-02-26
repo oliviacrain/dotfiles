@@ -11,5 +11,8 @@
   programs.fzf.enable = true;
   programs.jq.enable = true;
   programs.nushell.enable = true; 
-  programs.zellij.enable = true;
+  programs.zellij = {
+    enable = true;
+    enableBashIntegration = true;
+  };
 }
