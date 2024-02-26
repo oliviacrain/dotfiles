@@ -31,8 +31,6 @@
     addEdgeKernelConfig = true;
   };
   programs.zsh.enable = true;
-  programs.ssh.startAgent = true;
-  programs.ssh.enableAskPassword = false;
   services.xserver.enable = true;
   services.xserver.displayManager.sddm.enable = true;
   services.xserver.desktopManager.plasma6.enable = true;
