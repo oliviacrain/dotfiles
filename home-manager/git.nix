@@ -22,6 +22,4 @@
       user.signingkey = "${./id_ed25519_sk.pub}";
     };
   };
-
-  services.ssh-agent.enable = true;
 }

@@ -37,12 +37,13 @@
   };
 
   programs.zsh.enable = true;
-
   services.xserver = {
     enable = true;
     displayManager.sddm.enable = true;
     desktopManager.plasma6.enable = true;
   };
+  programs.ssh.startAgent = true;
+  programs.ssh.enableAskPassword = false;
 
   sound.enable = true;
 
