@@ -12,14 +12,11 @@
     inputs.apple-silicon.nixosModules.apple-silicon-support
   ];
 
-  nixpkgs = {
-    overlays = [
-      outputs.overlays.additions
-      outputs.overlays.modifications
-      outputs.overlays.apple-silicon
-    ];
-    config.allowUnfree = true;
-  };
+  nixpkgs.overlays = [
+    outputs.overlays.additions
+    outputs.overlays.modifications
+    outputs.overlays.apple-silicon
+  ];
 
   nix.registry.nixpkgs.flake = inputs.nixpkgs-unstable;
 

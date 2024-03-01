@@ -15,15 +15,12 @@
     "${inputs.nixpkgs-mealie}/nixos/modules/services/web-apps/mealie.nix"
   ];
 
-  nixpkgs = {
-    overlays = [
-      outputs.overlays.additions
-      outputs.overlays.modifications
-      outputs.overlays.unstable-packages
-      outputs.overlays.litchipi-packages
-    ];
-    config.allowUnfree = true;
-  };
+  nixpkgs.overlays = [
+    outputs.overlays.additions
+    outputs.overlays.modifications
+    outputs.overlays.unstable-packages
+    outputs.overlays.litchipi-packages
+  ];
 
   environment.systemPackages = with pkgs; [ vim ];
 

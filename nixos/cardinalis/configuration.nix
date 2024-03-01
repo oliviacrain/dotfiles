@@ -13,14 +13,11 @@
     ../common
   ];
 
-  nixpkgs = {
-    overlays = [
-      outputs.overlays.additions
-      outputs.overlays.modifications
-      outputs.overlays.unstable-packages
-    ];
-    config.allowUnfree = true;
-  };
+  nixpkgs.overlays = [
+    outputs.overlays.additions
+    outputs.overlays.modifications
+    outputs.overlays.unstable-packages
+  ];
 
   environment.systemPackages = with pkgs; [
     kitty
