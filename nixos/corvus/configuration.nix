@@ -40,7 +40,7 @@
     desktopManager.plasma6.enable = true;
   };
   programs.ssh.startAgent = true;
-  programs.ssh.enableAskPassword = false;
+  programs.ssh.enableAskPassword = true;
 
   sound.enable = true;
 
