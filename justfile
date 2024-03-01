@@ -17,5 +17,9 @@ deploy hostname:
         --target-host {{hostname}} --build-host {{hostname}} \
         --use-remote-sudo
 
+# :/ https://github.com/serokell/nixfmt/issues/151
+fmt:
+    nix fmt ./flake.nix ./home-manager ./nixos ./overlays ./pkgs 
+    
 font-to-store:
     nix-prefetch-url --type sha256 file://{{justfile_directory()}}/pkgs/berkeley-mono-typeface.zip
