@@ -37,7 +37,10 @@
   services.xserver = {
     enable = true;
     displayManager.sddm.enable = true;
-    desktopManager.plasma6.enable = true;
+    desktopManager.plasma6 = {
+      enable = true;
+      enableQt5Integration = false;
+    };
   };
   programs.ssh.startAgent = true;
   programs.ssh.enableAskPassword = true;
