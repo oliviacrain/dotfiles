@@ -23,10 +23,7 @@
 
   nix.registry.nixpkgs.flake = inputs.nixpkgs-unstable;
 
-  hardware.asahi = {
-    useExperimentalGPUDriver = true;
-    addEdgeKernelConfig = true;
-  };
+  hardware.asahi.useExperimentalGPUDriver = true;
 
   networking = {
     hostName = "corvus";
