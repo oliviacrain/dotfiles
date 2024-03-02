@@ -21,4 +21,6 @@
   };
 
   apple-silicon = inputs.apple-silicon.overlays.apple-silicon-overlay;
+
+  vscode-extensions = inputs.vscode-extensions.overlays.default;
 }

@@ -12,6 +12,7 @@
     ./git.nix
     ./editor.nix
     ./shell.nix
+    ./vscode.nix
   ];
 
   home = {

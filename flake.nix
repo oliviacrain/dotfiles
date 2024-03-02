@@ -17,6 +17,9 @@
 
     vscode-server.url = "github:nix-community/nixos-vscode-server";
     vscode-server.inputs.nixpkgs.follows = "nixpkgs";
+
+    vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
+    vscode-extensions.inputs.nixpkgs.follows = "nixpkgs-unstable";
   };
 
   outputs =
@@ -58,6 +61,7 @@
         in
         {
           default = pkgs.mkShell {
+            buildInputs = [ pkgs.bashInteractive ];
             packages = with pkgs; [
               just
               nix-output-monitor

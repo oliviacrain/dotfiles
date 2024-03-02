@@ -16,6 +16,7 @@
     outputs.overlays.additions
     outputs.overlays.modifications
     outputs.overlays.apple-silicon
+    outputs.overlays.vscode-extensions
   ];
 
   nix.registry.nixpkgs.flake = inputs.nixpkgs-unstable;
@@ -55,7 +56,6 @@
   environment.systemPackages = with pkgs; [
     vim
     firefox
-    vscode-with-extensions
   ];
 
   system.stateVersion = "24.05";
