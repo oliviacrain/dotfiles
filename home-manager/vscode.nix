@@ -6,6 +6,8 @@ let
     "update.mode" = "none";
 
     "terminal.integrated.defaultProfile.linux" = "bash";
+    "terminal.integrated.fontFamily" = "'Berkeley Mono Variable'";
+    "editor.fontFamily" = "'Berkeley Mono Variable'";
 
     "files.insertFinalNewline" = true;
     "files.trimTrailingWhitespace" = true;

@@ -4,6 +4,7 @@
     enable = true;
     settings = {
       import = [ "${pkgs.witchhazel}/alacritty/witchhazel_hyper.toml" ];
+      font.normal.family = "Berkeley Mono Variable";
     };
   };
   programs.atuin.enable = true;

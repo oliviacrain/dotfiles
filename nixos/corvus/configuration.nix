@@ -58,5 +58,7 @@
     firefox
   ];
 
+  fonts.packages = [ pkgs.berkeley-mono ];
+
   system.stateVersion = "24.05";
 }
