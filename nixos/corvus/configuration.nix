@@ -56,6 +56,7 @@
   environment.systemPackages = with pkgs; [
     vim
     firefox
+    kdePackages.neochat
   ];
 
   fonts.packages = [ pkgs.berkeley-mono ];
