@@ -77,6 +77,14 @@
           modules = [
             ./nixos/apteryx/configuration.nix
             vscode-server.nixosModules.default
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useUserPackages = true;
+              home-manager.users.olivia = import ./home-manager/home.nix;
+              home-manager.extraSpecialArgs = {
+                inherit inputs outputs;
+              };
+            }
           ];
         };
 
