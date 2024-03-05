@@ -125,28 +125,11 @@
         "type": "github"
       }
     },
-    "nixpkgs-mealie": {
-      "locked": {
-        "lastModified": 1707897357,
-        "narHash": "sha256-1fxr+BBfz/g+orr8i+EeWYR8B5lAbkiJnCBi080E9g4=",
-        "owner": "litchipi",
-        "repo": "nixpkgs",
-        "rev": "c93337127a5b733d1cb4c0a2e6c285095e06e97d",
-        "type": "github"
-      },
-      "original": {
-        "owner": "litchipi",
-        "repo": "nixpkgs",
-        "rev": "c93337127a5b733d1cb4c0a2e6c285095e06e97d",
-        "type": "github"
-      }
-    },
     "root": {
       "inputs": {
         "apple-silicon": "apple-silicon",
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
-        "nixpkgs-mealie": "nixpkgs-mealie",
         "vscode-extensions": "vscode-extensions",
         "vscode-server": "vscode-server"
       }

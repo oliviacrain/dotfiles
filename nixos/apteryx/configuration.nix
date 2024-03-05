@@ -12,13 +12,11 @@
     ./users.nix
     ./media-server.nix
     ./desktop.nix
-    "${inputs.nixpkgs-mealie}/nixos/modules/services/web-apps/mealie.nix"
   ];
 
   nixpkgs.overlays = [
     outputs.overlays.additions
     outputs.overlays.modifications
-    outputs.overlays.litchipi-packages
   ];
 
   environment.systemPackages = with pkgs; [ vim ];
@@ -30,7 +28,6 @@
 
   services.mealie = {
     enable = true;
-    package = pkgs.litchipi.mealie;
     settings = {
       BASE_URL = "https://apteryx.tail15aab.ts.net:8999/";
     };
