@@ -16,7 +16,6 @@
   nixpkgs.overlays = [
     outputs.overlays.additions
     outputs.overlays.modifications
-    outputs.overlays.unstable-packages
   ];
 
   environment.systemPackages = with pkgs; [
@@ -49,7 +48,6 @@
     openFirewall = true;
   };
   services.vscode-server.enable = true;
-  services.tailscale.package = pkgs.unstable.tailscale;
 
   security.rtkit.enable = true;
   services.pipewire = {

@@ -2,33 +2,28 @@
   description = "Olivia's Nix Configs";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
-    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     # https://github.com/NixOS/nixpkgs/pull/278454/files
     nixpkgs-mealie.url = "github:litchipi/nixpkgs/c93337127a5b733d1cb4c0a2e6c285095e06e97d";
 
     apple-silicon.url = "github:tpwrules/nixos-apple-silicon";
-    apple-silicon.inputs.nixpkgs.follows = "nixpkgs-unstable";
+    apple-silicon.inputs.nixpkgs.follows = "nixpkgs";
 
-    home-manager.url = "github:nix-community/home-manager/release-23.11";
+    home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    home-manager-unstable.url = "github:nix-community/home-manager";
-    home-manager-unstable.inputs.nixpkgs.follows = "nixpkgs-unstable";
 
     vscode-server.url = "github:nix-community/nixos-vscode-server";
     vscode-server.inputs.nixpkgs.follows = "nixpkgs";
 
     vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
-    vscode-extensions.inputs.nixpkgs.follows = "nixpkgs-unstable";
+    vscode-extensions.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs =
     {
       self,
       nixpkgs,
-      nixpkgs-unstable,
       home-manager,
-      home-manager-unstable,
       vscode-server,
       ...
     }@inputs:
@@ -52,12 +47,13 @@
           }
         )
       );
-      formatter = forAllSystems (system: nixpkgs-unstable.legacyPackages.${system}.nixfmt-rfc-style);
+
+      formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.nixfmt-rfc-style);
 
       devShells = forAllSystems (
         system:
         let
-          pkgs = nixpkgs-unstable.legacyPackages.${system};
+          pkgs = nixpkgs.legacyPackages.${system};
         in
         {
           default = pkgs.mkShell {
@@ -102,14 +98,14 @@
           ];
         };
 
-        corvus = nixpkgs-unstable.lib.nixosSystem {
+        corvus = nixpkgs.lib.nixosSystem {
           system = "aarch64-linux";
           specialArgs = {
             inherit inputs outputs;
           };
           modules = [
             ./nixos/corvus/configuration.nix
-            home-manager-unstable.nixosModules.home-manager
+            home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;

@@ -13,10 +13,7 @@
   # https://github.com/NixOS/nixpkgs/issues/180175
   systemd.services.NetworkManager-wait-online.enable = lib.mkForce false;
 
-  services.tailscale = {
-    package = pkgs.unstable.tailscale;
-    permitCertUid = config.services.caddy.user;
-  };
+  services.tailscale.permitCertUid = config.services.caddy.user;
 
   services.caddy = {
     enable = true;

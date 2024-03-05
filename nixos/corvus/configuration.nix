@@ -19,7 +19,7 @@
     outputs.overlays.vscode-extensions
   ];
 
-  nix.registry.nixpkgs.flake = inputs.nixpkgs-unstable;
+  nix.registry.nixpkgs.flake = inputs.nixpkgs;
 
   hardware.asahi.useExperimentalGPUDriver = true;
 

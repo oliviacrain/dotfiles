@@ -8,12 +8,6 @@
     # });
   };
 
-  unstable-packages = final: _prev: {
-    unstable = {
-      inherit (inputs.nixpkgs-unstable.legacyPackages.${final.system}) tailscale nixfmt-rfc-style;
-    };
-  };
-
   litchipi-packages = final: _prev: {
     litchipi = {
       inherit (inputs.nixpkgs-mealie.legacyPackages.${final.system}) mealie;
