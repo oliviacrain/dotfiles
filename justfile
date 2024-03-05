@@ -19,7 +19,8 @@ deploy hostname:
 
 # :/ https://github.com/serokell/nixfmt/issues/151
 fmt:
-    nix fmt ./flake.nix ./home-manager ./nixos ./overlays ./pkgs 
-    
-font-to-store:
-    nix-prefetch-url --type sha256 file://{{justfile_directory()}}/pkgs/berkeley-mono-typeface.zip
+    nix fmt ./flake.nix ./home-manager ./nixos ./overlays ./pkgs
+
+sources-to-store:
+    nix-prefetch-url --type sha256 file://{{justfile_directory()}}/sources/berkeley-mono-typeface.zip
+    nix-prefetch-url --type sha256 file://{{justfile_directory()}}/sources/to-the-sky.jpg
