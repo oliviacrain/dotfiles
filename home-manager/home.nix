@@ -22,14 +22,12 @@
 
   home.packages = with pkgs; [
     diffoscope
+    fd
     rename
     ripgrep
-    rmapi
     shellcheck
     tree
-    typst
     yubikey-manager
-    nil
   ];
 
   programs.home-manager.enable = true;
