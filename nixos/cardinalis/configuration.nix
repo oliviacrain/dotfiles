@@ -18,15 +18,17 @@
     outputs.overlays.modifications
   ];
 
-  environment.systemPackages = with pkgs; [
-    kitty
-    git
-    vim
-    wget
-    tailscale
-    curl
-    firefox
-  ];
+  environment.systemPackages = builtins.attrValues {
+    inherit (pkgs)
+      kitty
+      git
+      vim
+      wget
+      tailscale
+      curl
+      firefox
+      ;
+  };
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;

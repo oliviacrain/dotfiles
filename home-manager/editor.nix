@@ -5,14 +5,16 @@
   programs.helix = {
     enable = true;
 
-    extraPackages = with pkgs; [
-      nil
-      gopls
-      gotools
-      rust-analyzer
-      nodePackages.bash-language-server
-      nixfmt-rfc-style
-    ];
+    extraPackages = builtins.attrValues {
+      inherit (pkgs)
+        nil
+        gopls
+        gotools
+        rust-analyzer
+        nixfmt-rfc-style
+        ;
+      inherit (pkgs.nodePackages) bash-language-server;
+    };
 
     languages = {
       language = [

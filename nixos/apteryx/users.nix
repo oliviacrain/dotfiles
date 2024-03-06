@@ -3,10 +3,7 @@
   users.users.slug = {
     isNormalUser = true;
     home = "/home/slug";
-    packages = with pkgs; [
-      firefox
-      kate
-    ];
+    packages = [ pkgs.firefox ];
   };
 
   users.users.margie = {

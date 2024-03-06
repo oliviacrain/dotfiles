@@ -53,10 +53,9 @@
     efi.canTouchEfiVariables = false;
   };
 
-  environment.systemPackages = with pkgs; [
-    vim
-    firefox
-    kdePackages.neochat
+  environment.systemPackages = [
+    pkgs.firefox
+    pkgs.kdePackages.neochat
   ];
 
   fonts.packages = [ pkgs.berkeley-mono ];

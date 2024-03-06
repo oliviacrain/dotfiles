@@ -24,8 +24,8 @@ stdenvNoCC.mkDerivation {
     runHook postInstall
   '';
 
-  meta = with lib; {
+  meta = {
     homepage = "https://witchhazel.thea.codes/";
-    license = licenses.asl20;
+    license = lib.licenses.asl20;
   };
 }

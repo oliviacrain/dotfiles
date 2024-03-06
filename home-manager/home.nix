@@ -20,15 +20,17 @@
     homeDirectory = "/home/olivia";
   };
 
-  home.packages = with pkgs; [
-    diffoscope
-    fd
-    rename
-    ripgrep
-    shellcheck
-    tree
-    yubikey-manager
-  ];
+  home.packages = builtins.attrValues {
+    inherit (pkgs)
+      diffoscope
+      fd
+      rename
+      ripgrep
+      shellcheck
+      tree
+      yubikey-manager
+      ;
+  };
 
   programs.home-manager.enable = true;
 

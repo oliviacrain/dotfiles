@@ -5,13 +5,15 @@
     "video"
   ];
 
-  environment.systemPackages = with pkgs; [
-    amdgpu_top
-    jellyfin
-    jellyfin-web
-    jellyfin-ffmpeg
-    jellyseerr
-  ];
+  environment.systemPackages = builtins.attrValues {
+    inherit (pkgs)
+      amdgpu_top
+      jellyfin
+      jellyfin-web
+      jellyfin-ffmpeg
+      jellyseerr
+      ;
+  };
 
   services.jellyfin = {
     enable = true;
