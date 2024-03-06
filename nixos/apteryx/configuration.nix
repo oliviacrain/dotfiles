@@ -17,6 +17,7 @@
   nixpkgs.overlays = [
     outputs.overlays.additions
     outputs.overlays.modifications
+    outputs.overlays.vscode-extensions
   ];
 
   boot.loader.systemd-boot.enable = true;
