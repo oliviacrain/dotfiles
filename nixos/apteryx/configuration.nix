@@ -12,6 +12,7 @@
     ./users.nix
     ./media-server.nix
     ./desktop.nix
+    ./remote.nix
   ];
 
   nixpkgs.overlays = [
