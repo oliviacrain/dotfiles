@@ -2,10 +2,14 @@
 {
   services.xserver = {
     enable = true;
-    displayManager.sddm.enable = true;
-    desktopManager.plasma5.enable = true;
-    layout = "us";
-    xkbVariant = "";
+    displayManager.sddm = {
+      enable = true;
+      wayland.enable = true;
+    };
+    desktopManager.plasma6 = {
+      enable = true;
+      enableQt5Integration = false;
+    };
   };
 
   services.printing.enable = true;
