@@ -78,6 +78,7 @@
             vscode-server.nixosModules.default
             home-manager.nixosModules.home-manager
             {
+              home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.users.olivia = import ./home-manager/home.nix;
               home-manager.extraSpecialArgs = {
@@ -96,6 +97,7 @@
             vscode-server.nixosModules.default
             home-manager.nixosModules.home-manager
             {
+              home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.users.olivia = import ./home-manager/home.nix;
               home-manager.extraSpecialArgs = {
