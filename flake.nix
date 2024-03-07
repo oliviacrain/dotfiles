@@ -52,7 +52,12 @@
         system:
         let
           pkgs = nixpkgs.legacyPackages.${system};
-          inherit (pkgs) just nix-output-monitor bashInteractive mkShell;
+          inherit (pkgs)
+            just
+            nix-output-monitor
+            bashInteractive
+            mkShell
+            ;
         in
         {
           default = mkShell {
