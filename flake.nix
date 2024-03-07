@@ -70,6 +70,18 @@
         }
       );
 
+      templates =
+        let
+          trivial = {
+            path = ./templates/trivial;
+            description = "Basic flake with tooling I use";
+          };
+        in
+        {
+          default = trivial;
+          inherit trivial;
+        };
+
       overlays = import ./overlays { inherit inputs; };
 
       # Available through 'nixos-rebuild --flake .#your-hostname'
