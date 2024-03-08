@@ -27,7 +27,6 @@
       rename
       ripgrep
       shellcheck
-      tree
       yubikey-manager
       ;
   };

@@ -17,6 +17,10 @@
   };
   programs.fzf.enable = true;
   programs.jq.enable = true;
+  programs.lsd = {
+    enable = true;
+    enableAliases = true;
+  };
   programs.nushell.enable = true;
   programs.zellij = {
     enable = true;
