@@ -76,10 +76,14 @@
             path = ./templates/trivial;
             description = "Basic flake with tooling I use";
           };
+          rust = {
+            path = ./templates/rust;
+            description = "Oxalica rust-overlay flake";
+          };
         in
         {
           default = trivial;
-          inherit trivial;
+          inherit trivial rust;
         };
 
       overlays = import ./overlays { inherit inputs; };
