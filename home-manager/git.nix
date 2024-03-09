@@ -8,6 +8,7 @@
     userEmail = "olivia@olivia.dev";
     aliases = {
       s = "status -s";
+      oops = "commit --amend --no-edit";
     };
     extraConfig = {
       merge.conflictStyle = "zdiff3";
