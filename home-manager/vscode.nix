@@ -28,6 +28,8 @@ in
     extensions = with pkgs.vscode-marketplace; [
       theaflowers.witch-hazel
       jnoortheen.nix-ide
+      ms-vscode.cpptools
+      mkhl.direnv
     ];
     inherit userSettings;
   };
