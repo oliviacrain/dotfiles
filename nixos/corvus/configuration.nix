@@ -38,10 +38,10 @@
       enable = true;
       wayland.enable = true;
     };
-    desktopManager.plasma6 = {
-      enable = true;
-      enableQt5Integration = false;
-    };
+  };
+  services.desktopManager.plasma6 = {
+    enable = true;
+    enableQt5Integration = false;
   };
   programs.ssh.startAgent = true;
   programs.ssh.enableAskPassword = true;
