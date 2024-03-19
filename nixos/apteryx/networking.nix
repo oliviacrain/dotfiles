@@ -5,13 +5,7 @@
   ...
 }:
 {
-  networking = {
-    hostName = "apteryx";
-    networkmanager.enable = true;
-  };
-
-  # https://github.com/NixOS/nixpkgs/issues/180175
-  systemd.services.NetworkManager-wait-online.enable = lib.mkForce false;
+  networking.hostName = "apteryx";
 
   services.tailscale.permitCertUid = config.services.caddy.user;
 

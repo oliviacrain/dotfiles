@@ -16,7 +16,10 @@
   nixpkgs.overlays = [
     outputs.overlays.additions
     outputs.overlays.modifications
+    outputs.overlays.vscode-extensions
   ];
+
+  systemd.services.NetworkManager-wait-online.enable = lib.mkForce false;
 
   environment.systemPackages = builtins.attrValues {
     inherit (pkgs)
@@ -28,6 +31,16 @@
       curl
       firefox
       ;
+  };
+
+  services.xserver = {
+    enable = true;
+    displayManager.sddm.enable = true;
+  };
+
+  services.desktopManager.plasma6 = {
+    enable = true;
+    enableQt5Integration = false;
   };
 
   boot.loader.systemd-boot.enable = true;

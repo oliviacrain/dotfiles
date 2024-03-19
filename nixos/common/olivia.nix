@@ -15,4 +15,7 @@ in
   };
 
   services.openssh.settings.AllowUsers = [ username ];
+
+  programs.ssh.startAgent = true;
+  programs.ssh.enableAskPassword = true;
 }
