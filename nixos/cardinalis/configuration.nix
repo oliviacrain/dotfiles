@@ -19,58 +19,15 @@
     outputs.overlays.vscode-extensions
   ];
 
-  systemd.services.NetworkManager-wait-online.enable = lib.mkForce false;
-
-  environment.systemPackages = builtins.attrValues {
-    inherit (pkgs)
-      kitty
-      git
-      vim
-      wget
-      tailscale
-      curl
-      firefox
-      ;
-  };
-
-  services.xserver = {
-    enable = true;
-    displayManager.sddm.enable = true;
-  };
-
-  services.desktopManager.plasma6 = {
-    enable = true;
-    enableQt5Integration = false;
-  };
+  networking.hostName = "cardinalis";
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "cardinalis";
-  networking.networkmanager.enable = true;
-
-  time.timeZone = "America/Chicago";
-
-  programs.hyprland.enable = true;
-
   programs.steam.enable = true;
-  services.openssh = {
-    enable = true;
-    settings = {
-      PermitRootLogin = "no";
-      PasswordAuthentication = false;
-    };
-    openFirewall = true;
-  };
+
   services.vscode-server.enable = true;
 
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    audio.enable = true;
-    alsa.enable = true;
-    pulse.enable = true;
-  };
   services.xserver.videoDrivers = [ "nvidia" ];
   hardware.nvidia = {
     modesetting.enable = true;
@@ -79,10 +36,6 @@
     open = false;
     nvidiaSettings = true;
   };
-
-  # Enable sound.
-  # sound.enable = true;
-  # hardware.pulseaudio.enable = true;
 
   system.stateVersion = "23.11";
 }
