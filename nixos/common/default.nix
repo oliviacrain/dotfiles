@@ -13,6 +13,7 @@ in
     ./nix.nix
     ./olivia.nix
     ./tailscale.nix
+    ./vscode-server.nix
   ];
 
   options = {
@@ -28,6 +29,7 @@ in
       network.enable = mkDefault true;
       nix.enable = mkDefault true;
       tailscale.enable = mkDefault true;
+      vscode-server.enable = mkDefault true;
 
       asahi.enable = mkDefault false;
     };
