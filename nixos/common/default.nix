@@ -22,6 +22,8 @@ in
       desktop.enable = mkDefault true;
       locale.enable = mkDefault true;
       nix.enable = mkDefault true;
+      network.enable = mkDefault true;
+      tailscale.enable = mkDefault true;
     };
   };
 }
