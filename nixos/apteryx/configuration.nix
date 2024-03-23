@@ -14,12 +14,7 @@
     ./media-server.nix
   ];
 
-  nixpkgs.overlays = [
-    outputs.overlays.additions
-    outputs.overlays.modifications
-    outputs.overlays.vscode-extensions
-  ];
-
+  networking.hostName = "apteryx";
   olivia.enable = true;
 
   boot.loader.systemd-boot.enable = true;

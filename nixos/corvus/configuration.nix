@@ -12,18 +12,14 @@
     inputs.apple-silicon.nixosModules.apple-silicon-support
   ];
 
-  nixpkgs.overlays = [
-    outputs.overlays.additions
-    outputs.overlays.modifications
-    outputs.overlays.apple-silicon
-    outputs.overlays.vscode-extensions
-  ];
-
+  networking.hostName = "corvus";
   olivia.enable = true;
 
-  hardware.asahi.useExperimentalGPUDriver = true;
+  nixpkgs.overlays = [
+    outputs.overlays.apple-silicon
+  ];
 
-  networking.hostName = "corvus";
+  hardware.asahi.useExperimentalGPUDriver = true;
 
   programs.zsh.enable = true;
 

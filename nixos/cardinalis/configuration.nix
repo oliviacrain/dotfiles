@@ -13,15 +13,8 @@
     ../common
   ];
 
-  nixpkgs.overlays = [
-    outputs.overlays.additions
-    outputs.overlays.modifications
-    outputs.overlays.vscode-extensions
-  ];
-
-  olivia.enable = true;
-
   networking.hostName = "cardinalis";
+  olivia.enable = true;
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
