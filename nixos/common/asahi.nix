@@ -6,7 +6,7 @@
   ...
 }:
 let
-  inherit (lib) mkIf mkEnableOption mkDefault;
+  inherit (lib) mkIf mkEnableOption mkDefault mkForce;
 in
 {
   imports = [ inputs.apple-silicon.nixosModules.apple-silicon-support ];
@@ -23,5 +23,6 @@ in
         enable = mkDefault true;
         useExperimentalGPUDriver = mkDefault true;
       };
+      boot.loader.efi.canTouchEfiVariables = mkForce false;
     };
 }

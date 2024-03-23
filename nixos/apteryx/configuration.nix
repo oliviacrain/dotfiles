@@ -17,9 +17,6 @@
   networking.hostName = "apteryx";
   olivia.enable = true;
 
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-
   services.vscode-server.enable = true;
 
   services.mealie = {
