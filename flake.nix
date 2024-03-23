@@ -97,15 +97,6 @@
           modules = [
             ./nixos/apteryx/configuration.nix
             vscode-server.nixosModules.default
-            home-manager.nixosModules.home-manager
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.users.olivia = import ./home-manager/home.nix;
-              home-manager.extraSpecialArgs = {
-                inherit inputs outputs;
-              };
-            }
           ];
         };
 
@@ -116,15 +107,6 @@
           modules = [
             ./nixos/cardinalis/configuration.nix
             vscode-server.nixosModules.default
-            home-manager.nixosModules.home-manager
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.users.olivia = import ./home-manager/home.nix;
-              home-manager.extraSpecialArgs = {
-                inherit inputs outputs;
-              };
-            }
           ];
         };
 
@@ -135,15 +117,6 @@
           };
           modules = [
             ./nixos/corvus/configuration.nix
-            home-manager.nixosModules.home-manager
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.users.olivia = import ./home-manager/home.nix;
-              home-manager.extraSpecialArgs = {
-                inherit inputs outputs;
-              };
-            }
           ];
         };
       };

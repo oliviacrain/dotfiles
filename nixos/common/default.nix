@@ -4,12 +4,14 @@ let
 in
 {
   imports = [
+    ./asahi.nix
+    ./boot.nix
     ./desktop.nix
-    ./network.nix
+    ./home-manager.nix
     ./locale.nix
+    ./network.nix
     ./nix.nix
     ./olivia.nix
-    ./packages.nix
     ./tailscale.nix
   ];
 
@@ -21,6 +23,7 @@ in
     olivia = {
       boot.enable = mkDefault true;
       desktop.enable = mkDefault true;
+      home-manager.enable = mkDefault true;
       locale.enable = mkDefault true;
       network.enable = mkDefault true;
       nix.enable = mkDefault true;
