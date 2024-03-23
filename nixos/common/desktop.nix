@@ -1,4 +1,9 @@
-{ lib, config, pkgs, ... }:
+{
+  lib,
+  config,
+  pkgs,
+  ...
+}:
 let
   inherit (lib) mkIf mkEnableOption mkDefault;
   inherit (builtins) attrValues;
@@ -31,19 +36,10 @@ in
       alsa.support32Bit = mkDefault true;
     };
 
-    environment.systemPackages = attrValues {
-    inherit (pkgs)
-      firefox
-      clamav
-      calibre
-      ;
-  } ++ attrValues {
-    inherit (pkgs.kdePackages)
-      neochat
-      tokodon
-      ;
-  };
+    environment.systemPackages =
+      attrValues { inherit (pkgs) firefox clamav calibre; }
+      ++ attrValues { inherit (pkgs.kdePackages) neochat tokodon; };
 
-  fonts.packages = [ pkgs.berkeley-mono ];
+    fonts.packages = [ pkgs.berkeley-mono ];
   };
 }

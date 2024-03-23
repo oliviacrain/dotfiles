@@ -6,7 +6,12 @@
   ...
 }:
 let
-  inherit (lib) mkIf mkEnableOption mkDefault mkForce;
+  inherit (lib)
+    mkIf
+    mkEnableOption
+    mkDefault
+    mkForce
+    ;
 in
 {
   imports = [ inputs.apple-silicon.nixosModules.apple-silicon-support ];

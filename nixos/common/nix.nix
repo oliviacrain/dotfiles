@@ -1,4 +1,10 @@
-{ lib, config, inputs, outputs, ... }:
+{
+  lib,
+  config,
+  inputs,
+  outputs,
+  ...
+}:
 let
   inherit (lib) mkDefault mkEnableOption mkIf;
 in
