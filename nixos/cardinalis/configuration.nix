@@ -19,6 +19,8 @@
     outputs.overlays.vscode-extensions
   ];
 
+  olivia.enable = true;
+
   networking.hostName = "cardinalis";
 
   boot.loader.systemd-boot.enable = true;

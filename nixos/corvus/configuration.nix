@@ -19,6 +19,8 @@
     outputs.overlays.vscode-extensions
   ];
 
+  olivia.enable = true;
+
   hardware.asahi.useExperimentalGPUDriver = true;
 
   networking.hostName = "corvus";

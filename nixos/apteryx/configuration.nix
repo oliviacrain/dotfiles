@@ -4,6 +4,7 @@
   pkgs,
   ...
 }:
+
 {
   imports = [
     ./hardware-configuration.nix
@@ -18,6 +19,8 @@
     outputs.overlays.modifications
     outputs.overlays.vscode-extensions
   ];
+
+  olivia.enable = true;
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;

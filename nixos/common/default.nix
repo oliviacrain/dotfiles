@@ -1,4 +1,7 @@
-{ config, ... }:
+{ config, lib, ... }:
+let
+  inherit (lib) mkEnableOption mkIf mkDefault;
+in
 {
   imports = [
     ./desktop.nix
@@ -9,4 +12,14 @@
     ./packages.nix
     ./tailscale.nix
   ];
+
+  options = {
+    olivia.enable = mkEnableOption "Olivia's nixos modules";
+  };
+
+  config = mkIf config.olivia.enable {
+    olivia = {
+      desktop.enable = mkDefault true;
+    };
+  };
 }
