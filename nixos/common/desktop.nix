@@ -3,9 +3,7 @@ let
   inherit (lib) mkIf mkEnableOption mkDefault;
 in
 {
-  options.olivia.desktop = {
-    enable = mkEnableOption "common desktop settings";
-  };
+  options.olivia.desktop.enable = mkEnableOption "common desktop settings";
 
   config = mkIf config.olivia.desktop.enable {
     services.xserver = {

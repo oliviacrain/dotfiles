@@ -20,6 +20,7 @@ in
   config = mkIf config.olivia.enable {
     olivia = {
       desktop.enable = mkDefault true;
+      locale.enable = mkDefault true;
       nix.enable = mkDefault true;
     };
   };
