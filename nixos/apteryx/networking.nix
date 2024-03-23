@@ -5,8 +5,6 @@
   ...
 }:
 {
-  networking.hostName = "apteryx";
-
   services.tailscale.permitCertUid = config.services.caddy.user;
 
   services.caddy = {

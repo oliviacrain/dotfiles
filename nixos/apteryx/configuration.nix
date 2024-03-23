@@ -17,8 +17,6 @@
   networking.hostName = "apteryx";
   olivia.enable = true;
 
-  services.vscode-server.enable = true;
-
   services.mealie = {
     enable = true;
     settings = {

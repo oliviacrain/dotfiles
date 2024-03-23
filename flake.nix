@@ -115,9 +115,7 @@
           specialArgs = {
             inherit inputs outputs;
           };
-          modules = [
-            ./nixos/corvus/configuration.nix
-          ];
+          modules = [ ./nixos/corvus/configuration.nix ];
         };
       };
     };
