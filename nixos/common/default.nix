@@ -11,6 +11,7 @@ in
     ./locale.nix
     ./network.nix
     ./nix.nix
+    ./nvidia.nix
     ./olivia.nix
     ./tailscale.nix
     ./vscode-server.nix
@@ -32,6 +33,7 @@ in
       vscode-server.enable = mkDefault true;
 
       asahi.enable = mkDefault false;
+      nvidia.enable = mkDefault false;
     };
   };
 }

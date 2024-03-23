@@ -14,20 +14,12 @@
   ];
 
   networking.hostName = "cardinalis";
-  olivia.enable = true;
+  olivia = {
+    enable = true;
+    nvidia.enable = true;
+  };
 
   programs.steam.enable = true;
-
-  services.vscode-server.enable = true;
-
-  services.xserver.videoDrivers = [ "nvidia" ];
-  hardware.nvidia = {
-    modesetting.enable = true;
-    powerManagement.enable = false;
-    powerManagement.finegrained = false;
-    open = false;
-    nvidiaSettings = true;
-  };
 
   system.stateVersion = "23.11";
 }
