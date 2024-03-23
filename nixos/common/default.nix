@@ -24,6 +24,8 @@ in
       nix.enable = mkDefault true;
       network.enable = mkDefault true;
       tailscale.enable = mkDefault true;
+
+      asahi.enable = mkDefault false;
     };
   };
 }

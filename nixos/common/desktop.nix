@@ -1,6 +1,7 @@
-{ lib, config, ... }:
+{ lib, config, pkgs, ... }:
 let
   inherit (lib) mkIf mkEnableOption mkDefault;
+  inherit (builtins) attrValues;
 in
 {
   options.olivia.desktop.enable = mkEnableOption "common desktop settings";
@@ -29,5 +30,20 @@ in
       alsa.enable = mkDefault true;
       alsa.support32Bit = mkDefault true;
     };
+
+    environment.systemPackages = attrValues {
+    inherit (pkgs)
+      firefox
+      clamav
+      calibre
+      ;
+  } ++ attrValues {
+    inherit (pkgs.kdePackages)
+      neochat
+      tokodon
+      ;
+  };
+
+  fonts.packages = [ pkgs.berkeley-mono ];
   };
 }
