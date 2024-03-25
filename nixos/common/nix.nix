@@ -6,7 +6,12 @@
   ...
 }:
 let
-  inherit (lib) mkDefault mkEnableOption mkIf;
+  inherit (lib)
+    mkDefault
+    mkEnableOption
+    mkIf
+    mkAfter
+    ;
 in
 {
   options.olivia.nix.enable = mkEnableOption "common nix/nixpkgs options";
@@ -21,7 +26,7 @@ in
     };
 
     nixpkgs = {
-      overlays = mkDefault [
+      overlays = mkAfter [
         outputs.overlays.additions
         outputs.overlays.modifications
         outputs.overlays.vscode-extensions

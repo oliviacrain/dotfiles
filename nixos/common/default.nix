@@ -4,17 +4,19 @@ let
 in
 {
   imports = [
+    ./nix.nix
+
     ./asahi.nix
     ./boot.nix
     ./desktop.nix
-    ./home-manager.nix
     ./locale.nix
     ./network.nix
-    ./nix.nix
     ./nvidia.nix
     ./olivia.nix
     ./tailscale.nix
     ./vscode-server.nix
+
+    ./home-manager.nix
   ];
 
   options = {

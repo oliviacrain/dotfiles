@@ -2,7 +2,6 @@
   lib,
   config,
   inputs,
-  outputs,
   ...
 }:
 let
@@ -11,6 +10,7 @@ let
     mkEnableOption
     mkDefault
     mkForce
+    mkMerge
     ;
 in
 {
@@ -18,16 +18,14 @@ in
 
   options.olivia.asahi.enable = mkEnableOption "Asahi Linux settings";
 
-  config =
-    {
-      hardware.asahi.enable = mkDefault false;
-    }
-    // mkIf config.olivia.asahi.enable {
-      nixpkgs.overlays = mkDefault [ outputs.overlays.apple-silicon ];
+  config = mkMerge [
+    { hardware.asahi.enable = mkDefault false; }
+    (mkIf config.olivia.asahi.enable {
       hardware.asahi = {
-        enable = mkDefault true;
+        enable = mkForce true;
         useExperimentalGPUDriver = mkDefault true;
       };
       boot.loader.efi.canTouchEfiVariables = mkForce false;
-    };
+    })
+  ];
 }
