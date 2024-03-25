@@ -94,20 +94,14 @@
           specialArgs = {
             inherit inputs outputs;
           };
-          modules = [
-            ./nixos/apteryx/configuration.nix
-            vscode-server.nixosModules.default
-          ];
+          modules = [ ./nixos/apteryx/configuration.nix ];
         };
 
         cardinalis = nixpkgs.lib.nixosSystem {
           specialArgs = {
             inherit inputs outputs;
           };
-          modules = [
-            ./nixos/cardinalis/configuration.nix
-            vscode-server.nixosModules.default
-          ];
+          modules = [ ./nixos/cardinalis/configuration.nix ];
         };
 
         corvus = nixpkgs.lib.nixosSystem {
