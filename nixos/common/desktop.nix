@@ -36,6 +36,8 @@ in
       alsa.support32Bit = mkDefault true;
     };
 
+    services.dbus.implementation = mkDefault "broker";
+
     environment.systemPackages =
       attrValues { inherit (pkgs) firefox clamav calibre; }
       ++ attrValues { inherit (pkgs.kdePackages) neochat tokodon; };
