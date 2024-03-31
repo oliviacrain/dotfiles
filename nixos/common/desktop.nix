@@ -5,7 +5,7 @@
   ...
 }:
 let
-  inherit (lib) mkIf mkEnableOption mkDefault;
+  inherit (lib) mkIf mkEnableOption mkDefault mkForce;
   inherit (builtins) attrValues;
 in
 {
@@ -27,8 +27,7 @@ in
 
     services.printing.enable = mkDefault true;
 
-    sound.enable = mkDefault true;
-    hardware.pulseaudio.enable = mkDefault false;
+    hardware.pulseaudio.enable = mkForce false;
     security.rtkit.enable = mkDefault true;
     services.pipewire = {
       enable = mkDefault true;
