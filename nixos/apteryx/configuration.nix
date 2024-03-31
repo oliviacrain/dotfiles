@@ -15,7 +15,10 @@
   ];
 
   networking.hostName = "apteryx";
-  olivia.enable = true;
+  olivia = {
+    enable = true;
+    minecraft.enable = true;
+  };
 
   services.mealie = {
     enable = true;
