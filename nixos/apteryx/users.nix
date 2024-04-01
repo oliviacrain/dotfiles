@@ -18,7 +18,7 @@
     isNormalUser = true;
     home = "/home/nixremote";
     openssh.authorizedKeys.keys = [
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIgetZN4IN8ngswhuBm1jWUCP0k0TbSg9BMGvqI6o2+i root@corvus"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHUsGHZq0RCKL18r0HLLD+yFV8WdhEUvKi/gBPYFG8J9 root@corvus"
     ];
   };
 

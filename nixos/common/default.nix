@@ -38,6 +38,7 @@ in
       asahi.enable = mkDefault false;
       minecraft.enable = mkDefault false;
       nvidia.enable = mkDefault false;
+      nix.useApteryxRemote = mkDefault false;
     };
   };
 }

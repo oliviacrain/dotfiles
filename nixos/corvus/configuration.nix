@@ -16,6 +16,7 @@
     enable = true;
     asahi.enable = true;
     vscode-server.enable = false;
+    nix.useApteryxRemote = true;
   };
 
   system.stateVersion = "24.05";
