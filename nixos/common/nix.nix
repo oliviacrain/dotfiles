@@ -35,6 +35,13 @@ in
         ];
       }];
       distributedBuilds = mkIf config.olivia.nix.useApteryxRemote true;
+
+      gc = {
+        automatic = true;
+        persistent = true;
+        dates = "weekly";
+        options = "--delete-older-than +5";
+      };
     };
 
     nixpkgs = {
