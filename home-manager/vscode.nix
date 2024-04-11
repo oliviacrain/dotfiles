@@ -4,6 +4,7 @@ let
     "extensions.autoCheckUpdates" = false;
     "extensions.ignoreRecommendations" = true;
     "update.mode" = "none";
+    "update.showReleaseNotes" = false;
 
     "terminal.integrated.defaultProfile.linux" = "bash";
     "terminal.integrated.fontFamily" = "'Berkeley Mono Variable'";
