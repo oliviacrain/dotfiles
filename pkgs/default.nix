@@ -16,4 +16,5 @@
   witchhazel = pkgs.callPackage ./witchhazel.nix { };
   berkeley-mono = pkgs.callPackage ./berkeley-mono.nix { };
   to-the-sky-background = pkgs.callPackage ./to-the-sky-background.nix { };
+  asahi-firmware-corvus = pkgs.callPackage ./asahi-firmware-corvus.nix { };
 }
