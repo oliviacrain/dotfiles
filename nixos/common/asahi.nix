@@ -24,6 +24,7 @@ in
       hardware.asahi = {
         enable = mkForce true;
         useExperimentalGPUDriver = mkDefault true;
+        experimentalGPUInstallMode = mkDefault "overlay";
       };
       boot.loader.efi.canTouchEfiVariables = mkForce false;
     })
