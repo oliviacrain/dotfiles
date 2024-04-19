@@ -27,7 +27,7 @@ in
         useExperimentalGPUDriver = mkDefault true;
         experimentalGPUInstallMode = mkDefault "overlay";
         peripheralFirmwareDirectory = builtins.toString (
-          pkgs.runCommand "asahi-firmware-corvus-extracted" {} ''
+          pkgs.runCommand "asahi-firmware-corvus-extracted" { } ''
             mkdir -p $out
             tar xf "${pkgs.asahi-firmware-corvus}" -C "$out"
           ''

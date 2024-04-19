@@ -5,7 +5,12 @@
   ...
 }:
 let
-  inherit (lib) mkIf mkEnableOption mkDefault mkForce;
+  inherit (lib)
+    mkIf
+    mkEnableOption
+    mkDefault
+    mkForce
+    ;
   inherit (builtins) attrValues;
 in
 {
