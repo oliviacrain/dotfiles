@@ -3,6 +3,7 @@
   pkgs,
   config,
   inputs,
+  outputs,
   ...
 }:
 let
@@ -12,6 +13,7 @@ let
     mkDefault
     mkForce
     mkMerge
+    mkBefore
     ;
 in
 {
@@ -34,6 +36,10 @@ in
         );
       };
       boot.loader.efi.canTouchEfiVariables = mkForce false;
+      nixpkgs.overlays = mkBefore [ outputs.overlays.widevine ];
+      environment.sessionVariables.MOZ_GMP_PATH = [
+        "${pkgs.widevine-cdm-lacros}/gmp-widevinecdm/system-installed"
+      ];
     })
   ];
 }

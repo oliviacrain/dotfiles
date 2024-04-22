@@ -131,7 +131,8 @@
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
         "vscode-extensions": "vscode-extensions",
-        "vscode-server": "vscode-server"
+        "vscode-server": "vscode-server",
+        "widevine": "widevine"
       }
     },
     "rust-overlay": {
@@ -220,6 +221,26 @@
       "original": {
         "owner": "nix-community",
         "repo": "nixos-vscode-server",
+        "type": "github"
+      }
+    },
+    "widevine": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1712816564,
+        "narHash": "sha256-2oPCuv4hox+FDWdUnyjhmSB7d24i0mFH5pJjVJGY6JM=",
+        "owner": "epetousis",
+        "repo": "nixos-aarch64-widevine",
+        "rev": "fa046abfed9ff3b5c1e0a2ae16311a33056056fd",
+        "type": "github"
+      },
+      "original": {
+        "owner": "epetousis",
+        "repo": "nixos-aarch64-widevine",
         "type": "github"
       }
     }
