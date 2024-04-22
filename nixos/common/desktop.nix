@@ -27,6 +27,8 @@ in
       enableQt5Integration = mkDefault false;
     };
 
+    environment.sessionVariables.NIXOS_OZONE_WL = "1";
+
     services.printing.enable = mkDefault true;
 
     sound.enable = true;
