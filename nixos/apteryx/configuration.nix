@@ -20,6 +20,8 @@
     minecraft.enable = true;
   };
 
+  services.fwupd.enable = true;
+
   services.mealie = {
     enable = true;
     settings = {
