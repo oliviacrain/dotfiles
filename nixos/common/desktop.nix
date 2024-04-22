@@ -17,12 +17,9 @@ in
   options.olivia.desktop.enable = mkEnableOption "common desktop settings";
 
   config = mkIf config.olivia.desktop.enable {
-    services.xserver = {
+    services.displayManager.sddm = {
       enable = mkDefault true;
-      displayManager.sddm = {
-        enable = mkDefault true;
-        wayland.enable = mkDefault true;
-      };
+      wayland.enable = mkDefault true;
     };
 
     services.desktopManager.plasma6 = {
