@@ -36,6 +36,7 @@ in
       enable = mkDefault true;
       alsa.enable = mkDefault true;
       alsa.support32Bit = mkDefault true;
+      pulse.enable = mkDefault true;
     };
 
     services.dbus.implementation = mkDefault "broker";
