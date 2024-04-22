@@ -30,6 +30,7 @@ in
     services.printing.enable = mkDefault true;
 
     sound.enable = true;
+    hardware.bluetooth.enable = mkDefault true;
     hardware.pulseaudio.enable = mkForce false;
     security.rtkit.enable = mkDefault true;
     services.pipewire = {
