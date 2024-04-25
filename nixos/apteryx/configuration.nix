@@ -29,5 +29,10 @@
     };
   };
 
+  systemd.sleep.extraConfig = ''
+    AllowSuspend=no
+    AllowHibernation=no
+  '';
+
   system.stateVersion = "23.11";
 }
