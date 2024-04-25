@@ -22,7 +22,6 @@
 
   home.packages = builtins.attrValues {
     inherit (pkgs)
-      diffoscope
       fd
       rename
       ripgrep
