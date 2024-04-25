@@ -45,7 +45,7 @@ in
     services.dbus.implementation = mkDefault "broker";
 
     environment.systemPackages =
-      attrValues { inherit (pkgs) firefox clamav calibre; }
+      attrValues { inherit (pkgs) firefox clamav calibre obsidian; }
       ++ attrValues { inherit (pkgs.kdePackages) neochat tokodon; };
 
     fonts.packages = [ pkgs.berkeley-mono ];
