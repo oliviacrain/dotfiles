@@ -91,29 +91,6 @@
 
       overlays = import ./overlays { inherit inputs; };
 
-      # Available through 'nixos-rebuild --flake .#your-hostname'
-      nixosConfigurations = {
-        apteryx = nixpkgs.lib.nixosSystem {
-          specialArgs = {
-            inherit inputs outputs;
-          };
-          modules = [ ./nixos/apteryx/configuration.nix ];
-        };
-
-        cardinalis = nixpkgs.lib.nixosSystem {
-          specialArgs = {
-            inherit inputs outputs;
-          };
-          modules = [ ./nixos/cardinalis/configuration.nix ];
-        };
-
-        corvus = nixpkgs.lib.nixosSystem {
-          system = "aarch64-linux";
-          specialArgs = {
-            inherit inputs outputs;
-          };
-          modules = [ ./nixos/corvus/configuration.nix ];
-        };
-      };
+      nixosConfigurations = import ./nixos { inherit inputs outputs; };
     };
 }
