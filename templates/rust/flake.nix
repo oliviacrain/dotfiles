@@ -32,16 +32,14 @@
             inherit system;
             overlays = [ (import rust-overlay) ];
           };
-          rust = pkgs.rust-bin.stable.latest.default.override {
-            extensions = [ "rust-src" ];
-          };
+          rust = pkgs.rust-bin.stable.latest.default.override { extensions = [ "rust-src" ]; };
         in
         {
           default = pkgs.mkShell {
             buildInputs = [
-                pkgs.pkg-config
-                pkgs.rust-analyzer-unwrapped
-                rust
+              pkgs.pkg-config
+              pkgs.rust-analyzer-unwrapped
+              rust
             ];
             shellHook = ''
               export RUST_SRC_PATH="${rust}/lib/rustlib/src/rust/library"

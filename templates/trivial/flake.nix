@@ -6,11 +6,7 @@
   };
 
   outputs =
-    {
-      self,
-      nixpkgs,
-      ...
-    }:
+    { self, nixpkgs, ... }:
     let
 
       systems = [
@@ -21,12 +17,9 @@
       forAllSystems = nixpkgs.lib.genAttrs systems;
     in
     {
-      packages = forAllSystems (
-        system:
-        {
-          default = {};
-        }
-      );
+      packages = forAllSystems (system: {
+        default = { };
+      });
 
       formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.nixfmt-rfc-style);
 
@@ -38,9 +31,7 @@
         {
           default = pkgs.mkShell {
             buildInputs = [ pkgs.bashInteractive ];
-            packages = [
-              pkgs.just
-            ];
+            packages = [ pkgs.just ];
           };
         }
       );
