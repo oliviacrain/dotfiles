@@ -17,9 +17,17 @@ deploy hostname:
         --target-host {{hostname}} --build-host {{hostname}} \
         --use-remote-sudo
 
-# :/ https://github.com/serokell/nixfmt/issues/151
+# :/
+# https://github.com/NixOS/nixfmt/issues/151
+# https://github.com/NixOS/nix/issues/9359
 fmt:
-    nix fmt ./flake.nix ./home-manager ./nixos ./overlays ./pkgs/{asahi-firmware-corvus,berkeley-mono,default,to-the-sky-background,witchhazel}.nix
+    nix fmt \
+        ./flake.nix \
+        ./home-manager \
+        ./nixos \
+        ./overlays \
+        ./templates \
+        ./pkgs/{asahi-firmware-corvus,berkeley-mono,default,to-the-sky-background,witchhazel}.nix
 
 sources-to-store:
     nix-prefetch-url --type sha256 file://{{justfile_directory()}}/sources/berkeley-mono-typeface.zip
