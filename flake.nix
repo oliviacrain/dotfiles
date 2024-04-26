@@ -49,8 +49,6 @@
         )
       );
 
-      formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.nixfmt-rfc-style);
-
       devShells = forAllSystems (
         system:
         let
@@ -73,24 +71,9 @@
         }
       );
 
-      templates =
-        let
-          trivial = {
-            path = ./templates/trivial;
-            description = "Basic flake with tooling I use";
-          };
-          rust = {
-            path = ./templates/rust;
-            description = "Oxalica rust-overlay flake";
-          };
-        in
-        {
-          default = trivial;
-          inherit trivial rust;
-        };
-
-      overlays = import ./overlays { inherit inputs; };
-
+      formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.nixfmt-rfc-style);
       nixosConfigurations = import ./nixos { inherit inputs outputs; };
+      overlays = import ./overlays { inherit inputs; };
+      templates = import ./templates { };
     };
 }
