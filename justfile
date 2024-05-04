@@ -32,4 +32,4 @@ fmt:
 sources-to-store:
     nix-prefetch-url --type sha256 file://{{justfile_directory()}}/sources/berkeley-mono-typeface.zip
     nix-prefetch-url --type sha256 file://{{justfile_directory()}}/sources/to-the-sky.jpg
-    if [[ "{{local}}" == "corvus" ]]; then nix store add-path {{justfile_directory()}}/sources/asahi-firmware-corvus/asahi-firmware-corvus.tar; fi
+    if [[ "{{local}}" == "corvus" ]]; then nix-prefetch-url --type sha256 {{justfile_directory()}}/sources/asahi-firmware-corvus/asahi-firmware-corvus.tar; fi
