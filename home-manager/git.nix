@@ -1,11 +1,23 @@
 { pkgs, ... }:
+let
+  userName = "Olivia Crain";
+  userEmail = "olivia@olivia.dev";
+in
 {
   home.packages = [ pkgs.difftastic ];
   programs.gh.enable = true;
+  programs.jujutsu = {
+    enable = true;
+    settings = {
+      user = {
+        name = "${userName}";
+        email = "${userEmail}";
+      };
+    };
+  };
   programs.git = {
     enable = true;
-    userName = "Olivia Crain";
-    userEmail = "olivia@olivia.dev";
+    inherit userName userEmail;
     aliases = {
       s = "status -s";
       oops = "commit --amend --no-edit";
