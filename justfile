@@ -1,8 +1,8 @@
 local := `hostname -s`
 
 switch:
-    nom build {{justfile_directory()}}#nixosConfigurations.{{local}}.config.system.build.toplevel
-    sudo nixos-rebuild switch --flake {{justfile_directory()}}#{{local}}
+    nom build {{justfile_directory()}}#nixosConfigurations.{{local}}.config.system.build.toplevel --impure
+    sudo nixos-rebuild switch --flake {{justfile_directory()}}#{{local}} --impure
 
 check:
     nix run github:DeterminateSystems/flake-checker

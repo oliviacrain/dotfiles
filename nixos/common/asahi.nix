@@ -27,7 +27,7 @@ in
       hardware.asahi = {
         enable = mkForce true;
         useExperimentalGPUDriver = mkDefault true;
-        experimentalGPUInstallMode = mkDefault "overlay";
+        experimentalGPUInstallMode = mkDefault "replace";
         peripheralFirmwareDirectory = builtins.toString (
           pkgs.runCommand "asahi-firmware-corvus-extracted" { } ''
             mkdir -p $out
