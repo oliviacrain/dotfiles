@@ -6,7 +6,10 @@ let
       specialArgs = {
         inherit inputs outputs;
       };
-      modules = [ ./${name}/configuration.nix ];
+      modules = [
+        inputs.lix-module.nixosModules.default
+        ./${name}/configuration.nix
+      ];
     };
   };
 in
