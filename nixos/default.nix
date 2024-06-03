@@ -7,7 +7,6 @@ let
         inherit inputs outputs;
       };
       modules = [
-        inputs.lix-module.nixosModules.default
         ./${name}/configuration.nix
       ];
     };

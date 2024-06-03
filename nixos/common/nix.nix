@@ -14,6 +14,9 @@ let
     ;
 in
 {
+
+  imports = [inputs.lix-module.nixosModules.default];
+
   options.olivia.nix.enable = mkEnableOption "common nix/nixpkgs options";
   options.olivia.nix.useApteryxRemote = mkEnableOption "use of apteryx as a remote builder";
 
