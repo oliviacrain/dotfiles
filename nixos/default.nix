@@ -6,9 +6,7 @@ let
       specialArgs = {
         inherit inputs outputs;
       };
-      modules = [
-        ./${name}/configuration.nix
-      ];
+      modules = [ ./${name}/configuration.nix ];
     };
   };
 in
