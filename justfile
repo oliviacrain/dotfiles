@@ -1,6 +1,6 @@
 local := `hostname -s`
 
-switch:
+switch: sources-to-store
     nom build {{justfile_directory()}}#nixosConfigurations.{{local}}.config.system.build.toplevel --impure
     sudo nixos-rebuild switch --flake {{justfile_directory()}}#{{local}} --impure
 
@@ -10,7 +10,7 @@ check:
 update:
     nix flake update --commit-lock-file --option commit-lockfile-summary "Update flake.lock"
 
-deploy hostname:
+deploy hostname: sources-to-store
     nix run nixpkgs#nixos-rebuild -- \
         switch \
         --fast --flake {{justfile_directory()}}#{{hostname}} \
