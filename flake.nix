@@ -15,6 +15,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    sops-nix.url = "github:Mic92/sops-nix";
+    sops-nix.inputs.nixpkgs.follows = "nixpkgs";
+
     apple-silicon.url = "github:tpwrules/nixos-apple-silicon";
     apple-silicon.inputs.nixpkgs.follows = "nixpkgs";
 
@@ -64,20 +67,18 @@
         system:
         let
           pkgs = nixpkgs.legacyPackages.${system};
-          inherit (pkgs)
-            just
-            nix-output-monitor
-            bashInteractive
-            mkShell
-            ;
         in
         {
-          default = mkShell {
-            buildInputs = [ bashInteractive ];
-            packages = [
-              just
-              nix-output-monitor
-            ];
+          default = pkgs.mkShell {
+            buildInputs = [ pkgs.bashInteractive ];
+            packages = builtins.attrValues {
+              inherit (pkgs)
+                age
+                just
+                nix-output-monitor
+                sops
+                ;
+            };
           };
         }
       );

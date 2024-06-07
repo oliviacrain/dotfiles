@@ -1,0 +1,9 @@
+keys:
+  - &user_olivia age1zhc3hndlquz3akpum0fpeljep04v0tctzhumzxp8e7kcc6kfdqasqqmxez
+  - &host_apteryx age18caklfrn2eqqtc23f2suednxqmgqvt6glt9xch85p5u7wu63mpfqp2jfwf
+creation_rules:
+  - path_regex: secrets/[^/]+\.(yaml|json|env|ini)$
+    key_groups:
+      - age:
+          - *user_olivia
+          - *host_apteryx
