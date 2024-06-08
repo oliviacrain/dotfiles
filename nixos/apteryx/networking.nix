@@ -53,7 +53,6 @@
         reverse_proxy localhost:9000
       }
 
-
       # legacy shit inbound
 
       https://apteryx.tail15aab.ts.net:443 {
@@ -77,6 +76,4 @@
 
     '';
   };
-
-
 }
