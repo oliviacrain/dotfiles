@@ -23,13 +23,17 @@
     enable = true;
     package = pkgs.caddy-with-porkbun;
     configFile = pkgs.writeText "Caddyfile" ''
+      {
+        acme_ca https://acme-staging-v02.api.letsencrypt.org/directory
+      }
+
       (tailscale_service) {
         bind 100.95.200.106 fd7a:115c:a1e0::891f:c86a
         @blocked not client_ip 100.64.0.0/10 fd7a:115c:a1e0::/96
         tls {
           dns porkbun {
-            api_key ''${env.PORKBUN_API}
-            api_secret_key ''${env.PORKBUN_SECRET}
+            api_key {env.PORKBUN_API}
+            api_secret_key {env.PORKBUN_SECRET}
           }
         }
         respond @blocked "bye bozo" 403
