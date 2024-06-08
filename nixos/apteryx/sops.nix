@@ -15,6 +15,15 @@
       owner = config.services.caddy.user;
       group = config.services.caddy.group;
     };
+    templates."caddy.env" = {
+      content = ''
+        PORKBUN_API=${config.sops.placeholder."caddy/porkbun_api"}
+        PORKBUN_SECRET=${config.sops.placeholder."caddy/porkbun_secret"}
+      '';
+      owner = config.services.caddy.user;
+      group = config.services.caddy.group;
+      mode = "0440";
+    };
   };
 
 }

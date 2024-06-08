@@ -7,6 +7,8 @@
 {
   services.tailscale.permitCertUid = config.services.caddy.user;
 
+  systemd.services.caddy.serviceConfig.EnvironmentFile = config.sops.templates."caddy.env".path;
+
   services.caddy = {
     enable = true;
     package = pkgs.caddy-with-porkbun;
