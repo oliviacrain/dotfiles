@@ -31,7 +31,7 @@ in
       jnoortheen.nix-ide
       ms-vscode.cpptools
       mkhl.direnv
-      pkgs.vscode-extensions.matklad.rust-analyzer
+      pkgs.vscode-extensions.rust-lang.rust-analyzer
     ];
     inherit userSettings;
   };
