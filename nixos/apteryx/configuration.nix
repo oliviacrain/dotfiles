@@ -24,7 +24,7 @@
   services.mealie = {
     enable = true;
     settings = {
-      BASE_URL = "https://apteryx.tail15aab.ts.net:8999/";
+      BASE_URL = "https://recipes.slug.gay/";
     };
   };
 
