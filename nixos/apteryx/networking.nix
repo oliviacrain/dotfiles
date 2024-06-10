@@ -7,17 +7,9 @@
 {
   services.tailscale.permitCertUid = config.services.caddy.user;
 
-  systemd.services.tailscale-serve-caddy = {
-    serviceConfig = {
-      Type = "oneshot";
-      Restart = "on-failure";
-    };
-    script = ''
-      ${lib.getExe pkgs.tailscale} serve --bg tcp:443 tcp://localhost:443
-    '';
-  };
-
   systemd.services.caddy.serviceConfig.EnvironmentFile = config.sops.templates."caddy.env".path;
+
+  services.tailscaleAuth.enable = true;
 
   services.caddy = {
     enable = true;
@@ -33,47 +25,38 @@
           }
         }
         respond @blocked "bye bozo" 403
+        forward_auth unix//run/tailscale.nginx-auth.sock {
+        	uri /auth
+        	header_up Remote-Addr {remote_host}
+        	header_up Remote-Port {remote_port}
+        	header_up Original-URI {uri}
+        	copy_headers {
+        		Tailscale-User
+        		Tailscale-Name
+        		Tailscale-Login
+        		Tailscale-Tailnet
+        		Tailscale-Profile-Picture
+        	}
+        }
       }
 
       # Jellyfin
-      https://media.slug.gay:443 {
+      https://media.slug.gay {
         import tailscale_service
         reverse_proxy localhost:8096
       }
 
       # Jellyseerr
-      https://requests.slug.gay:443 {
+      https://requests.slug.gay {
         import tailscale_service
         reverse_proxy localhost:5055
       }
 
       # Mealie
-      https://recipes.slug.gay:443 {
+      https://recipes.slug.gay {
         import tailscale_service
         reverse_proxy localhost:9000
       }
-
-      # legacy shit inbound
-
-      https://apteryx.tail15aab.ts.net:443 {
-        redir /requests/ /requests
-        redir /requests https://apteryx.tail15aab.ts.net:5066
-        redir /mealie/ /mealie
-        redir /mealie https://apteryx.tail15aab.ts.net:8989
-        redir /jellyfin /jellyfin/
-        reverse_proxy /jellyfin/* http://localhost:8096
-      }
-
-      # Mealie doesn't let us serve from a subpath :(
-      https://apteryx.tail15aab.ts.net:8989 {
-        reverse_proxy http://localhost:9000
-      }
-
-      # Jellyseerr doesn't let us serve from a subpath :(
-      https://apteryx.tail15aab.ts.net:5066 {
-        reverse_proxy http://localhost:5055
-      }
-
     '';
   };
 }
