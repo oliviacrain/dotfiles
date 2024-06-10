@@ -7,9 +7,14 @@
 {
   services.tailscale.permitCertUid = config.services.caddy.user;
 
-  systemd.services.caddy.serviceConfig.EnvironmentFile = config.sops.templates."caddy.env".path;
+  systemd.services.caddy.serviceConfig = {
+    EnvironmentFile = config.sops.templates."caddy.env".path;
+    BindPaths = [ config.services.tailscaleAuth.socketPath ];
+  };
 
   services.tailscaleAuth.enable = true;
+
+  users.users.${config.services.caddy.user}.extraGroups = [ config.services.tailscaleAuth.group ];
 
   services.caddy = {
     enable = true;
@@ -25,7 +30,7 @@
           }
         }
         respond @blocked "bye bozo" 403
-        forward_auth unix//run/tailscale.nginx-auth.sock {
+        forward_auth unix/${config.services.tailscaleAuth.socketPath} {
         	uri /auth
         	header_up Remote-Addr {remote_host}
         	header_up Remote-Port {remote_port}
