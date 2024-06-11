@@ -13,7 +13,7 @@
   };
 
   services.tailscaleAuth.enable = true;
-
+  systemd.services.tailscale-nginx-auth.serviceConfig.BindPaths = [ "/var/run/tailscale/tailscaled.sock" "/run/tailscale/tailscaled.sock" ];
   users.users.${config.services.caddy.user}.extraGroups = [ config.services.tailscaleAuth.group ];
 
   services.caddy = {
