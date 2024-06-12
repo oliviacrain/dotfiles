@@ -62,6 +62,12 @@
         import tailscale_service
         reverse_proxy localhost:9000
       }
+
+      # Dex
+      https://auth.alug.gay {
+        import tailscale_service
+        reverse_proxy localhost:5556
+      }
     '';
   };
 }
