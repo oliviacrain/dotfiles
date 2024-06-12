@@ -13,6 +13,7 @@
     ./users.nix
     ./media-server.nix
     ./sops.nix
+    ./dex.nix
   ];
 
   networking.hostName = "apteryx";
