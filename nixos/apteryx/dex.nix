@@ -1,7 +1,7 @@
 { pkgs, ... }:
 {
   services.dex = {
-    enable = true;
+    enable = false;
     environmentFile = null;
     settings = {
       issuer = "https://auth.slug.gay";
