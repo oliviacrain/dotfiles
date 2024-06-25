@@ -24,5 +24,8 @@
       group = config.services.caddy.group;
       mode = "0440";
     };
+    secrets."tailscale/auth_key" = {
+      reloadUnits = ["tailscale-autoconnect.service"];
+    };
   };
 }
