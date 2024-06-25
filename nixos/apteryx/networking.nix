@@ -5,8 +5,11 @@
   ...
 }:
 {
-  services.tailscale.permitCertUid = config.services.caddy.user;
-  services.tailscale.authKeyFile = config.sops.secrets."tailscale/auth_key".path;
+  services.tailscale = {
+    permitCertUid = config.services.caddy.user;
+    authKeyFile = config.sops.secrets."tailscale/auth_key".path;
+    extraUpFlags = [ "--ssh" ];
+  };
 
   systemd.services.caddy.serviceConfig = {
     EnvironmentFile = config.sops.templates."caddy.env".path;
