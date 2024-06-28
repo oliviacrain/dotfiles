@@ -42,6 +42,8 @@
         	header_up Remote-Addr {remote_host}
         	header_up Remote-Port {remote_port}
         	header_up Original-URI {uri}
+          header_up -X-Remote-*
+          header_up -Tailscale-*
         	copy_headers {
         		Tailscale-User
         		Tailscale-Name
@@ -49,6 +51,7 @@
         		Tailscale-Tailnet
         		Tailscale-Profile-Picture
         	}
+          header_up
         }
       }
 
@@ -68,6 +71,12 @@
       https://recipes.slug.gay {
         import tailscale_service
         reverse_proxy localhost:9000
+      }
+
+      # Forgejo
+      https://git.slug.gay {
+        import tailscale_service
+        reverse_proxy unix/${config.services.forgejo.settings.server.HTTP_ADDR}
       }
     '';
   };

@@ -5,6 +5,7 @@
   sops = {
     defaultSopsFile = ../../secrets/apteryx.yaml;
     age.sshKeyPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
+
     secrets."caddy/porkbun_api" = {
       mode = "0440";
       owner = config.services.caddy.user;
@@ -24,8 +25,20 @@
       group = config.services.caddy.group;
       mode = "0440";
     };
+
     secrets."tailscale/auth_key" = {
       reloadUnits = [ "tailscale-autoconnect.service" ];
+    };
+
+    secrets."forgejo/secret_key" = {
+      mode = "0400";
+      owner = config.services.forgejo.user;
+      group = config.services.forgejo.group;
+    };
+    secrets."forgejo/internal_token" = {
+      mode = "0400";
+      owner = config.services.forgejo.user;
+      group = config.services.forgejo.group;
     };
   };
 }
