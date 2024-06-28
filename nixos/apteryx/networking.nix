@@ -39,6 +39,7 @@
         	header_up Remote-Addr {remote_host}
         	header_up Remote-Port {remote_port}
         	header_up Original-URI {uri}
+          header_up -X-Remote-*
         	copy_headers {
         		Tailscale-User
         		Tailscale-Name
@@ -71,6 +72,12 @@
       https://auth.slug.gay {
         import tailscale_service
         reverse_proxy localhost:5556
+      }
+
+      # Forgejo
+      https://git.slug.gay {
+        import tailscale_service
+        reverse_proxy unix/${config.services.forgejo.settings.server.HTTP_ADDR}
       }
     '';
   };

@@ -1,8 +1,8 @@
-{ pkgs, ... }:
+{ config, ... }:
 {
   services.dex = {
-    enable = false;
-    environmentFile = null;
+    enable = true;
+    environmentFile = config.sops.templates."dex.env".path;
     settings = {
       issuer = "https://auth.slug.gay";
       enablePasswordDB = false;
@@ -11,7 +11,11 @@
         config.file = "/var/lib/dex/dex.db";
       };
       web = {
-        http = "http://127.0.0.1:5556";
+        http = "127.0.0.1:5556";
+      };
+      oauth2 = {
+        skipApprovalScreen = true;
+        alwaysShowLoginScreen = false;
       };
       connectors = [
         {
@@ -19,12 +23,23 @@
           id = "tailscale";
           name = "Tailscale ID Headers";
           config = {
-            userHeader = "Tailscale-User-Login";
+            userIDHeader = "Tailscale-User";
+            userHeader = "Tailscale-Login";
             staticGroups = ["default"];
           };
         }
       ];
+      staticClients = [
+        ({
+          id = "forgejo";
+          name = "Forgejo";
+          secretEnv = "FORGEJO_OAUTH_SECRET";
+          redirectURIs = [
+            "https://git.slug.gay/user/oauth2/dex/callback"
+          ];
+        })
+      ];
     };
   };
-  config.systemd.services.dex.serviceConfig.StateDirectory = "dex";
+  systemd.services.dex.serviceConfig.StateDirectory = "dex";
 }
