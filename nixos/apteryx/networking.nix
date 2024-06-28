@@ -68,7 +68,7 @@
       }
 
       # Dex
-      https://auth.alug.gay {
+      https://auth.slug.gay {
         import tailscale_service
         reverse_proxy localhost:5556
       }
