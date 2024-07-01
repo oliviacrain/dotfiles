@@ -25,7 +25,7 @@
       mode = "0440";
     };
     secrets."tailscale/auth_key" = {
-      reloadUnits = ["tailscale-autoconnect.service"];
+      reloadUnits = [ "tailscale-autoconnect.service" ];
     };
   };
 }
