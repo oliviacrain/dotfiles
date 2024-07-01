@@ -9,23 +9,17 @@
   imports = [
     ./hardware-configuration.nix
     ../common
-    ./networking.nix
-    ./users.nix
-    ./media-server.nix
     ./sops.nix
+    ./users.nix
+    ./networking.nix
+    ./media-server.nix
+    ./mealie.nix
   ];
 
   networking.hostName = "apteryx";
   olivia = {
     enable = true;
     minecraft.enable = true;
-  };
-
-  services.mealie = {
-    enable = true;
-    settings = {
-      BASE_URL = "https://recipes.slug.gay/";
-    };
   };
 
   systemd.sleep.extraConfig = ''
