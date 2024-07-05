@@ -78,6 +78,12 @@
         import tailscale_service
         reverse_proxy unix/${config.services.forgejo.settings.server.HTTP_ADDR}
       }
+
+      # LLDAP
+      https://lldap.slug.gay {
+        import tailscale_service
+        reverse_proxy localhost:${config.services.lldap.settings.http_port}
+      }
     '';
   };
 }
