@@ -51,7 +51,6 @@
         		Tailscale-Tailnet
         		Tailscale-Profile-Picture
         	}
-          header_up
         }
       }
 
