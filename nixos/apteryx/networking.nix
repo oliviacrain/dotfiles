@@ -81,7 +81,7 @@
       # LLDAP
       https://lldap.slug.gay {
         import tailscale_service
-        reverse_proxy localhost:${config.services.lldap.settings.http_port}
+        reverse_proxy localhost:${builtins.toString config.services.lldap.settings.http_port}
       }
     '';
   };
