@@ -15,6 +15,7 @@
     ./media-server.nix
     ./mealie.nix
     ./lldap.nix
+    ./litestream.nix
   ];
 
   networking.hostName = "apteryx";
