@@ -2,6 +2,11 @@
 {
   services.litestream = {
     enable = true;
+    environmentFile = config.sops.templates."litestream.env".path;
+    settings = {
+      dbs = [
+      ];
+    };
   };
 
   sops.secrets."litestream/aws_access_key" = {};
