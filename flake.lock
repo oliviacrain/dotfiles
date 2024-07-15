@@ -200,6 +200,22 @@
         "type": "github"
       }
     },
+    "nixpkgs-patched-clamav": {
+      "locked": {
+        "lastModified": 1720781731,
+        "narHash": "sha256-o6SEEkrznLfeMmQCTUbUpnjHZr9jes146tASEL6HrO4=",
+        "owner": "KoviRobi",
+        "repo": "nixpkgs",
+        "rev": "9485537de608224d1751ebcbf88ac55e56bf24fd",
+        "type": "github"
+      },
+      "original": {
+        "owner": "KoviRobi",
+        "ref": "clamav-fix-clamscan-no-tests",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "nixpkgs-stable": {
       "locked": {
         "lastModified": 1720915306,
@@ -223,6 +239,7 @@
         "lix": "lix",
         "lix-module": "lix-module",
         "nixpkgs": "nixpkgs",
+        "nixpkgs-patched-clamav": "nixpkgs-patched-clamav",
         "sops-nix": "sops-nix",
         "vscode-extensions": "vscode-extensions",
         "vscode-server": "vscode-server",

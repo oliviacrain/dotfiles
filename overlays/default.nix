@@ -6,7 +6,9 @@
     # example = prev.example.overrideAttrs (oldAttrs: rec {
     # ...
     # });
-  };
+      inherit (inputs.nixpkgs-patched-clamav.legacyPackages.${prev.system})
+        clamav;
+    };
 
   apple-silicon = inputs.apple-silicon.overlays.apple-silicon-overlay;
   widevine = inputs.widevine.overlays.default;
