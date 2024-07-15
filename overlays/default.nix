@@ -14,7 +14,7 @@
           (
             prev.fetchpatch {
               url = "https://github.com/Fallenbagel/jellyseerr/commit/268c7df28eea8b911d6a53297f5ce296983067ce.patch";
-              hash = prev.lib.fakeHash;
+              hash = "sha256-3MUdF9KgYcP/szNF4H4OiaHvm2D5EUa/y5yFsvh/Zpw=";
             }
           )
         ];
