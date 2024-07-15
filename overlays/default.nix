@@ -1,4 +1,4 @@
-{ inputs, lib, ... }:
+{ inputs, ... }:
 {
   additions = final: _prev: import ../pkgs { pkgs = final; };
 
@@ -14,11 +14,14 @@
           (
             prev.fetchpatch {
               url = "https://github.com/Fallenbagel/jellyseerr/commit/268c7df28eea8b911d6a53297f5ce296983067ce.patch";
-              hash = lib.fakeHash;
+              hash = prev.lib.fakeHash;
             }
           )
         ];
       });
+
+      # https://github.com/NixOS/nixpkgs/issues/326296
+      mealie = prev.mealie.override { python3Packages = final.python311Packages; };
     };
 
   apple-silicon = inputs.apple-silicon.overlays.apple-silicon-overlay;
