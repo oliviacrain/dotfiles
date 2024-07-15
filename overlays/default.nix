@@ -6,8 +6,11 @@
     # example = prev.example.overrideAttrs (oldAttrs: rec {
     # ...
     # });
-      inherit (inputs.nixpkgs-patched-clamav.legacyPackages.${prev.system})
-        clamav;
+      clamav = prev.clamav.overrideAttrs(oldAttrs: {
+          checkInputs = (oldAttrs.checkInputs or []) ++ [
+            final.python3.pkgs.pytest
+          ];
+      });
 
       jellyseerr = prev.jellyseerr.overrideAttrs(oldAttrs: {
         patches = ( oldAttrs.patches or [] ) ++ [

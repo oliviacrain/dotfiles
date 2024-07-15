@@ -3,8 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-patched-clamav.url = "github:KoviRobi/nixpkgs/clamav-fix-clamscan-no-tests";
-    
+
     lix = {
       url = "git+https://git@git.lix.systems/lix-project/lix?ref=refs/heads/main";
       flake = false;
