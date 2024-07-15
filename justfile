@@ -1,8 +1,13 @@
 local := `hostname -s`
 
-switch: sources-to-store
-    nom build {{justfile_directory()}}#nixosConfigurations.{{local}}.config.system.build.toplevel --impure
+build-system-local: sources-to-store
+    nom build {{justfile_directory()}}#nixosConfigurations.{{local}}.config.system.build.toplevel --impure --keep-going
+
+switch: build-system-local
     sudo nixos-rebuild switch --flake {{justfile_directory()}}#{{local}} --impure
+
+diff: build-system-local
+    nvd diff /run/current-system {{justfile_directory()}}/result
 
 check:
     nix run github:DeterminateSystems/flake-checker

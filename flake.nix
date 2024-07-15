@@ -76,6 +76,7 @@
                 age
                 just
                 nix-output-monitor
+                nvd
                 sops
                 ;
             };
