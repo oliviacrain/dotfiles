@@ -23,6 +23,20 @@
         ];
       });
 
+      python311 = prev.python311.override {
+        packageOverrides = pfinal: pprev: {
+          extruct = pprev.extruct.overridePythonAttrs (oldAttrs: {
+            version = "0.17.0";
+            src = final.fetchFromGitHub {
+              owner = "scrapinghub";
+              repo = "extruct";
+              rev = "refs/tags/v0.17.0";
+              hash = "sha256-CfhIqbhrZkJ232grhHxrmj4H1/Bq33ZXe8kovSOWSK0=";
+            };
+          });
+        };
+      };
+
       # https://github.com/NixOS/nixpkgs/issues/326296
       mealie = prev.mealie.override { python3Packages = final.python311Packages; };
     };
