@@ -84,7 +84,7 @@
         }
       );
 
-      formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.nixfmt-rfc-style);
+      formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
       nixosConfigurations = import ./nixos { inherit inputs outputs; };
       overlays = import ./overlays { inherit inputs; };
       templates = import ./templates { };
