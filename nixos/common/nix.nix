@@ -4,18 +4,16 @@
   inputs,
   outputs,
   ...
-}:
-let
-  inherit (lib)
+}: let
+  inherit
+    (lib)
     mkDefault
     mkEnableOption
     mkIf
     mkAfter
     ;
-in
-{
-
-  imports = [ inputs.lix-module.nixosModules.default ];
+in {
+  imports = [inputs.lix-module.nixosModules.default];
 
   options.olivia.nix.enable = mkEnableOption "common nix/nixpkgs options";
   options.olivia.nix.useApteryxRemote = mkEnableOption "use of apteryx as a remote builder";
@@ -48,7 +46,7 @@ in
       };
     };
 
-    nix.settings.extra-substituters = [ "https://cache.lix.systems" ];
+    nix.settings.extra-substituters = ["https://cache.lix.systems"];
 
     nix.settings.trusted-public-keys = [
       "cache.lix.systems:aBnZUw8zA7H35Cz2RyKFVs3H4PlGTLawyY5KRbvJR8o="

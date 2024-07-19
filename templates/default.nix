@@ -1,5 +1,4 @@
-{ ... }:
-let
+{...}: let
   trivial = {
     path = ./trivial;
     description = "Basic flake with tooling I use";
@@ -8,8 +7,7 @@ let
     path = ./rust;
     description = "Oxalica rust-overlay flake";
   };
-in
-{
+in {
   default = trivial;
   inherit trivial rust;
 }

@@ -1,5 +1,4 @@
-{ config, ... }:
-{
+{config, ...}: {
   services.lldap = {
     enable = true;
     settings = {

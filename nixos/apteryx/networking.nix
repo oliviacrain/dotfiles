@@ -3,17 +3,16 @@
   pkgs,
   config,
   ...
-}:
-{
+}: {
   services.tailscale = {
     permitCertUid = config.services.caddy.user;
     authKeyFile = config.sops.secrets."tailscale/auth_key".path;
-    extraUpFlags = [ "--ssh" ];
+    extraUpFlags = ["--ssh"];
   };
 
   systemd.services.caddy.serviceConfig = {
     EnvironmentFile = config.sops.templates."caddy.env".path;
-    BindPaths = [ config.services.tailscaleAuth.socketPath ];
+    BindPaths = [config.services.tailscaleAuth.socketPath];
   };
 
   services.tailscaleAuth.enable = true;
@@ -21,7 +20,7 @@
     "/var/run/tailscale/tailscaled.sock"
     "/run/tailscale/tailscaled.sock"
   ];
-  users.users.${config.services.caddy.user}.extraGroups = [ config.services.tailscaleAuth.group ];
+  users.users.${config.services.caddy.user}.extraGroups = [config.services.tailscaleAuth.group];
 
   services.caddy = {
     enable = true;

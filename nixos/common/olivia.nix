@@ -1,7 +1,6 @@
 let
   username = "olivia";
-in
-{
+in {
   users.users.${username} = {
     isNormalUser = true;
     extraGroups = [
@@ -14,7 +13,7 @@ in
     ];
   };
 
-  services.openssh.settings.AllowUsers = [ username ];
+  services.openssh.settings.AllowUsers = [username];
 
   programs.ssh.startAgent = true;
   programs.ssh.enableAskPassword = true;

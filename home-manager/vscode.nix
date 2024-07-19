@@ -1,5 +1,8 @@
-{ lib, pkgs, ... }:
-let
+{
+  lib,
+  pkgs,
+  ...
+}: let
   userSettings = {
     "extensions.autoCheckUpdates" = false;
     "extensions.ignoreRecommendations" = true;
@@ -22,8 +25,7 @@ let
     "nix.formatterPath" = "${lib.getExe pkgs.nixfmt-rfc-style}";
     "nix.serverPath" = "${lib.getExe pkgs.nil}";
   };
-in
-{
+in {
   programs.vscode = {
     enable = true;
     extensions = with pkgs.vscode-marketplace; [

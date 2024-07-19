@@ -1,7 +1,6 @@
 # Custom packages, that can be defined similarly to ones from nixpkgs
 # You can build them using 'nix build .#example'
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   caddy-with-porkbun = pkgs.callPackage ./caddy-with-plugins.nix {
     vendorHash = "sha256-tR9DQYmI7dGvj0W0Dsze0/BaLjG84hecm0TPiCVSY2Y=";
     externalPlugins = [
@@ -13,8 +12,8 @@
     ];
   };
 
-  witchhazel = pkgs.callPackage ./witchhazel.nix { };
-  berkeley-mono = pkgs.callPackage ./berkeley-mono.nix { };
-  to-the-sky-background = pkgs.callPackage ./to-the-sky-background.nix { };
-  asahi-firmware-corvus = pkgs.callPackage ./asahi-firmware-corvus.nix { };
+  witchhazel = pkgs.callPackage ./witchhazel.nix {};
+  berkeley-mono = pkgs.callPackage ./berkeley-mono.nix {};
+  to-the-sky-background = pkgs.callPackage ./to-the-sky-background.nix {};
+  asahi-firmware-corvus = pkgs.callPackage ./asahi-firmware-corvus.nix {};
 }

@@ -1,5 +1,4 @@
-{config, ...}:
-{
+{config, ...}: {
   services.litestream = {
     enable = true;
     environmentFile = config.sops.templates."litestream.env".path;

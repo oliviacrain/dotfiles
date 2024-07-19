@@ -4,11 +4,9 @@
   inputs,
   outputs,
   ...
-}:
-let
+}: let
   inherit (lib) mkIf mkEnableOption mkDefault;
-in
-{
+in {
   options.olivia.minecraft.enable = mkEnableOption "a minecraft server";
 
   config = mkIf config.olivia.minecraft.enable {

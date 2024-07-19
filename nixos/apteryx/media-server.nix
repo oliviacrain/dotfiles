@@ -1,12 +1,12 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   users.users.jellyfin.extraGroups = [
     "render"
     "video"
   ];
 
   environment.systemPackages = builtins.attrValues {
-    inherit (pkgs)
+    inherit
+      (pkgs)
       amdgpu_top
       jellyfin
       jellyfin-web

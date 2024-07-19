@@ -1,5 +1,8 @@
-{ config, lib, ... }:
 {
+  config,
+  lib,
+  ...
+}: {
   services.forgejo = {
     enable = true;
     secrets = {
@@ -28,5 +31,5 @@
       repository.DISABLE_HTTP_GIT = true;
     };
   };
-  services.openssh.settings.AllowUsers = [ config.services.forgejo.user ];
+  services.openssh.settings.AllowUsers = [config.services.forgejo.user];
 }

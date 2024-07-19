@@ -5,9 +5,7 @@
   config,
   pkgs,
   ...
-}:
-{
-
+}: {
   imports = [
     ./git.nix
     ./editor.nix
@@ -21,7 +19,8 @@
   };
 
   home.packages = builtins.attrValues {
-    inherit (pkgs)
+    inherit
+      (pkgs)
       fd
       rename
       ripgrep

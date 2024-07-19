@@ -1,9 +1,8 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   users.users.slug = {
     isNormalUser = true;
     home = "/home/slug";
-    packages = [ pkgs.firefox ];
+    packages = [pkgs.firefox];
   };
 
   users.users.margie = {
@@ -22,7 +21,7 @@
     ];
   };
 
-  nix.settings.trusted-users = [ "nixremote" ];
+  nix.settings.trusted-users = ["nixremote"];
 
   services.openssh = {
     enable = true;

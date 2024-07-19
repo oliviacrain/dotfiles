@@ -1,12 +1,16 @@
-{ lib, pkgs, ... }:
 {
+  lib,
+  pkgs,
+  ...
+}: {
   home.sessionVariables.EDITOR = "hx";
 
   programs.helix = {
     enable = true;
 
     extraPackages = builtins.attrValues {
-      inherit (pkgs)
+      inherit
+        (pkgs)
         nil
         gopls
         gotools

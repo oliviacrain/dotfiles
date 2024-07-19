@@ -3,17 +3,16 @@
   config,
   pkgs,
   ...
-}:
-let
-  inherit (lib)
+}: let
+  inherit
+    (lib)
     mkIf
     mkEnableOption
     mkDefault
     mkForce
     ;
   inherit (builtins) attrValues;
-in
-{
+in {
   options.olivia.desktop.enable = mkEnableOption "common desktop settings";
 
   config = mkIf config.olivia.desktop.enable {
@@ -45,15 +44,16 @@ in
 
     environment.systemPackages =
       attrValues {
-        inherit (pkgs)
+        inherit
+          (pkgs)
           firefox
           clamav
           calibre
           obsidian
           ;
       }
-      ++ attrValues { inherit (pkgs.kdePackages) neochat tokodon; };
+      ++ attrValues {inherit (pkgs.kdePackages) neochat tokodon;};
 
-    fonts.packages = [ pkgs.berkeley-mono ];
+    fonts.packages = [pkgs.berkeley-mono];
   };
 }

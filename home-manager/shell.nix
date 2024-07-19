@@ -1,9 +1,8 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   programs.alacritty = {
     enable = true;
     settings = {
-      import = [ "${pkgs.witchhazel}/alacritty/witchhazel_hyper.toml" ];
+      import = ["${pkgs.witchhazel}/alacritty/witchhazel_hyper.toml"];
       font.normal.family = "Berkeley Mono Variable";
     };
   };

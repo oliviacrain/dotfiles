@@ -1,8 +1,10 @@
-{ config, lib, ... }:
-let
-  inherit (lib) mkEnableOption mkIf mkDefault;
-in
 {
+  config,
+  lib,
+  ...
+}: let
+  inherit (lib) mkEnableOption mkIf mkDefault;
+in {
   imports = [
     ./nix.nix
 

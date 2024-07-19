@@ -3,12 +3,10 @@
   config,
   inputs,
   ...
-}:
-let
+}: let
   inherit (lib) mkIf mkEnableOption mkDefault;
-in
-{
-  imports = [ inputs.vscode-server.nixosModules.default ];
+in {
+  imports = [inputs.vscode-server.nixosModules.default];
 
   options.olivia.vscode-server.enable = mkEnableOption "vscode-server";
 

@@ -34,59 +34,55 @@
     vscode-extensions.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs =
-    {
-      self,
-      nixpkgs,
-      home-manager,
-      vscode-server,
-      ...
-    }@inputs:
-    let
-      inherit (self) outputs;
+  outputs = {
+    self,
+    nixpkgs,
+    home-manager,
+    vscode-server,
+    ...
+  } @ inputs: let
+    inherit (self) outputs;
 
-      systems = [
-        "aarch64-linux"
-        "x86_64-linux"
-      ];
+    systems = [
+      "aarch64-linux"
+      "x86_64-linux"
+    ];
 
-      forAllSystems = nixpkgs.lib.genAttrs systems;
-    in
-    {
-      packages = forAllSystems (
-        system:
+    forAllSystems = nixpkgs.lib.genAttrs systems;
+  in {
+    packages = forAllSystems (
+      system:
         import ./pkgs (
           import nixpkgs {
             inherit system;
             config.allowUnfree = true;
           }
         )
-      );
+    );
 
-      devShells = forAllSystems (
-        system:
-        let
-          pkgs = nixpkgs.legacyPackages.${system};
-        in
-        {
-          default = pkgs.mkShell {
-            buildInputs = [ pkgs.bashInteractive ];
-            packages = builtins.attrValues {
-              inherit (pkgs)
-                age
-                just
-                nix-output-monitor
-                nvd
-                sops
-                ;
-            };
+    devShells = forAllSystems (
+      system: let
+        pkgs = nixpkgs.legacyPackages.${system};
+      in {
+        default = pkgs.mkShell {
+          buildInputs = [pkgs.bashInteractive];
+          packages = builtins.attrValues {
+            inherit
+              (pkgs)
+              age
+              just
+              nix-output-monitor
+              nvd
+              sops
+              ;
           };
-        }
-      );
+        };
+      }
+    );
 
-      formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
-      nixosConfigurations = import ./nixos { inherit inputs outputs; };
-      overlays = import ./overlays { inherit inputs; };
-      templates = import ./templates { };
-    };
+    formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
+    nixosConfigurations = import ./nixos {inherit inputs outputs;};
+    overlays = import ./overlays {inherit inputs;};
+    templates = import ./templates {};
+  };
 }

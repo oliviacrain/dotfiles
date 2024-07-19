@@ -17,7 +17,7 @@ stdenvNoCC.mkDerivation {
 
   sourceRoot = "berkeley-mono-variable";
 
-  nativeBuildInputs = [ unzip ];
+  nativeBuildInputs = [unzip];
 
   installPhase = ''
     runHook preInstall

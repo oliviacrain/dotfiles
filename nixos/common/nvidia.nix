@@ -1,8 +1,10 @@
-{ lib, config, ... }:
-let
-  inherit (lib) mkIf mkEnableOption mkDefault;
-in
 {
+  lib,
+  config,
+  ...
+}: let
+  inherit (lib) mkIf mkEnableOption mkDefault;
+in {
   options.olivia.nvidia.enable = mkEnableOption "common nvidia settings";
 
   config = mkIf config.olivia.nvidia.enable {
@@ -13,6 +15,6 @@ in
       open = mkDefault false;
       nvidiaSettings = mkDefault true;
     };
-    services.xserver.videoDrivers = [ "nvidia" ];
+    services.xserver.videoDrivers = ["nvidia"];
   };
 }

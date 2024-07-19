@@ -4,11 +4,9 @@
   inputs,
   outputs,
   ...
-}:
-let
+}: let
   inherit (lib) mkIf mkEnableOption mkDefault;
-in
-{
+in {
   options.olivia.boot.enable = mkEnableOption "boot settings";
 
   config = mkIf config.olivia.boot.enable {

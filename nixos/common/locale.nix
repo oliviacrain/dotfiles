@@ -1,8 +1,10 @@
-{ lib, config, ... }:
-let
-  inherit (lib) mkIf mkEnableOption mkDefault;
-in
 {
+  lib,
+  config,
+  ...
+}: let
+  inherit (lib) mkIf mkEnableOption mkDefault;
+in {
   options.olivia.locale.enable = mkEnableOption "common locale settings";
 
   config = mkIf config.olivia.locale.enable {

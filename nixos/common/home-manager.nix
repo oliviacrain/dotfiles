@@ -4,12 +4,10 @@
   inputs,
   outputs,
   ...
-}:
-let
+}: let
   inherit (lib) mkIf mkEnableOption mkDefault;
-in
-{
-  imports = [ inputs.home-manager.nixosModules.home-manager ];
+in {
+  imports = [inputs.home-manager.nixosModules.home-manager];
 
   options.olivia.home-manager.enable = mkEnableOption "home-manager";
 

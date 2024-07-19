@@ -1,18 +1,16 @@
-{ inputs, ... }:
-{
-  additions = final: _prev: import ../pkgs { pkgs = final; };
+{inputs, ...}: {
+  additions = final: _prev: import ../pkgs {pkgs = final;};
 
   modifications = final: prev: {
     # example = prev.example.overrideAttrs (oldAttrs: rec {
     # ...
     # });
     clamav = prev.clamav.overrideAttrs (oldAttrs: {
-      checkInputs = (oldAttrs.checkInputs or [ ]) ++ [ final.python3.pkgs.pytest ];
+      checkInputs = (oldAttrs.checkInputs or []) ++ [final.python3.pkgs.pytest];
     });
 
     jellyseerr = prev.jellyseerr.overrideAttrs (
-      oldAttrs:
-      let
+      oldAttrs: let
         version = "1.9.0";
         src = prev.fetchFromGitHub {
           owner = "Fallenbagel";
@@ -20,8 +18,7 @@
           rev = "v${version}";
           hash = "sha256-PmHVDtWESHd4ZGJfaZMzFr89R5fPb+1CiqRN1GtPg0o=";
         };
-      in
-      {
+      in {
         inherit src version;
         packageJSON = "${src}/package.json";
         offlineCache = prev.fetchYarnDeps {
@@ -48,15 +45,17 @@
     # https://github.com/NixOS/nixpkgs/issues/326296
     mealie =
       (prev.mealie.overrideAttrs (oldAttrs: {
-        patches = (oldAttrs.patches or [ ]) ++ [
-          (prev.fetchpatch {
-            url = "https://patch-diff.githubusercontent.com/raw/mealie-recipes/mealie/pull/3882.patch";
-            hash = "sha256-/NFAxeKJ/6UJqSb/iD3ACehiTF9WF0TPB4M3kB1yYL8=";
-          })
-        ];
-      })).override
-        { python3Packages = final.python311Packages; };
-
+        patches =
+          (oldAttrs.patches or [])
+          ++ [
+            (prev.fetchpatch {
+              url = "https://patch-diff.githubusercontent.com/raw/mealie-recipes/mealie/pull/3882.patch";
+              hash = "sha256-/NFAxeKJ/6UJqSb/iD3ACehiTF9WF0TPB4M3kB1yYL8=";
+            })
+          ];
+      }))
+      .override
+      {python3Packages = final.python311Packages;};
   };
 
   apple-silicon = inputs.apple-silicon.overlays.apple-silicon-overlay;

@@ -3,9 +3,7 @@
   outputs,
   pkgs,
   ...
-}:
-
-{
+}: {
   imports = [
     ./hardware-configuration.nix
     ../common
