@@ -2,13 +2,6 @@
   additions = final: _prev: import ../pkgs {pkgs = final;};
 
   modifications = final: prev: {
-    # example = prev.example.overrideAttrs (oldAttrs: rec {
-    # ...
-    # });
-    clamav = prev.clamav.overrideAttrs (oldAttrs: {
-      checkInputs = (oldAttrs.checkInputs or []) ++ [final.python3.pkgs.pytest];
-    });
-
     jellyseerr = prev.jellyseerr.overrideAttrs (
       oldAttrs: let
         version = "1.9.0";
