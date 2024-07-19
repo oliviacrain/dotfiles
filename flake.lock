@@ -9,11 +9,11 @@
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "lastModified": 1721102368,
-        "narHash": "sha256-kUuftOkC781+fnul7xKbv4puV14Ia+4AraO2LxFdLhI=",
-        "owner": "CryoMyst",
+        "lastModified": 1721362450,
+        "narHash": "sha256-ZeloVnboyJZS0aaB+9LwBVDAwpkKuEQzzSFeDrHz/Xo=",
+        "owner": "tpwrules",
         "repo": "nixos-apple-silicon",
-        "rev": "83437a4794de98a7c5dcc48e5b73c3e50b6d4a3d",
+        "rev": "3410fe09c4d6e23f0757499b8da89d15bede1f00",
         "type": "github"
       },
       "original": {
@@ -145,11 +145,11 @@
     "lix": {
       "flake": false,
       "locked": {
-        "lastModified": 1721324432,
-        "narHash": "sha256-SkALa1bLiyROFslXDfBZeitmOSUVUU0+3ewDvDYfxsc=",
+        "lastModified": 1721371213,
+        "narHash": "sha256-7SdrlNe5DBlK5uLBhPPxVRWI50N1PFz3zMBeDYiX0Qs=",
         "ref": "refs/heads/main",
-        "rev": "5ee1e6ea9887a54f0af3a66528abc04b17611516",
-        "revCount": 15980,
+        "rev": "aba5f19680b2f4c29d7ce2ff5e2a89128c1cb26d",
+        "revCount": 15985,
         "type": "git",
         "url": "https://git@git.lix.systems/lix-project/lix"
       },
