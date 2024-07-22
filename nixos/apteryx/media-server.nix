@@ -4,16 +4,7 @@
     "video"
   ];
 
-  environment.systemPackages = builtins.attrValues {
-    inherit
-      (pkgs)
-      amdgpu_top
-      jellyfin
-      jellyfin-web
-      jellyfin-ffmpeg
-      jellyseerr
-      ;
-  };
+  environment.systemPackages = [pkgs.amdgpu_top];
 
   services.jellyfin = {
     enable = true;
