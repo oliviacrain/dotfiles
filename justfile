@@ -20,7 +20,7 @@ deploy hostname: sources-to-store
         switch \
         --fast --flake {{justfile_directory()}}#{{hostname}} \
         --target-host {{hostname}} --build-host {{hostname}} \
-        --use-remote-sudo
+        --use-remote-sudo --show-trace
 
 # :/
 # https://github.com/NixOS/nixfmt/issues/151

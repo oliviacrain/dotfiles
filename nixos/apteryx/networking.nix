@@ -62,13 +62,13 @@
       # Jellyseerr
       https://requests.slug.gay {
         import tailscale_service
-        reverse_proxy localhost:${config.services.jellyseerr.port}
+        reverse_proxy localhost:${builtins.toString config.services.jellyseerr.port}
       }
 
       # Mealie
       https://recipes.slug.gay {
         import tailscale_service
-        reverse_proxy localhost:${config.services.mealie.port}
+        reverse_proxy localhost:${builtins.toString config.services.mealie.port}
       }
 
       # Forgejo
@@ -80,7 +80,7 @@
       # LLDAP
       https://lldap.slug.gay {
         import tailscale_service
-        reverse_proxy localhost:${config.services.lldap.settings.http_port}
+        reverse_proxy localhost:${builtins.toString config.services.lldap.settings.http_port}
       }
     '';
   };
