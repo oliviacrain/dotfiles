@@ -12,7 +12,6 @@
     ./networking.nix
     ./media-server.nix
     ./mealie.nix
-    ./lldap.nix
     ./litestream.nix
     ./forgejo.nix
   ];
