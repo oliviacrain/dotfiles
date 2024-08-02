@@ -32,6 +32,10 @@
 
     vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
     vscode-extensions.inputs.nixpkgs.follows = "nixpkgs";
+
+    attic.url = "github:zhaofengli/attic";
+    attic.inputs.nixpkgs.follows = "nixpkgs";
+
   };
 
   outputs = {

@@ -15,6 +15,7 @@
     ./litestream.nix
     ./forgejo.nix
     ./monitoring.nix
+    ./atticd.nix
   ];
 
   networking.hostName = "apteryx";
