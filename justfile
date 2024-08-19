@@ -1,10 +1,11 @@
 local := `hostname -s`
+impure-system-build := if local == "corvus" {"--impure"} else {""}
 
 build-system-local: sources-to-store
-    nom build {{justfile_directory()}}#nixosConfigurations.{{local}}.config.system.build.toplevel --impure --keep-going
+    nom build {{justfile_directory()}}#nixosConfigurations.{{local}}.config.system.build.toplevel --keep-going {{impure-system-build}}
 
 switch: build-system-local
-    sudo nixos-rebuild switch --flake {{justfile_directory()}}#{{local}} --impure
+    sudo nixos-rebuild switch --flake {{justfile_directory()}}#{{local}} {{impure-system-build}}
 
 diff: build-system-local
     nvd diff /run/current-system {{justfile_directory()}}/result
