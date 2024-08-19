@@ -1,5 +1,8 @@
-{inputs, config, ...}:
 {
+  inputs,
+  config,
+  ...
+}: {
   imports = [inputs.attic.nixosModules.atticd];
 
   sops.secrets."atticd/token_hs256" = {};

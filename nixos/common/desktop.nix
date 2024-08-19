@@ -47,7 +47,8 @@ in {
         inherit
           (pkgs)
           firefox
-#          clamav
+          # clamav
+          
           calibre
           obsidian
           ;
