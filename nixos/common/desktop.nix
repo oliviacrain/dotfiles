@@ -53,7 +53,7 @@ in {
           obsidian
           ;
       }
-      ++ attrValues {inherit (pkgs.kdePackages) neochat tokodon;};
+      ++ [pkgs.kdePackages.tokodon];
 
     fonts.packages = [pkgs.berkeley-mono];
   };
