@@ -31,9 +31,9 @@ in {
     extensions = with pkgs.vscode-marketplace; [
       theaflowers.witch-hazel
       jnoortheen.nix-ide
-      ms-vscode.cpptools
       mkhl.direnv
       pkgs.vscode-extensions.rust-lang.rust-analyzer
+      pkgs.vscode-extensions.ms-vscode-cpptools
     ];
     inherit userSettings;
   };
