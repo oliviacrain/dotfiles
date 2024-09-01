@@ -3,6 +3,7 @@
   config,
   inputs,
   outputs,
+  pkgs,
   ...
 }: let
   inherit
@@ -60,5 +61,7 @@ in {
       ];
       config.allowUnfree = mkDefault true;
     };
+
+    environment.systemPackages = [pkgs.attic-client];
   };
 }
