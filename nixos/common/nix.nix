@@ -25,6 +25,7 @@ in {
         "nix-command"
         "flakes"
       ];
+      settings.trusted-users = [ "olivia" ];
       registry.nixpkgs.flake = mkDefault inputs.nixpkgs;
       buildMachines = mkIf config.olivia.nix.useApteryxRemote [
         {
