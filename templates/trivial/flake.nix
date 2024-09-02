@@ -1,5 +1,5 @@
 {
-  description = "Olivia's Nix Configs";
+  description = "Olivia's flake template!";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
@@ -21,7 +21,7 @@
       default = {};
     });
 
-    formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.nixfmt-rfc-style);
+    formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
 
     devShells = forAllSystems (
       system: let
