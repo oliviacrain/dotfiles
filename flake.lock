@@ -9,11 +9,11 @@
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "lastModified": 1722469787,
-        "narHash": "sha256-P20oAmbgXHl1E77TXPXiAj1Ntycc1mf7fZMI7X13VYw=",
+        "lastModified": 1725418254,
+        "narHash": "sha256-2zPzPP9Eu5NxgJxTVcuCCX5xh7CWy7rYaLHfaAZS6H8=",
         "owner": "tpwrules",
         "repo": "nixos-apple-silicon",
-        "rev": "8a665fee82901878edaeb8ee120296a979db2dd2",
+        "rev": "c5f944f49a052232015bb3c03524b69e3fdd2aa4",
         "type": "github"
       },
       "original": {
@@ -248,11 +248,11 @@
     "lix": {
       "flake": false,
       "locked": {
-        "lastModified": 1725228396,
-        "narHash": "sha256-QBXwqyPuHUKBiuyzHBxqH/MpjPY9DQiY2M81P2t6b/0=",
+        "lastModified": 1725389327,
+        "narHash": "sha256-UtHpRNYPabG0zW3XB8Dldb68O7n1JLSUczTwg37dcsA=",
         "ref": "refs/heads/main",
-        "rev": "02eb07cfd539c34c080cb1baf042e5e780c1fcc2",
-        "revCount": 16214,
+        "rev": "72589e703258e5cb4de091390291ff84c3a22bf2",
+        "revCount": 16219,
         "type": "git",
         "url": "https://git@git.lix.systems/lix-project/lix"
       },
@@ -425,11 +425,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1725327254,
-        "narHash": "sha256-tf8GaYWPfhJBP1PsrsLTLH5/0W7HuvVZST35nl4n/A4=",
+        "lastModified": 1725413730,
+        "narHash": "sha256-eK+iXeWocH0dbcRc+nkk/nbOxTIRtcFQElyBlvjkRqk=",
         "owner": "nix-community",
         "repo": "nix-vscode-extensions",
-        "rev": "1797a6c8c796db81ee519a4da29c96f446203c0a",
+        "rev": "ac3869bc15d8baeefcfc2205f2e6c20e6c09620e",
         "type": "github"
       },
       "original": {
