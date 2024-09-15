@@ -12,7 +12,6 @@
     lix-module = {
       url = "git+https://git.lix.systems/lix-project/nixos-module";
       inputs.lix.follows = "lix";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     sops-nix.url = "github:Mic92/sops-nix";
@@ -40,6 +39,7 @@
     # We set to system nixpkgs because `follows = ""` is hacky, see https://github.com/NixOS/nix/issues/7807.
     attic.inputs.nixpkgs-stable.follows = "nixpkgs";
     sops-nix.inputs.nixpkgs-stable.follows = "nixpkgs";
+    lix-module.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = {
