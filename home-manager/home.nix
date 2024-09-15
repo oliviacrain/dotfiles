@@ -26,6 +26,7 @@
       ripgrep
       shellcheck
       yubikey-manager
+      zed-editor
       ;
   };
 
