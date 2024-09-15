@@ -40,14 +40,14 @@ in
       owner = "caddyserver";
       repo = "dist";
       rev = "v${version}";
-      hash = lib.fakeHash;
-      };
+      hash = "sha256-O4s7PhSUTXoNEIi+zYASx8AgClMC5rs7se863G6w+l0=";
+    };
 
     src = fetchFromGitHub {
       owner = "caddyserver";
       repo = "caddy";
       rev = "v${version}";
-      hash = lib.fakeHash;
+      hash = "sha256-CBfyqtWp3gYsYwaIxbfXO3AYaBiM7LutLC7uZgYXfkQ=";
     };
 
     inherit vendorHash;

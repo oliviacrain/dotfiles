@@ -4,7 +4,7 @@
   inherit (pkgs) callPackage;
 in {
   caddy-with-porkbun = callPackage ./caddy-with-plugins.nix {
-    vendorHash = "sha256-tR9DQYmI7dGvj0W0Dsze0/BaLjG84hecm0TPiCVSY2Y=";
+    vendorHash = "sha256-BPyEYT8ZsUF0mTOhc8tq5LCxacN+AlogZO6dENZ4wRc=";
     externalPlugins = [
       {
         name = "porkbun";
