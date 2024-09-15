@@ -80,6 +80,11 @@
         import tailscale_service
         reverse_proxy localhost:8254
       }
+
+      https://rss.slug.gay {
+        import tailscale_service
+        reverse_proxy localhost:6613
+      }
     '';
   };
 }

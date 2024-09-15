@@ -29,6 +29,14 @@
       mode = "0440";
     };
 
+    secrets."miniflux/admin_password_seed" = {};
+    templates."miniflux-admin-seed.env" = {
+      content = ''
+        ADMIN_USERNAME=admin
+        ADMIN_PASSWORD=${config.sops.secrets."miniflux/admin_password_seed"}
+      '';
+    };
+
     secrets."tailscale/auth_key" = {
       reloadUnits = ["tailscale-autoconnect.service"];
     };
