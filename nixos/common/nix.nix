@@ -60,7 +60,12 @@ in {
         outputs.overlays.modifications
         outputs.overlays.vscode-extensions
       ];
-      config.allowUnfree = mkDefault true;
+      config = {
+        allowUnfree = mkDefault true;
+        permittedInsecurePackages = [
+            "litestream-0.3.13"
+        ];
+    };
     };
 
     environment.systemPackages = [pkgs.attic-client];
