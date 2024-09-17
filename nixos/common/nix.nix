@@ -14,18 +14,26 @@
     mkAfter
     ;
 in {
-  imports = [inputs.lix-module.nixosModules.default];
 
   options.olivia.nix.enable = mkEnableOption "common nix/nixpkgs options";
   options.olivia.nix.useApteryxRemote = mkEnableOption "use of apteryx as a remote builder";
 
   config = mkIf config.olivia.nix.enable {
     nix = {
-      settings.experimental-features = mkDefault [
-        "nix-command"
-        "flakes"
-      ];
-      settings.trusted-users = [ "olivia" ];
+      settings = {
+        experimental-features = mkDefault [
+            "nix-command"
+            "flakes"
+        ];
+        trusted-users = [ "olivia" ];
+        extra-substituters = ["https://cache.lix.systems"];
+        trusted-public-keys = [
+          "cache.lix.systems:aBnZUw8zA7H35Cz2RyKFVs3H4PlGTLawyY5KRbvJR8o="
+        ];
+      };
+      extraOptions = ''
+        builders-use-substitutes = true
+      '';
       registry.nixpkgs.flake = mkDefault inputs.nixpkgs;
       buildMachines = mkIf config.olivia.nix.useApteryxRemote [
         {
@@ -47,18 +55,12 @@ in {
         dates = "weekly";
       };
     };
-
-    nix.settings.extra-substituters = ["https://cache.lix.systems"];
-
-    nix.settings.trusted-public-keys = [
-      "cache.lix.systems:aBnZUw8zA7H35Cz2RyKFVs3H4PlGTLawyY5KRbvJR8o="
-    ];
-
     nixpkgs = {
       overlays = mkAfter [
         outputs.overlays.additions
         outputs.overlays.modifications
         outputs.overlays.vscode-extensions
+        outputs.overlays.lix-module
       ];
       config = {
         allowUnfree = mkDefault true;
@@ -67,7 +69,5 @@ in {
         ];
     };
     };
-
-    environment.systemPackages = [pkgs.attic-client];
   };
 }
