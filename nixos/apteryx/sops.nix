@@ -33,7 +33,7 @@
     templates."miniflux-admin-seed.env" = {
       content = ''
         ADMIN_USERNAME=admin
-        ADMIN_PASSWORD=${config.sops.secrets."miniflux/admin_password_seed"}
+        ADMIN_PASSWORD=${config.sops.placeholder."miniflux/admin_password_seed"}
       '';
     };
 
