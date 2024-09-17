@@ -76,11 +76,6 @@
         reverse_proxy unix/${config.services.forgejo.settings.server.HTTP_ADDR}
       }
 
-      https://attic.slug.gay {
-        import tailscale_service
-        reverse_proxy localhost:8254
-      }
-
       https://rss.slug.gay {
         import tailscale_service
         reverse_proxy localhost:6613

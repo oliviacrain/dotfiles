@@ -15,7 +15,6 @@
     ./litestream.nix
     ./forgejo.nix
     ./monitoring.nix
-    ./atticd.nix
     ./miniflux.nix
   ];
 
