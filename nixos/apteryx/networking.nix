@@ -33,6 +33,7 @@
             api_key {env.PORKBUN_API}
             api_secret_key {env.PORKBUN_SECRET}
           }
+          resolvers 9.9.9.9 1.1.1.1 8.8.8.8
         }
         respond @blocked "bye bozo" 403
         forward_auth unix/${config.services.tailscaleAuth.socketPath} {
@@ -76,6 +77,7 @@
         reverse_proxy unix/${config.services.forgejo.settings.server.HTTP_ADDR}
       }
 
+      # Miniflux
       https://rss.slug.gay {
         import tailscale_service
         reverse_proxy localhost:6613
