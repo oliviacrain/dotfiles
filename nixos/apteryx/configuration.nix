@@ -29,5 +29,7 @@
     AllowHibernation=no
   '';
 
+  environment.systemPackages = [pkgs.vlc];
+
   system.stateVersion = "23.11";
 }
