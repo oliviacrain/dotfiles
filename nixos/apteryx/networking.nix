@@ -27,7 +27,7 @@
     configFile = pkgs.writeText "Caddyfile" ''
       (tailscale_service) {
         bind 100.95.200.106 fd7a:115c:a1e0::891f:c86a
-        @blocked not client_ip 100.64.0.0/10 fd7a:115c:a1e0::/96
+        @blocked not client_ip 100.64.0.0/10 fd7a:115c:a1e0::/96 192.168.0.0/16
         tls {
           dns porkbun {
             api_key {env.PORKBUN_API}
