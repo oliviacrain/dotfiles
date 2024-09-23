@@ -11,6 +11,9 @@ in {
         name = "${userName}";
         email = "${userEmail}";
       };
+      aliases = {
+        amend = [ "squash" "--keep-emptied" ];
+      };
     };
   };
   programs.git = {
