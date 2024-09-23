@@ -35,6 +35,9 @@
     attic.url = "github:zhaofengli/attic";
     attic.inputs.nixpkgs.follows = "nixpkgs";
 
+    disko.url = "github:nix-community/disko";
+    disko.inputs.nixpkgs.follows = "nixpkgs";
+
     # These stable nixpkgs inputs are only used for checks, we don't care about that.
     # We set to system nixpkgs because `follows = ""` is hacky, see https://github.com/NixOS/nix/issues/7807.
     attic.inputs.nixpkgs-stable.follows = "nixpkgs";
