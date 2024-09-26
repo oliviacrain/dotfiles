@@ -22,6 +22,8 @@
     inherit
       (pkgs)
       fd
+      jd-diff-patch
+      nix-diff
       rename
       ripgrep
       shellcheck
