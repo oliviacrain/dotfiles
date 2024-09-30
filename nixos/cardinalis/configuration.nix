@@ -19,6 +19,7 @@
   };
 
   services.openssh.enable = true;
+  systemd.network.wait-online.enable = false;
   programs.steam.enable = true;
 
   system.stateVersion = "23.11";
