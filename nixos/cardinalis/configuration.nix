@@ -18,6 +18,7 @@
     nvidia.enable = true;
   };
 
+  services.openssh.enable = true;
   programs.steam.enable = true;
 
   system.stateVersion = "23.11";
