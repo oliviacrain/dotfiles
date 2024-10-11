@@ -21,6 +21,31 @@
   ];
   users.users.${config.services.caddy.user}.extraGroups = [config.services.tailscaleAuth.group];
 
+  sops = {
+    secrets."caddy/porkbun_api" = {
+      mode = "0440";
+      owner = config.services.caddy.user;
+      group = config.services.caddy.group;
+    };
+    secrets."caddy/porkbun_secret" = {
+      mode = "0440";
+      owner = config.services.caddy.user;
+      group = config.services.caddy.group;
+    };
+    templates."caddy.env" = {
+      content = ''
+        PORKBUN_API=${config.sops.placeholder."caddy/porkbun_api"}
+        PORKBUN_SECRET=${config.sops.placeholder."caddy/porkbun_secret"}
+      '';
+      owner = config.services.caddy.user;
+      group = config.services.caddy.group;
+      mode = "0440";
+    };
+    secrets."tailscale/auth_key" = {
+      reloadUnits = ["tailscale-autoconnect.service"];
+    };
+  };
+
   services.caddy = {
     enable = true;
     package = pkgs.caddy-with-porkbun;

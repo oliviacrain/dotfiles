@@ -32,4 +32,16 @@
     };
   };
   services.openssh.settings.AllowUsers = [config.services.forgejo.user];
+  sops = {
+    secrets."forgejo/secret_key" = {
+      mode = "0400";
+      owner = config.services.forgejo.user;
+      group = config.services.forgejo.group;
+    };
+    secrets."forgejo/internal_token" = {
+      mode = "0400";
+      owner = config.services.forgejo.user;
+      group = config.services.forgejo.group;
+    };
+  };
 }

@@ -16,6 +16,7 @@ in {
     ./network.nix
     ./nvidia.nix
     ./olivia.nix
+    ./sops.nix
     ./tailscale.nix
     ./vscode-server.nix
 
