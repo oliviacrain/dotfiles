@@ -7,7 +7,7 @@
 
   sops = {
     defaultSopsFile = ../../secrets/${config.networking.hostName}.yaml;
-    age.sshKeyPaths = ["/home/olivia/corvus-host"];
+    age.sshKeyPaths = ["/home/olivia/${config.networking.hostName}-host"];
     secrets."ssh/host-key" = {};
     secrets."ssh/host-cert" = {};
   };
