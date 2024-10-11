@@ -7,7 +7,6 @@
   imports = [
     ./hardware-configuration.nix
     ../common
-    ./sops.nix
     ./users.nix
     ./networking.nix
     ./media-server.nix
