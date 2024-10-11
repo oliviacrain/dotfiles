@@ -13,14 +13,16 @@
   };
   services.openssh = {
     enable = true;
-    hostKeys = [ {
-      path = config.sops.secrets."ssh/host-key".path;
-      type = "ed25519";
-    } ];
+    hostKeys = [
+      {
+        path = config.sops.secrets."ssh/host-key".path;
+        type = "ed25519";
+      }
+    ];
     extraConfig = ''
       HostCertificate ${config.sops.secrets."ssh/host-cert".path}
     '';
-    knownHosts."*.olivia.dev"= {
+    knownHosts."*.olivia.dev" = {
       certAuthority = true;
       publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGtraxrJgr3Dzx0jwgcKz1FUjMQ8kmZ9ZiB3DA+iLRGz";
     };

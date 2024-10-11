@@ -5,10 +5,9 @@
   config,
   lib,
   ...
-}:
-let
+}: let
   inherit (lib) mkForce;
-in{
+in {
   imports = [
     ./hardware-configuration.nix
     ../common

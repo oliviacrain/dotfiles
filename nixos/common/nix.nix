@@ -14,7 +14,6 @@
     mkAfter
     ;
 in {
-
   options.olivia.nix.enable = mkEnableOption "common nix/nixpkgs options";
   options.olivia.nix.useApteryxRemote = mkEnableOption "use of apteryx as a remote builder";
 
@@ -22,10 +21,10 @@ in {
     nix = {
       settings = {
         experimental-features = mkDefault [
-            "nix-command"
-            "flakes"
+          "nix-command"
+          "flakes"
         ];
-        trusted-users = [ "olivia" ];
+        trusted-users = ["olivia"];
         extra-substituters = ["https://cache.lix.systems"];
         trusted-public-keys = [
           "cache.lix.systems:aBnZUw8zA7H35Cz2RyKFVs3H4PlGTLawyY5KRbvJR8o="
@@ -65,9 +64,9 @@ in {
       config = {
         allowUnfree = mkDefault true;
         permittedInsecurePackages = [
-            "litestream-0.3.13"
+          "litestream-0.3.13"
         ];
-    };
+      };
     };
   };
 }

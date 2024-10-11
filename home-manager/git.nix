@@ -12,7 +12,7 @@ in {
         email = "${userEmail}";
       };
       aliases = {
-        amend = [ "squash" "--keep-emptied" ];
+        amend = ["squash" "--keep-emptied"];
       };
     };
   };
