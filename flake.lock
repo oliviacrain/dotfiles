@@ -304,6 +304,22 @@
         "type": "github"
       }
     },
+    "nixpkgs-actual": {
+      "locked": {
+        "lastModified": 1728650348,
+        "narHash": "sha256-qWEMLD7FgnrN6LTeh60fVTIOF69DYxgQxbhe84Y3eFM=",
+        "owner": "oddlama",
+        "repo": "nixpkgs",
+        "rev": "91adb3e44fa6307699d5cecd80fad4cc4a61c755",
+        "type": "github"
+      },
+      "original": {
+        "owner": "oddlama",
+        "ref": "feat-actual-budget",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "apple-silicon": "apple-silicon",
@@ -313,6 +329,7 @@
         "lix": "lix",
         "lix-module": "lix-module",
         "nixpkgs": "nixpkgs",
+        "nixpkgs-actual": "nixpkgs-actual",
         "sops-nix": "sops-nix",
         "vscode-extensions": "vscode-extensions",
         "vscode-server": "vscode-server",

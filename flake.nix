@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-actual.url = "github:oddlama/nixpkgs/feat-actual-budget";
 
     lix = {
       url = "git+https://git@git.lix.systems/lix-project/lix?ref=refs/heads/main";
