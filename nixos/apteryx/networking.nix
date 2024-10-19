@@ -110,7 +110,7 @@
 
       https://budget.slug.gay {
         import tailscale_service
-        reverse_proxy localhost:${config.services.actual.settings.port}
+        reverse_proxy localhost:${builtins.toString config.services.actual.settings.port}
       }
     '';
   };
