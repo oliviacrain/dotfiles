@@ -107,6 +107,11 @@
         import tailscale_service
         reverse_proxy localhost:6613
       }
+
+      https://budget.slug.gay {
+        import tailscale_service
+        reverse_proxy localhost:${config.services.actual.settings.port}
+      }
     '';
   };
 }

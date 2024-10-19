@@ -15,6 +15,7 @@
     ./forgejo.nix
     ./monitoring.nix
     ./miniflux.nix
+    ./actual.nix
   ];
 
   networking.hostName = "apteryx";
