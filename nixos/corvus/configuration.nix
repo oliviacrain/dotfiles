@@ -15,10 +15,7 @@ in {
   ];
 
   networking.hostName = "corvus";
-  olivia = {
-    enable = true;
-    vscode-server.enable = false;
-  };
+  olivia.enable = true;
 
   networking.useNetworkd = mkForce false;
   networking.wireless.iwd.enable = mkForce false;

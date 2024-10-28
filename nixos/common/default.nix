@@ -7,7 +7,6 @@
 in {
   imports = [
     ./nix.nix
-
     ./boot.nix
     ./desktop.nix
     ./locale.nix
@@ -15,8 +14,6 @@ in {
     ./olivia.nix
     ./sops.nix
     ./tailscale.nix
-    ./vscode-server.nix
-
     ./home-manager.nix
   ];
 
@@ -33,7 +30,6 @@ in {
       network.enable = mkDefault true;
       nix.enable = mkDefault true;
       tailscale.enable = mkDefault true;
-      vscode-server.enable = mkDefault true;
     };
   };
 }

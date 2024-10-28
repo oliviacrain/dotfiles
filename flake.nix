@@ -27,9 +27,6 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-    vscode-server.url = "github:nix-community/nixos-vscode-server";
-    vscode-server.inputs.nixpkgs.follows = "nixpkgs";
-
     vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
     vscode-extensions.inputs.nixpkgs.follows = "nixpkgs";
 
@@ -46,7 +43,6 @@
     self,
     nixpkgs,
     home-manager,
-    vscode-server,
     ...
   } @ inputs: let
     inherit (self) outputs;
