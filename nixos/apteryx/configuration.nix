@@ -16,6 +16,7 @@
     ./monitoring.nix
     ./miniflux.nix
     ./actual.nix
+    ./minecraft.nix
   ];
 
   networking.hostName = "apteryx";

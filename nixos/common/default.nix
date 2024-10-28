@@ -12,7 +12,6 @@ in {
     ./boot.nix
     ./desktop.nix
     ./locale.nix
-    ./minecraft.nix
     ./network.nix
     ./nvidia.nix
     ./olivia.nix
@@ -39,7 +38,6 @@ in {
       vscode-server.enable = mkDefault true;
 
       asahi.enable = mkDefault false;
-      minecraft.enable = mkDefault false;
       nvidia.enable = mkDefault false;
       nix.useApteryxRemote = mkDefault false;
     };
