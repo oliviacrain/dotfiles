@@ -12,7 +12,6 @@ in {
     ./desktop.nix
     ./locale.nix
     ./network.nix
-    ./nvidia.nix
     ./olivia.nix
     ./sops.nix
     ./tailscale.nix
@@ -35,8 +34,6 @@ in {
       nix.enable = mkDefault true;
       tailscale.enable = mkDefault true;
       vscode-server.enable = mkDefault true;
-
-      nvidia.enable = mkDefault false;
     };
   };
 }
