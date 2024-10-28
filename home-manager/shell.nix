@@ -2,7 +2,7 @@
   programs.alacritty = {
     enable = true;
     settings = {
-      import = ["${pkgs.witchhazel}/alacritty/witchhazel_hyper.toml"];
+      general.import = ["${pkgs.witchhazel}/alacritty/witchhazel_hyper.toml"];
       font.normal.family = "Berkeley Mono Variable";
     };
   };
