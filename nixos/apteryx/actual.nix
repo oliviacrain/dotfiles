@@ -3,8 +3,8 @@
   outputs,
   ...
 }: {
-  imports = [ "${inputs.nixpkgs-actual}/nixos/modules/services/web-apps/actual.nix" ];
-  nixpkgs.overlays = [ outputs.overlays.actual-budget ];
+  imports = ["${inputs.nixpkgs-actual}/nixos/modules/services/web-apps/actual.nix"];
+  nixpkgs.overlays = [outputs.overlays.actual-budget];
 
   services.actual = {
     enable = true;
