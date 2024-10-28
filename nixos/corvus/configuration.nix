@@ -11,12 +11,12 @@ in {
   imports = [
     ./hardware-configuration.nix
     ../common
+    ./asahi.nix
   ];
 
   networking.hostName = "corvus";
   olivia = {
     enable = true;
-    asahi.enable = true;
     vscode-server.enable = false;
     nix.useApteryxRemote = true;
   };

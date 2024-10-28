@@ -8,7 +8,6 @@ in {
   imports = [
     ./nix.nix
 
-    ./asahi.nix
     ./boot.nix
     ./desktop.nix
     ./locale.nix
@@ -37,7 +36,6 @@ in {
       tailscale.enable = mkDefault true;
       vscode-server.enable = mkDefault true;
 
-      asahi.enable = mkDefault false;
       nvidia.enable = mkDefault false;
       nix.useApteryxRemote = mkDefault false;
     };
