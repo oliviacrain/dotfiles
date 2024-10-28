@@ -3,6 +3,7 @@
     enable = true;
     config = {
       LISTEN_ADDR = "localhost:6613";
+      BASE_URL = "https://rss.slug.gay/";
     };
     createDatabaseLocally = true;
     adminCredentialsFile = config.sops.templates."miniflux-admin-seed.env".path;
