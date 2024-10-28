@@ -15,7 +15,6 @@
     ;
 in {
   options.olivia.nix.enable = mkEnableOption "common nix/nixpkgs options";
-  options.olivia.nix.useApteryxRemote = mkEnableOption "use of apteryx as a remote builder";
 
   config = mkIf config.olivia.nix.enable {
     nix = {
@@ -34,7 +33,7 @@ in {
         builders-use-substitutes = true
       '';
       registry.nixpkgs.flake = mkDefault inputs.nixpkgs;
-      buildMachines = mkIf config.olivia.nix.useApteryxRemote [
+      buildMachines = mkIf (config.networking.hostName != "apteryx") [
         {
           hostName = "apteryx";
           sshUser = "nixremote";
@@ -46,7 +45,7 @@ in {
           ];
         }
       ];
-      distributedBuilds = mkIf config.olivia.nix.useApteryxRemote true;
+      distributedBuilds = mkDefault true;
 
       gc = {
         automatic = true;

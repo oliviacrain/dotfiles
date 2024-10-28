@@ -37,7 +37,6 @@ in {
       vscode-server.enable = mkDefault true;
 
       nvidia.enable = mkDefault false;
-      nix.useApteryxRemote = mkDefault false;
     };
   };
 }

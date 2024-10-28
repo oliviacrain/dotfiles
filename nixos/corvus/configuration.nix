@@ -18,7 +18,6 @@ in {
   olivia = {
     enable = true;
     vscode-server.enable = false;
-    nix.useApteryxRemote = true;
   };
 
   networking.useNetworkd = mkForce false;

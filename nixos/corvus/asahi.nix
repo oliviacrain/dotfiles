@@ -11,7 +11,7 @@
         ''
       );
     };
-    boot.loader.efi.canTouchEfiVariables = false;
+    boot.loader.efi.canTouchEfiVariables = lib.mkForce false;
     nixpkgs.overlays = lib.mkBefore [outputs.overlays.widevine];
     environment.sessionVariables.MOZ_GMP_PATH = [
       "${pkgs.widevine-cdm-lacros}/gmp-widevinecdm/system-installed"
