@@ -22,4 +22,5 @@
   environment.sessionVariables.MOZ_GMP_PATH = [
     "${pkgs.widevine-cdm-lacros}/gmp-widevinecdm/system-installed"
   ];
+  systemd.services.NetworkManager-wait-online.enable = false;
 }

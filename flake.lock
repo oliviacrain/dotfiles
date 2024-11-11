@@ -6,20 +6,21 @@
         "nixpkgs": [
           "nixpkgs"
         ],
+        "nixpkgs-systemd-boot": "nixpkgs-systemd-boot",
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "lastModified": 1729947759,
-        "narHash": "sha256-tpj4Wa8fHravMOuqRJRCyyNSkRh++LPU1T17Hw6s2o0=",
+        "lastModified": 1730880045,
+        "narHash": "sha256-3t5QfLhiNM6s/COLJIOlpWDxQahtsvkgrl0WBQu6Ao4=",
         "owner": "oliverbestmann",
         "repo": "nixos-apple-silicon",
-        "rev": "e78dbe3c5b53e04f573fc6fb4de7507bc443bb1c",
+        "rev": "31bed7b26776a19b63ccb243337028f627326f92",
         "type": "github"
       },
       "original": {
         "owner": "oliverbestmann",
         "repo": "nixos-apple-silicon",
-        "rev": "e78dbe3c5b53e04f573fc6fb4de7507bc443bb1c",
+        "rev": "31bed7b26776a19b63ccb243337028f627326f92",
         "type": "github"
       }
     },
@@ -216,6 +217,22 @@
         "owner": "oddlama",
         "ref": "feat-actual-budget",
         "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs-systemd-boot": {
+      "locked": {
+        "lastModified": 1729850857,
+        "narHash": "sha256-WvLXzNNnnw+qpFOmgaM3JUlNEH+T4s22b5i2oyyCpXE=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "41dea55321e5a999b17033296ac05fe8a8b5a257",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "41dea55321e5a999b17033296ac05fe8a8b5a257",
         "type": "github"
       }
     },

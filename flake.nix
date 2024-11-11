@@ -18,7 +18,7 @@
     sops-nix.url = "github:Mic92/sops-nix";
     sops-nix.inputs.nixpkgs.follows = "nixpkgs";
 
-    apple-silicon.url = "github:oliverbestmann/nixos-apple-silicon?rev=e78dbe3c5b53e04f573fc6fb4de7507bc443bb1c";
+    apple-silicon.url = "github:oliverbestmann/nixos-apple-silicon?rev=31bed7b26776a19b63ccb243337028f627326f92";
     apple-silicon.inputs.nixpkgs.follows = "nixpkgs";
 
     widevine.url = "github:epetousis/nixos-aarch64-widevine";
