@@ -16,14 +16,11 @@
     ./monitoring.nix
     ./miniflux.nix
     ./actual.nix
-    ./minecraft.nix
+    ./kanidm.nix
   ];
 
   networking.hostName = "apteryx";
-  olivia = {
-    enable = true;
-    minecraft.enable = true;
-  };
+  olivia.enable = true;
 
   systemd.sleep.extraConfig = ''
     AllowSuspend=no
