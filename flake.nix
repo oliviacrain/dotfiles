@@ -39,7 +39,6 @@
 
     # These stable nixpkgs inputs are only used for checks, we don't care about that.
     # We set to system nixpkgs because `follows = ""` is hacky, see https://github.com/NixOS/nix/issues/7807.
-    sops-nix.inputs.nixpkgs-stable.follows = "nixpkgs";
     lix-module.inputs.nixpkgs.follows = "nixpkgs";
   };
 

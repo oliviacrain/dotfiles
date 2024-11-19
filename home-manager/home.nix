@@ -11,6 +11,7 @@
     ./editor.nix
     ./shell.nix
     ./vscode.nix
+    ./music.nix
   ];
 
   home = {

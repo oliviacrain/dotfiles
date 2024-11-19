@@ -8,6 +8,7 @@
     ./hardware-configuration.nix
     ../common
 
+    #./filesystem.nix
     ./secure-boot.nix
     ./tpm-ssh.nix
     ./gaming.nix
@@ -19,6 +20,8 @@
 
   boot.kernelPackages = pkgs.linuxPackagesFor pkgs.linux_latest;
   services.fwupd.enable = true;
+
+  programs.virt-manager.enable = true;
 
   system.stateVersion = "24.11";
 }
