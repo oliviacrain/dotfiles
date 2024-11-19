@@ -18,6 +18,8 @@
   networking.hostName = "athene";
   home-manager.users.olivia.home.packages = [pkgs.signal-desktop pkgs.spotify];
 
+  systemd.services.NetworkManager-wait-online.enable = false;
+
   boot.kernelPackages = pkgs.linuxPackagesFor pkgs.linux_latest;
   services.fwupd.enable = true;
 
