@@ -1,6 +1,7 @@
 {
   inputs,
   pkgs,
+  lib,
   ...
 }: {
   imports = [
@@ -8,9 +9,8 @@
     ./hardware-configuration.nix
     ../common
 
-    #./filesystem.nix
     ./secure-boot.nix
-    ./tpm-ssh.nix
+    #./tpm-ssh.nix
     ./gaming.nix
   ];
 
@@ -18,8 +18,8 @@
   networking.hostName = "athene";
   home-manager.users.olivia.home.packages = [pkgs.signal-desktop pkgs.spotify];
 
-  systemd.services.NetworkManager-wait-online.enable = false;
-
+  systemd.services.NetworkManager-wait-online.enable = lib.mkForce false;
+  systemd.services.systemd-networkd-wait-online.enable = lib.mkForce false;
   boot.kernelPackages = pkgs.linuxPackagesFor pkgs.linux_latest;
   services.fwupd.enable = true;
 
