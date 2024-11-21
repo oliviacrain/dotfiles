@@ -19,9 +19,11 @@
   boot.kernelModules = ["kvm-amd"];
   boot.extraModulePackages = [];
 
+  boot.initrd.luks.devices."root".device = "/dev/disk/by-uuid/a9888283-2180-410c-a0d5-406b5c603ebb";
+
   fileSystems = {
     "/" = {
-      device = "/dev/disk/by-uuid/5c74c5d3-63f6-410e-9042-83162e237ed2";
+      device = "/dev/disk/by-uuid/bbbe3e02-45db-4c18-9b47-d5fe8ad6186f";
       fsType = "btrfs";
       options = [
         "subvol=root"
@@ -29,7 +31,7 @@
       ];
     };
     "/home" = {
-      device = "/dev/disk/by-uuid/5c74c5d3-63f6-410e-9042-83162e237ed2";
+      device = "/dev/disk/by-uuid/bbbe3e02-45db-4c18-9b47-d5fe8ad6186f";
       fsType = "btrfs";
       options = [
         "subvol=home"
@@ -37,7 +39,7 @@
       ];
     };
     "/nix" = {
-      device = "/dev/disk/by-uuid/5c74c5d3-63f6-410e-9042-83162e237ed2";
+      device = "/dev/disk/by-uuid/bbbe3e02-45db-4c18-9b47-d5fe8ad6186f";
       fsType = "btrfs";
       options = [
         "subvol=nix"
@@ -46,7 +48,7 @@
       ];
     };
     "/swap" = {
-      device = "/dev/disk/by-uuid/5c74c5d3-63f6-410e-9042-83162e237ed2";
+      device = "/dev/disk/by-uuid/bbbe3e02-45db-4c18-9b47-d5fe8ad6186f";
       fsType = "btrfs";
       options = [
         "subvol=swap"
@@ -54,7 +56,7 @@
       ];
     };
     "/boot" = {
-      device = "/dev/disk/by-uuid/07B4-F4F7";
+      device = "/dev/disk/by-uuid/B207-9E58";
       fsType = "vfat";
       options = [
         "fmask=0022"
