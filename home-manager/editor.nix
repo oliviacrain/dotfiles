@@ -41,4 +41,15 @@
       witchhazel-hyper = lib.importTOML "${pkgs.witchhazel}/helix/witchhazel_hyper.toml";
     };
   };
+
+  programs.zed-editor = {
+    enable = true;
+    extensions = [
+      "nix"
+      "night-owlz"
+      "sql"
+      "just"
+      "toml"
+    ]
+  };
 }
