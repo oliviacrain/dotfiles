@@ -2,6 +2,7 @@
   inputs,
   pkgs,
   lib,
+  config,
   ...
 }: {
   imports = [
@@ -22,6 +23,16 @@
   systemd.services.systemd-networkd-wait-online.enable = lib.mkForce false;
   boot.kernelPackages = pkgs.linuxPackagesFor pkgs.linux_latest;
   services.fwupd.enable = true;
+  services.openssh.enable = true;
+  virtualisation.podman = {
+    enable = true;
+    dockerSocket.enable = true;
+    dockerCompat = true;
+  };
+  services.kubo.enable = true;
+  users.users.olivia.extraGroups = [config.services.kubo.group];
+
+  services.deluge.enable = true;
 
   programs.virt-manager.enable = true;
 
