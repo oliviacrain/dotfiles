@@ -2,19 +2,22 @@
   services.miniflux = {
     enable = true;
     config = {
+      CREATE_ADMIN = 0;
       LISTEN_ADDR = "localhost:6613";
       BASE_URL = "https://rss.slug.gay/";
+      OAUTH2_OIDC_PROVIDER_NAME = "SlugID";
+      OAUTH2_PROVIDER = "oidc";
+      OAUTH2_CLIENT_ID = "miniflux";
+      OAUTH2_CLIENT_SECRET_FILE = config.sops.secrets."miniflux/oidc_client_secret".path;
+      OAUTH2_REDIRECT_URL = "https://rss.slug.gay/oauth2/oidc/callback";
+      OAUTH2_OIDC_DISCOVERY_ENDPOINT = "https://auth.slug.gay/oauth2/openid/oidc";
+      OAUTH2_USER_CREATION = 1;
     };
     createDatabaseLocally = true;
-    adminCredentialsFile = config.sops.templates."miniflux-admin-seed.env".path;
   };
-  sops = {
-    secrets."miniflux/admin_password_seed" = {};
-    templates."miniflux-admin-seed.env" = {
-      content = ''
-        ADMIN_USERNAME=admin
-        ADMIN_PASSWORD=${config.sops.placeholder."miniflux/admin_password_seed"}
-      '';
-    };
+  sops.secrets."miniflux/oidc_client_secret" = {
+    owner = "miniflux";
+    group = "miniflux";
+    mode = "400";
   };
 }

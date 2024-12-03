@@ -17,6 +17,9 @@
   home = {
     username = "olivia";
     homeDirectory = "/home/olivia";
+    file.".config/kanidm".text = ''
+      uri = "https://auth.slug.gay/"
+    '';
   };
 
   home.packages = builtins.attrValues {
