@@ -10,7 +10,7 @@
       OAUTH2_CLIENT_ID = "miniflux";
       # OAUTH2_CLIENT_SECRET is set as an env var
       OAUTH2_REDIRECT_URL = "https://rss.slug.gay/oauth2/oidc/callback";
-      OAUTH2_OIDC_DISCOVERY_ENDPOINT = "https://auth.slug.gay/oauth2/openid/oidc";
+      OAUTH2_OIDC_DISCOVERY_ENDPOINT = "https://auth.slug.gay/oauth2/openid/miniflux";
       OAUTH2_USER_CREATION = 1;
     };
     createDatabaseLocally = true;
