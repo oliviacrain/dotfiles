@@ -16,6 +16,7 @@
     ./monitoring.nix
     ./miniflux.nix
     ./actual.nix
+    ./hedgedoc.nix
   ];
 
   networking.hostName = "apteryx";

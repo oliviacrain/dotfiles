@@ -11,7 +11,7 @@
 
   systemd.services.caddy.serviceConfig = {
     EnvironmentFile = config.sops.templates."caddy.env".path;
-    BindPaths = [config.services.tailscaleAuth.socketPath];
+    BindPaths = [config.services.tailscaleAuth.socketPath config.services.hedgedoc.settings.path];
   };
 
   services.tailscaleAuth.enable = true;
@@ -19,7 +19,7 @@
     "/var/run/tailscale/tailscaled.sock"
     "/run/tailscale/tailscaled.sock"
   ];
-  users.users.${config.services.caddy.user}.extraGroups = [config.services.tailscaleAuth.group];
+  users.users.${config.services.caddy.user}.extraGroups = [config.services.tailscaleAuth.group "hedgedoc"];
 
   sops = {
     secrets."caddy/porkbun_api" = {
@@ -108,9 +108,16 @@
         reverse_proxy localhost:6613
       }
 
+      # Actual
       https://budget.slug.gay {
         import tailscale_service
         reverse_proxy localhost:${builtins.toString config.services.actual.settings.port}
+      }
+
+      # Hedgedoc
+      https://notes.slug.gay {
+        import tailscale_service
+        reverse_proxy unix/${config.services.hedgedoc.settings.path}
       }
     '';
   };
