@@ -1,10 +1,12 @@
 {
   config,
   lib,
+  pkgs,
   ...
 }: {
   services.forgejo = {
     enable = true;
+    package = pkgs.forgejo; # LTS by default
     secrets = {
       security = {
         SECRET_KEY = lib.mkForce config.sops.secrets."forgejo/secret_key".path;
@@ -20,8 +22,9 @@
         ROOT_URL = "https://git.slug.gay/";
       };
       oauth2_client = {
-        OPENID_CONNECT_SCOPES = "email profile";
+        OPENID_CONNECT_SCOPES = "email profile groups";
         ENABLE_AUTO_REGISTRATION = true;
+        UPDATE_AVATAR = true;
       };
       oauth2.ENABLED = false;
       service = {
