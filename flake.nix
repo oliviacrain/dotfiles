@@ -31,9 +31,6 @@
     treefmt-nix.url = "github:numtide/treefmt-nix";
     treefmt-nix.inputs.nixpkgs.follows = "nixpkgs";
 
-    disko.url = "github:nix-community/disko";
-    disko.inputs.nixpkgs.follows = "nixpkgs";
-
     # These stable nixpkgs inputs are only used for checks, we don't care about that.
     # We set to system nixpkgs because `follows = ""` is hacky, see https://github.com/NixOS/nix/issues/7807.
     lix-module.inputs.nixpkgs.follows = "nixpkgs";
