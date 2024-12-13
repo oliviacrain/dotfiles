@@ -22,12 +22,6 @@
     sops-nix.url = "github:Mic92/sops-nix";
     sops-nix.inputs.nixpkgs.follows = "nixpkgs";
 
-    apple-silicon.url = "github:oliverbestmann/nixos-apple-silicon?rev=31bed7b26776a19b63ccb243337028f627326f92";
-    apple-silicon.inputs.nixpkgs.follows = "nixpkgs";
-
-    widevine.url = "github:epetousis/nixos-aarch64-widevine";
-    widevine.inputs.nixpkgs.follows = "nixpkgs";
-
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 

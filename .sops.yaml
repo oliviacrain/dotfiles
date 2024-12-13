@@ -5,7 +5,6 @@ keys:
   - &host_apteryx2 age18caklfrn2eqqtc23f2suednxqmgqvt6glt9xch85p5u7wu63mpfqp2jfwf
   - &host_buteo age1fw6k2a9vqxa8tjaevvmkjqz3v4xu3y40nwsvwnxl5aqrl69p9gksuukqjn
   - &host_cardinalis age1qxnucgjdnxasjhy4v64qs40t7ulmgtqh5ha5w9n8n07ea2qsgfxqf754dc
-  - &host_corvus age12e5lud6uh3jaxrw6dgyx4h7jaw7zrfewhvhsyvyca4a7s4allyrq3der0z
   - &host_strigidae age1t0h5xduxaktxsnqxdeygjg88pxexv94z8end5607qzhvm0e7kcrqz42cvk
 creation_rules:
   - path_regex: secrets/apteryx.yaml
@@ -27,12 +26,6 @@ creation_rules:
           - *user_olivia
           - *user_olivia2
           - *host_cardinalis
-  - path_regex: secrets/corvus.yaml
-    key_groups:
-      - age:
-          - *user_olivia
-          - *user_olivia2
-          - *host_corvus
   - path_regex: secrets/strigidae.yaml
     key_groups:
       - age:

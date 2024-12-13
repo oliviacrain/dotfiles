@@ -1,11 +1,10 @@
 local := `hostname -s`
-impure-system-build := if local == "corvus" {"--impure"} else {""}
 
 build-system-local: sources-to-store
-    nom build {{justfile_directory()}}#nixosConfigurations.{{local}}.config.system.build.toplevel --keep-going {{impure-system-build}}
+    nom build {{justfile_directory()}}#nixosConfigurations.{{local}}.config.system.build.toplevel --keep-going
 
 switch: build-system-local
-    sudo nixos-rebuild switch --flake {{justfile_directory()}}#{{local}} {{impure-system-build}}
+    sudo nixos-rebuild switch --flake {{justfile_directory()}}#{{local}}
 
 diff: build-system-local
     nvd diff /run/current-system {{justfile_directory()}}/result
@@ -23,19 +22,9 @@ deploy hostname: sources-to-store
         --target-host {{hostname}} --build-host {{hostname}} \
         --use-remote-sudo --show-trace
 
-# :/
-# https://github.com/NixOS/nixfmt/issues/151
-# https://github.com/NixOS/nix/issues/9359
 fmt:
-    nix fmt \
-        ./flake.nix \
-        ./home-manager \
-        ./nixos \
-        ./overlays \
-        ./templates \
-        ./pkgs/{asahi-firmware-corvus,berkeley-mono,default,to-the-sky-background,witchhazel}.nix
+    nix fmt
 
 sources-to-store:
     nix-prefetch-url --type sha256 file://{{justfile_directory()}}/sources/berkeley-mono-typeface.zip
     nix-prefetch-url --type sha256 file://{{justfile_directory()}}/sources/to-the-sky.jpg
-    if [[ "{{local}}" == "corvus" ]]; then nix-prefetch-url --type sha256 file://{{justfile_directory()}}/sources/asahi-firmware-corvus/asahi-firmware-corvus.tar; fi

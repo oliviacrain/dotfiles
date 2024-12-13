@@ -1,29 +1,5 @@
 {
   "nodes": {
-    "apple-silicon": {
-      "inputs": {
-        "flake-compat": "flake-compat",
-        "nixpkgs": [
-          "nixpkgs"
-        ],
-        "nixpkgs-systemd-boot": "nixpkgs-systemd-boot",
-        "rust-overlay": "rust-overlay"
-      },
-      "locked": {
-        "lastModified": 1730880045,
-        "narHash": "sha256-3t5QfLhiNM6s/COLJIOlpWDxQahtsvkgrl0WBQu6Ao4=",
-        "owner": "oliverbestmann",
-        "repo": "nixos-apple-silicon",
-        "rev": "31bed7b26776a19b63ccb243337028f627326f92",
-        "type": "github"
-      },
-      "original": {
-        "owner": "oliverbestmann",
-        "repo": "nixos-apple-silicon",
-        "rev": "31bed7b26776a19b63ccb243337028f627326f92",
-        "type": "github"
-      }
-    },
     "crane": {
       "locked": {
         "lastModified": 1730652660,
@@ -60,21 +36,6 @@
       }
     },
     "flake-compat": {
-      "locked": {
-        "lastModified": 1688025799,
-        "narHash": "sha256-ktpB4dRtnksm9F5WawoIkEneh1nrEvuxb5lJFt1iOyw=",
-        "owner": "nix-community",
-        "repo": "flake-compat",
-        "rev": "8bf105319d44f6b9f0d764efa4fdef9f1cc9ba1c",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nix-community",
-        "repo": "flake-compat",
-        "type": "github"
-      }
-    },
-    "flake-compat_2": {
       "flake": false,
       "locked": {
         "lastModified": 1696426674,
@@ -90,7 +51,7 @@
         "type": "github"
       }
     },
-    "flake-compat_3": {
+    "flake-compat_2": {
       "flake": false,
       "locked": {
         "lastModified": 1696426674,
@@ -223,13 +184,13 @@
     "lanzaboote": {
       "inputs": {
         "crane": "crane",
-        "flake-compat": "flake-compat_2",
+        "flake-compat": "flake-compat",
         "flake-parts": "flake-parts",
         "nixpkgs": [
           "nixpkgs"
         ],
         "pre-commit-hooks-nix": "pre-commit-hooks-nix",
-        "rust-overlay": "rust-overlay_2"
+        "rust-overlay": "rust-overlay"
       },
       "locked": {
         "lastModified": 1731941836,
@@ -350,22 +311,6 @@
         "type": "github"
       }
     },
-    "nixpkgs-systemd-boot": {
-      "locked": {
-        "lastModified": 1729850857,
-        "narHash": "sha256-WvLXzNNnnw+qpFOmgaM3JUlNEH+T4s22b5i2oyyCpXE=",
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "41dea55321e5a999b17033296ac05fe8a8b5a257",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "41dea55321e5a999b17033296ac05fe8a8b5a257",
-        "type": "github"
-      }
-    },
     "pre-commit-hooks-nix": {
       "inputs": {
         "flake-compat": [
@@ -395,7 +340,6 @@
     },
     "root": {
       "inputs": {
-        "apple-silicon": "apple-silicon",
         "disko": "disko",
         "home-manager": "home-manager",
         "lanzaboote": "lanzaboote",
@@ -406,27 +350,10 @@
         "nixpkgs-actual": "nixpkgs-actual",
         "sops-nix": "sops-nix",
         "treefmt-nix": "treefmt-nix",
-        "vscode-extensions": "vscode-extensions",
-        "widevine": "widevine"
+        "vscode-extensions": "vscode-extensions"
       }
     },
     "rust-overlay": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1686795910,
-        "narHash": "sha256-jDa40qRZ0GRQtP9EMZdf+uCbvzuLnJglTUI2JoHfWDc=",
-        "owner": "oxalica",
-        "repo": "rust-overlay",
-        "rev": "5c2b97c0a9bc5217fc3dfb1555aae0fb756d99f9",
-        "type": "github"
-      },
-      "original": {
-        "owner": "oxalica",
-        "repo": "rust-overlay",
-        "type": "github"
-      }
-    },
-    "rust-overlay_2": {
       "inputs": {
         "nixpkgs": [
           "lanzaboote",
@@ -519,7 +446,7 @@
     },
     "vscode-extensions": {
       "inputs": {
-        "flake-compat": "flake-compat_3",
+        "flake-compat": "flake-compat_2",
         "flake-utils": "flake-utils_2",
         "nixpkgs": [
           "nixpkgs"
@@ -536,26 +463,6 @@
       "original": {
         "owner": "nix-community",
         "repo": "nix-vscode-extensions",
-        "type": "github"
-      }
-    },
-    "widevine": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1712816564,
-        "narHash": "sha256-2oPCuv4hox+FDWdUnyjhmSB7d24i0mFH5pJjVJGY6JM=",
-        "owner": "epetousis",
-        "repo": "nixos-aarch64-widevine",
-        "rev": "fa046abfed9ff3b5c1e0a2ae16311a33056056fd",
-        "type": "github"
-      },
-      "original": {
-        "owner": "epetousis",
-        "repo": "nixos-aarch64-widevine",
         "type": "github"
       }
     }
