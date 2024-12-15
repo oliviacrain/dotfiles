@@ -10,7 +10,10 @@
         embed = "no";
         format = "opus";
       };
-      plugins = ["convert" "info" "spotify" "mbsubmit"];
+      fetchart = {
+        auto = true;
+      };
+      plugins = ["convert" "info" "spotify" "mbsubmit" "fetchart"];
     };
   };
 }
