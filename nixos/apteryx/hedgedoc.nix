@@ -1,5 +1,4 @@
-{config, ...}:
-{
+{config, ...}: {
   services.hedgedoc = {
     enable = true;
     settings = {
@@ -12,7 +11,7 @@
     };
     environmentFile = config.sops.templates."hedgedoc.env".path;
   };
-  
+
   sops = {
     secrets."hedgedoc/oidc_client_secret" = {};
     templates."hedgedoc.env".content = ''

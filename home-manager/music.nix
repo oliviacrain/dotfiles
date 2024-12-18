@@ -1,5 +1,4 @@
-{lib, ...}:
-{
+{lib, ...}: {
   programs.beets = {
     enable = true;
     settings = {

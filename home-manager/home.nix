@@ -32,7 +32,6 @@
       ripgrep
       shellcheck
       yubikey-manager
-
       ;
   };
 

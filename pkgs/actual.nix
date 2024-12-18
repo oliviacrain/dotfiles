@@ -10,8 +10,7 @@
   yarn,
   nixosTests,
   nix-update-script,
-}:
-let
+}: let
   version = "24.11.0";
   src = fetchFromGitHub {
     owner = "actualbudget";
@@ -76,43 +75,43 @@ let
     outputHash = "sha256-yda1GdnPRHOoaJzkGz755Lm9/J60lFDsVvBgf/2e+3I=";
   };
 in
-stdenv.mkDerivation {
-  pname = "actual-server";
-  inherit version src;
+  stdenv.mkDerivation {
+    pname = "actual-server";
+    inherit version src;
 
-  nativeBuildInputs = [
-    makeWrapper
-    yarn
-  ];
-
-  installPhase = ''
-    runHook preInstall
-
-    mkdir -p $out/{bin,lib,lib/actual}
-    cp -r ${offlineCache}/node_modules/ $out/lib/actual
-    cp -r ./ $out/lib/actual
-
-    makeWrapper ${lib.getExe nodejs} "$out/bin/actual-server" \
-      --add-flags "$out/lib/actual/app.js" \
-      --set NODE_PATH "$out/node_modules"
-
-    runHook postInstall
-  '';
-
-  passthru = {
-    inherit offlineCache;
-    tests = nixosTests.actual;
-    updateScript = nix-update-script { };
-  };
-
-  meta = {
-    description = "A super fast privacy-focused app for managing your finances";
-    homepage = "https://actualbudget.org/";
-    mainProgram = "actual-server";
-    license = lib.licenses.mit;
-    maintainers = [
-      lib.maintainers.oddlama
-      lib.maintainers.patrickdag
+    nativeBuildInputs = [
+      makeWrapper
+      yarn
     ];
-  };
-}
+
+    installPhase = ''
+      runHook preInstall
+
+      mkdir -p $out/{bin,lib,lib/actual}
+      cp -r ${offlineCache}/node_modules/ $out/lib/actual
+      cp -r ./ $out/lib/actual
+
+      makeWrapper ${lib.getExe nodejs} "$out/bin/actual-server" \
+        --add-flags "$out/lib/actual/app.js" \
+        --set NODE_PATH "$out/node_modules"
+
+      runHook postInstall
+    '';
+
+    passthru = {
+      inherit offlineCache;
+      tests = nixosTests.actual;
+      updateScript = nix-update-script {};
+    };
+
+    meta = {
+      description = "A super fast privacy-focused app for managing your finances";
+      homepage = "https://actualbudget.org/";
+      mainProgram = "actual-server";
+      license = lib.licenses.mit;
+      maintainers = [
+        lib.maintainers.oddlama
+        lib.maintainers.patrickdag
+      ];
+    };
+  }

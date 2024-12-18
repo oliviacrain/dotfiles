@@ -48,7 +48,6 @@ in {
           (pkgs)
           firefox
           # clamav
-
           #calibre
           obsidian
           ;

@@ -1,5 +1,9 @@
-{inputs, config, modulesPath, ...}:
 {
+  inputs,
+  config,
+  modulesPath,
+  ...
+}: {
   imports = [
     "${modulesPath}/virtualisation/digital-ocean-image.nix"
     inputs.sops-nix.nixosModules.sops
@@ -12,8 +16,7 @@
 
   services.kanidm = {
     enableServer = true;
-    serverSettings =
-    let
+    serverSettings = let
       certDir = config.security.acme.certs."auth.slug.gay".directory;
     in {
       bindaddress = "159.65.243.4:443";
@@ -24,7 +27,7 @@
     };
   };
 
-  users.users.kanidm.extraGroups = [ "acme" ];
+  users.users.kanidm.extraGroups = ["acme"];
   systemd.services.kanidm = {
     serviceConfig.AmbientCapabilities = ["CAP_NET_BIND_SERVICE"];
     requires = ["acme-finished-auth.slug.gay.target"];
