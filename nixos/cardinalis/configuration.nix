@@ -6,7 +6,9 @@
   pkgs,
   user,
   ...
-}: {
+}: let
+  inherit (lib) mkDefault;
+in {
   imports = [
     ./hardware-configuration.nix
     ../common
