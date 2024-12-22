@@ -1,30 +1,33 @@
 local := `hostname -s`
+default_deploy_mode := "switch"
 
-build-system-local: sources-to-store
-    nom build {{ justfile_directory() }}#nixosConfigurations.{{ local }}.config.system.build.toplevel --keep-going
-
-switch: build-system-local
-    sudo nixos-rebuild switch --flake {{ justfile_directory() }}#{{ local }}
-
-diff: build-system-local
-    nvd diff /run/current-system {{ justfile_directory() }}/result
+# Flake operations
 
 check:
-    nix run github:DeterminateSystems/flake-checker
-
-update:
-    nix flake update --commit-lock-file --option commit-lockfile-summary "Update flake.lock"
-
-deploy hostname: sources-to-store
-    nix run nixpkgs#nixos-rebuild -- \
-        switch \
-        --fast --flake {{ justfile_directory() }}#{{ hostname }} \
-        --target-host {{ hostname }} --build-host {{ hostname }} \
-        --use-remote-sudo --show-trace
+    nix flake check
 
 fmt:
     nix fmt
 
+update:
+    nix flake update --commit-lock-file --option commit-lockfile-summary "Update flake.lock"
+
+# System building
+
 sources-to-store:
     nix-prefetch-url --type sha256 file://{{ justfile_directory() }}/sources/berkeley-mono-typeface.zip
     nix-prefetch-url --type sha256 file://{{ justfile_directory() }}/sources/to-the-sky.jpg
+
+build-system hostname=local: sources-to-store
+    nom build {{ justfile_directory() }}#nixosConfigurations.{{ hostname }}.config.system.build.toplevel --keep-going
+
+diff: build-system
+    nvd diff /run/current-system {{ justfile_directory() }}/result
+
+# Deployment
+deploy hostname=local mode=default_deploy_mode: (build-system hostname)
+    nix run nixpkgs#nixos-rebuild -- \
+        {{ mode }} \
+        --fast --flake {{ justfile_directory() }}#{{ hostname }} \
+        --target-host {{ hostname }} --build-host {{ hostname }} \
+        --use-remote-sudo --show-trace
