@@ -3,7 +3,10 @@
   pkgs,
   config,
   ...
-}: {
+}:
+let
+  inherit (builtins) toString;
+in {
   services.tailscale = {
     permitCertUid = config.services.caddy.user;
     authKeyFile = config.sops.secrets."tailscale/auth_key".path;
@@ -111,13 +114,19 @@
       # Actual
       https://budget.slug.gay {
         import tailscale_service
-        reverse_proxy localhost:${builtins.toString config.services.actual.settings.port}
+        reverse_proxy localhost:${toString config.services.actual.settings.port}
       }
 
       # Hedgedoc
       https://notes.slug.gay {
         import tailscale_service
         reverse_proxy unix/${config.services.hedgedoc.settings.path}
+      }
+
+      # Atuin Sync
+      https://atuin.slug.gay {
+        import tailscale_service
+        reverse_proxy localhost:${toString config.services.atuin.port}
       }
     '';
   };

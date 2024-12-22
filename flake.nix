@@ -32,7 +32,9 @@
     # These stable nixpkgs inputs are only used for checks, we don't care about that.
     # We set to system nixpkgs because `follows = ""` is hacky, see https://github.com/NixOS/nix/issues/7807.
     lix-module.inputs.nixpkgs.follows = "nixpkgs";
-    lanzaboote.inputs.pre-commit-hooks-nix.inputs.nixpkgs-stable.follows = "lanzaboote/nixpkgs";
+
+    # Disregard the above. Actually, this isn't hacky, you're hacky!
+    lanzaboote.inputs.pre-commit-hooks-nix.follows = "";
   };
 
   outputs = {
