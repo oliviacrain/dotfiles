@@ -6,7 +6,10 @@
       font.normal.family = "Berkeley Mono Variable";
     };
   };
-  programs.atuin.enable = true;
+  programs.atuin = {
+    enable = true;
+    settings.sync_address = "https://atuin.slug.gay";
+  };
   programs.bat.enable = true;
   programs.bash.enable = true;
   programs.direnv = {
