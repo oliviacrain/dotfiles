@@ -13,6 +13,7 @@
     mkIf
     mkAfter
     ;
+  inherit (builtins) attrValues;
 in {
   options.olivia.nix.enable = mkEnableOption "common nix/nixpkgs options";
 
@@ -54,12 +55,15 @@ in {
       };
     };
     nixpkgs = {
-      overlays = mkAfter [
-        outputs.overlays.additions
-        outputs.overlays.modifications
-        outputs.overlays.vscode-extensions
-        outputs.overlays.lix-module
-      ];
+      overlays = mkAfter (attrValues {
+        inherit (outputs.overlays)
+          additions
+          modifications
+          vscode-extensions
+          lix-module
+          ghostty
+          ;
+      });
       config = {
         allowUnfree = mkDefault true;
         permittedInsecurePackages = [

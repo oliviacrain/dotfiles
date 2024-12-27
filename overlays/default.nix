@@ -7,4 +7,7 @@
 
   vscode-extensions = inputs.vscode-extensions.overlays.default;
   lix-module = inputs.lix-module.overlays.default;
+  ghostty = final: _prev: {
+    ghostty = inputs.ghostty.packages.${final.system}.ghostty;
+  };
 }

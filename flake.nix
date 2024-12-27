@@ -16,6 +16,7 @@
       inputs.lix.follows = "lix";
     };
 
+    ghostty.url = "github:ghostty-org/ghostty";
     home-manager.url = "github:nix-community/home-manager";
     lanzaboote.url = "github:nix-community/lanzaboote";
     sops-nix.url = "github:Mic92/sops-nix";
@@ -23,6 +24,7 @@
     vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
 
     # Regular nixpkgs overrides
+    ghostty.inputs.nixpkgs-unstable.follows = "nixpkgs";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     lanzaboote.inputs.nixpkgs.follows = "nixpkgs";
     sops-nix.inputs.nixpkgs.follows = "nixpkgs";
