@@ -2,6 +2,7 @@
   lib,
   config,
   pkgs,
+  inputs,
   ...
 }: let
   inherit
@@ -48,8 +49,9 @@ in {
           (pkgs)
           firefox
           # clamav
-          #calibre
+          # calibre
           obsidian
+          wl-clipboard-rs
           ;
       }
       ++ [pkgs.kdePackages.tokodon];
