@@ -17,6 +17,4 @@ in {
   witchhazel = callPackage ./witchhazel.nix {};
   berkeley-mono = callPackage ./berkeley-mono.nix {};
   to-the-sky-background = callPackage ./to-the-sky-background.nix {};
-  # Vendored https://raw.githubusercontent.com/NixOS/nixpkgs/afaa4612924a1e7ba4589b30b31abcba95f37c0e/pkgs/by-name/ac/actual-server/package.nix
-  actual-server = callPackage ./actual.nix {};
 }

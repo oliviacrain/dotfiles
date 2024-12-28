@@ -1,10 +1,7 @@
 {
   inputs,
-  outputs,
   ...
 }: {
-  imports = ["${inputs.nixpkgs-actual}/nixos/modules/services/web-apps/actual.nix"];
-
   services.actual = {
     enable = true;
     settings = {
