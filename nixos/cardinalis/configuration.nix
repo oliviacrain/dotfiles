@@ -19,8 +19,6 @@ in {
 
   services.openssh.enable = true;
   systemd.network.wait-online.enable = false;
-  # https://github.com/NixOS/nixpkgs/issues/344167
-  boot.kernelPackages = pkgs.linuxPackages_6_10;
   programs.steam.enable = true;
 
   hardware.nvidia = {
