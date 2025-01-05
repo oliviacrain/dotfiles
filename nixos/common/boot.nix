@@ -1,8 +1,6 @@
 {
   lib,
   config,
-  inputs,
-  outputs,
   ...
 }: let
   inherit (lib) mkIf mkEnableOption mkDefault;

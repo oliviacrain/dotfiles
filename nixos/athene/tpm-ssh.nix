@@ -1,7 +1,6 @@
 {
   pkgs,
   lib,
-  config,
   ...
 }: {
   users.users.olivia.extraGroups = ["tss"];

@@ -3,7 +3,6 @@
   config,
   inputs,
   outputs,
-  pkgs,
   ...
 }: let
   inherit

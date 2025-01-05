@@ -1,4 +1,4 @@
-{inputs, ...}: {
+{...}: {
   services.actual = {
     enable = true;
     settings = {

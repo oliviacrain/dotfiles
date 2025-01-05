@@ -2,7 +2,6 @@
   lib,
   config,
   pkgs,
-  inputs,
   ...
 }: let
   inherit
@@ -10,7 +9,6 @@
     mkIf
     mkEnableOption
     mkDefault
-    mkForce
     ;
   inherit (builtins) attrValues;
 in {
