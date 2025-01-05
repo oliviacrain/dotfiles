@@ -56,7 +56,8 @@ in {
     };
     nixpkgs = {
       overlays = mkAfter (attrValues {
-        inherit (outputs.overlays)
+        inherit
+          (outputs.overlays)
           additions
           modifications
           vscode-extensions

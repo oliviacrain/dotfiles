@@ -3,8 +3,7 @@
   pkgs,
   config,
   ...
-}:
-let
+}: let
   inherit (builtins) toString;
 in {
   services.tailscale = {
