@@ -3,15 +3,9 @@
 {pkgs, ...}: let
   inherit (pkgs) callPackage;
 in {
-  caddy-with-porkbun = callPackage ./caddy-with-plugins.nix {
-    vendorHash = "sha256-BPyEYT8ZsUF0mTOhc8tq5LCxacN+AlogZO6dENZ4wRc=";
-    externalPlugins = [
-      {
-        name = "porkbun";
-        repo = "github.com/caddy-dns/porkbun";
-        version = "v0.1.5";
-      }
-    ];
+  caddy-with-porkbun = pkgs.caddy.withPlugins {
+    plugins = ["github.com/caddy-dns/porkbun@v0.2.1"];
+    hash = "sha256-oizWuPXI0M9ngBCt/iEXWt+/33wpKlCs1yBPKnzFhRY=";
   };
 
   witchhazel = callPackage ./witchhazel.nix {};
