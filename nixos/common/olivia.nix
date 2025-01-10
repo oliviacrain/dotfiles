@@ -1,3 +1,4 @@
+{pkgs, ...}:
 let
   username = "olivia";
 in {
@@ -17,4 +18,11 @@ in {
 
   programs.ssh.startAgent = true;
   programs.ssh.enableAskPassword = true;
+
+  environment.systemPackages = builtins.attrValues {
+    inherit (pkgs)
+      dua
+      slumber
+    ;
+  };
 }
