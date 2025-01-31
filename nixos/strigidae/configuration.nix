@@ -9,17 +9,15 @@
     ../common
   ];
 
-
   olivia = {
     boot.enable = false;
-    desktop.enable =  false;
-    home-manager.enable =  false;
-    locale.enable =  true;
-    network.enable =  false;
-    nix.enable =  true;
-    tailscale.enable =  false;
+    desktop.enable = false;
+    home-manager.enable = false;
+    locale.enable = true;
+    network.enable = false;
+    nix.enable = true;
+    tailscale.enable = false;
   };
-
 
   networking.hostName = "strigidae";
   system.stateVersion = "25.05";

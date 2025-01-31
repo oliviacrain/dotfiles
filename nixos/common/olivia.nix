@@ -1,5 +1,4 @@
-{pkgs, ...}:
-let
+{pkgs, ...}: let
   username = "olivia";
 in {
   users.users.${username} = {
@@ -20,9 +19,10 @@ in {
   programs.ssh.enableAskPassword = true;
 
   environment.systemPackages = builtins.attrValues {
-    inherit (pkgs)
+    inherit
+      (pkgs)
       dua
       slumber
-    ;
+      ;
   };
 }
