@@ -13,6 +13,7 @@
     ./secure-boot.nix
     #./tpm-ssh.nix
     ./gaming.nix
+    ./framework.nix
   ];
 
   olivia.enable = true;
@@ -21,8 +22,7 @@
 
   systemd.services.NetworkManager-wait-online.enable = lib.mkForce false;
   systemd.services.systemd-networkd-wait-online.enable = lib.mkForce false;
-  boot.kernelPackages = pkgs.linuxPackagesFor pkgs.linux_latest;
-  services.fwupd.enable = true;
+
   services.openssh.enable = true;
   virtualisation.podman = {
     enable = true;
