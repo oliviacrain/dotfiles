@@ -19,6 +19,8 @@
     tailscale.enable = false;
   };
 
+  security.sudo.wheelNeedsPassword = false;
+
   networking.hostName = "strigidae";
   system.stateVersion = "25.05";
 
