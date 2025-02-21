@@ -18,11 +18,6 @@
       ".config/kanidm".text = ''
         uri = "https://auth.slug.gay/"
       '';
-
-      "${config.xdg.configHome}/ghostty/config".text = ''
-        font-family = ""
-        font-family = "Berkeley Mono Variable"
-      '';
     };
   };
 

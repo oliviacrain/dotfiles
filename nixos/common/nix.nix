@@ -61,7 +61,6 @@ in {
           modifications
           vscode-extensions
           lix-module
-          ghostty
           ;
       });
       config = {

@@ -45,7 +45,6 @@ in {
         inherit
           (pkgs)
           firefox
-          ghostty
           # clamav
           # calibre
           obsidian
