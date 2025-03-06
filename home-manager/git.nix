@@ -34,6 +34,9 @@ in {
       gpg.format = "ssh";
       commit.gpgsign = "true";
       user.signingkey = "${./id_ed25519_sk.pub}";
+      grep.patternType = "perl";
+      branch.sort = "committerdate";
+      column.ui = "auto";
     };
   };
 }
