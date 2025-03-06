@@ -47,6 +47,7 @@ in {
           firefox
           # clamav
           # calibre
+          kicad
           obsidian
           wl-clipboard-rs
           ;

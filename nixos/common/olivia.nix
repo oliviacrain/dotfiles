@@ -22,7 +22,6 @@ in {
     inherit
       (pkgs)
       dua
-      kicad
       slumber
       ;
   };
