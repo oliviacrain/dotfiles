@@ -35,6 +35,8 @@ in {
       pkgs.vscode-extensions.rust-lang.rust-analyzer
       pkgs.vscode-extensions.ms-vscode.cpptools
     ];
-    inherit userSettings;
+    profiles.default = {
+      inherit userSettings;
+    };
   };
 }
