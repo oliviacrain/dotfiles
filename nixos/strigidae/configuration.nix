@@ -1,7 +1,7 @@
 {
-  inputs,
   config,
   modulesPath,
+  pkgs,
   ...
 }: {
   imports = [
@@ -28,6 +28,7 @@
 
   services.kanidm = {
     enableServer = true;
+    package = pkgs.kanidm_1_5;
     serverSettings = let
       certDir = config.security.acme.certs."auth.slug.gay".directory;
     in {
