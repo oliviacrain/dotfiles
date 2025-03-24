@@ -24,7 +24,9 @@
       CMD_OAUTH2_CLIENT_ID=hedgedoc
       CMD_OAUTH2_CLIENT_SECRET=${config.sops.placeholder."hedgedoc/oidc_client_secret"}
       CMD_OAUTH2_PROVIDERNAME=SlugID
-      CMD_OAUTH2_SCOPE=openid email profile
+      CMD_OAUTH2_SCOPE=openid email profile groups
+      CMD_OAUTH2_ROLES_CLAIM
+      CMD_OAUTH2_ACCESS_ROLE=slugs
       CMD_PROTOCOL_USESSL=true
       CMD_URL_ADDPORT=false
     '';
