@@ -4,7 +4,7 @@
     settings = {
       BASE_URL = "https://recipes.slug.gay/";
       OIDC_PROVIDER_NAME = "SlugID";
-      OIDC_USER_GROUP = "slug_users@auth.slug.gay";
+      OIDC_USER_GROUP = "slugs@auth.slug.gay";
       OIDC_ADMIN_GROUP = "slug_admins@auth.slug.gay";
       OIDC_USER_CLAIM = "preferred_username";
       OIDC_AUTH_ENABLED = true;
