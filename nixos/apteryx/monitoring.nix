@@ -19,6 +19,7 @@
     ];
     remoteWrite = [
       {
+        name = config.networking.hostName;
         url = "https://prometheus-prod-36-prod-us-west-0.grafana.net/api/prom/push";
         basic_auth = {
           username = "1710577";
