@@ -65,9 +65,6 @@ in {
       });
       config = {
         allowUnfree = mkDefault true;
-        permittedInsecurePackages = [
-          "litestream-0.3.13"
-        ];
       };
     };
   };

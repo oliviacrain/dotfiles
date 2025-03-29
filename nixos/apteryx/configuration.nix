@@ -6,7 +6,6 @@
     ./networking.nix
     ./media-server.nix
     ./mealie.nix
-    ./litestream.nix
     ./forgejo.nix
     ./monitoring.nix
     ./miniflux.nix
