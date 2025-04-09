@@ -6,6 +6,7 @@ in {
     extraGroups = [
       "wheel"
       "networkmanager"
+      "dialout"
     ];
     home = "/home/${username}";
     openssh.authorizedKeys.keys = [
