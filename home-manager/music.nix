@@ -7,12 +7,16 @@
       convert = {
         auto = "yes";
         embed = "no";
-        format = "opus";
+        format = "flac";
+        copy_album_art = "yes";
+      };
+      embedart = {
+        auto = "no";
       };
       fetchart = {
         auto = true;
       };
-      plugins = ["convert" "info" "spotify" "mbsubmit" "fetchart"];
+      plugins = ["convert" "embedart" "info" "spotify" "mbsubmit" "fetchart"];
     };
   };
 }
