@@ -10,10 +10,9 @@ in {
   config = mkIf config.olivia.network.enable {
     networking.useNetworkd = mkDefault true;
     services.resolved.enable = true;
-    networking.wireless.iwd.enable = mkDefault true;
-    networking.wireless.iwd.settings.General = {
-      EnableNetworkConfiguration = mkDefault true;
-      UseDefaultInterface = mkDefault true;
+    networking.wireless.iwd = {
+      enable = mkDefault true;
+      settings.General.EnableNetworkConfiguration = mkDefault true;
     };
   };
 }
