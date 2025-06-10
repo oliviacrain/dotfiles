@@ -28,15 +28,15 @@
 in {
   programs.vscode = {
     enable = true;
-    extensions = with pkgs.vscode-marketplace; [
-      theaflowers.witch-hazel
-      jnoortheen.nix-ide
-      mkhl.direnv
-      pkgs.vscode-extensions.rust-lang.rust-analyzer
-      pkgs.vscode-extensions.ms-vscode.cpptools
-    ];
     profiles.default = {
       inherit userSettings;
+      extensions = with pkgs.vscode-marketplace; [
+        theaflowers.witch-hazel
+        jnoortheen.nix-ide
+        mkhl.direnv
+        pkgs.vscode-extensions.rust-lang.rust-analyzer
+        pkgs.vscode-extensions.ms-vscode.cpptools
+      ];
     };
   };
 }
