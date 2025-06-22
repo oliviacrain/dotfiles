@@ -29,8 +29,6 @@
     dockerSocket.enable = true;
     dockerCompat = true;
   };
-  services.kubo.enable = true;
-  users.users.olivia.extraGroups = [config.services.kubo.group];
 
   services.deluge.enable = true;
 
