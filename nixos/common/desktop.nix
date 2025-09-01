@@ -40,18 +40,17 @@ in {
 
     services.dbus.implementation = mkDefault "broker";
 
-    environment.systemPackages =
-      attrValues {
-        inherit
-          (pkgs)
-          firefox
-          # clamav
-          # calibre
-          kicad
-          obsidian
-          wl-clipboard-rs
-          ;
-      };
+    environment.systemPackages = attrValues {
+      inherit
+        (pkgs)
+        firefox
+        # clamav
+        # calibre
+        kicad
+        obsidian
+        wl-clipboard-rs
+        ;
+    };
 
     fonts.packages = [pkgs.berkeley-mono];
   };

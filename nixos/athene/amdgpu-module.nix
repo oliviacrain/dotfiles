@@ -4,19 +4,19 @@
   lib,
   stdenv,
   kernel, # The kernel to patch
-  patches ? [ ],
+  patches ? [],
 }:
-
 stdenv.mkDerivation {
   pname = "amdgpu-kernel-module-customised";
-  inherit (kernel)
+  inherit
+    (kernel)
     src
     version
     postPatch
     nativeBuildInputs
     modDirVersion
     ;
-  patches = kernel.patches or [ ] ++ patches;
+  patches = kernel.patches or [] ++ patches;
 
   modulePath = "drivers/gpu/drm/amd/amdgpu";
 

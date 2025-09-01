@@ -45,7 +45,8 @@
   programs.zed-editor = {
     enable = true;
     extraPackages = builtins.attrValues {
-      inherit (pkgs)
+      inherit
+        (pkgs)
         nil
         ;
     };

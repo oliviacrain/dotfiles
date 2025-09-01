@@ -11,10 +11,12 @@
 in {
   boot = {
     kernelPackages = pkgs.linuxPackagesFor kernel;
-    extraModulePackages = [ (pkgs.callPackage ./amdgpu-module.nix {
-      inherit kernel;
-      patches = [ backlight_min_patch ];
-    })];
+    extraModulePackages = [
+      (pkgs.callPackage ./amdgpu-module.nix {
+        inherit kernel;
+        patches = [backlight_min_patch];
+      })
+    ];
   };
 
   services.fwupd.enable = true;
