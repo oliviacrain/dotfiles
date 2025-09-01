@@ -19,14 +19,12 @@
     lanzaboote.url = "github:nix-community/lanzaboote";
     sops-nix.url = "github:Mic92/sops-nix";
     treefmt-nix.url = "github:numtide/treefmt-nix";
-    vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
 
     # Regular nixpkgs overrides
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     lanzaboote.inputs.nixpkgs.follows = "nixpkgs";
     sops-nix.inputs.nixpkgs.follows = "nixpkgs";
     treefmt-nix.inputs.nixpkgs.follows = "nixpkgs";
-    vscode-extensions.inputs.nixpkgs.follows = "nixpkgs";
 
     # These stable nixpkgs inputs are only used for checks, we don't care about that.
     # We set to system nixpkgs because `follows = ""` is hacky, see https://github.com/NixOS/nix/issues/7807.

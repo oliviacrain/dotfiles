@@ -59,7 +59,6 @@ in {
           (outputs.overlays)
           additions
           modifications
-          vscode-extensions
           lix-module
           ;
       });

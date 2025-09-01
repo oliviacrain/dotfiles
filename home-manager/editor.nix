@@ -44,11 +44,21 @@
 
   programs.zed-editor = {
     enable = true;
+    extraPackages = builtins.attrValues {
+      inherit (pkgs)
+        nil
+        ;
+    };
     extensions = [
+      "git-firefly"
+      "html"
+      "jinja2"
+      "just"
       "nix"
       "night-owlz"
       "sql"
       "just"
+      "terraform"
       "toml"
     ];
   };
