@@ -51,8 +51,7 @@ in {
           obsidian
           wl-clipboard-rs
           ;
-      }
-      ++ [pkgs.kdePackages.tokodon];
+      };
 
     fonts.packages = [pkgs.berkeley-mono];
   };
