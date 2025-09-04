@@ -1,5 +1,9 @@
-{...}: {
+{ ... }:
+{
   projectRootFile = "./flake.nix";
-  programs.alejandra.enable = true;
-  programs.just.enable = true;
+  programs = {
+    alejandra.enable = true;
+    just.enable = true;
+    terraform.enable = true;
+  };
 }

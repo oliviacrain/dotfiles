@@ -78,9 +78,11 @@
             inherit
               (pkgs')
               age
+              awscli2
               just
               nix-output-monitor
               nvd
+              opentofu
               sops
               ;
           };
