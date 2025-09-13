@@ -1,9 +1,8 @@
-{inputs, ...}: {
-  additions = final: _prev: import ../pkgs {pkgs = final;};
+{ inputs, ... }:
+{
+  additions = final: _prev: import ../pkgs { pkgs = final; };
 
   modifications = final: prev: {
-    tpm2-pkcs11 = prev.tpm2-pkcs11.override {fapiSupport = false;};
+    tpm2-pkcs11 = prev.tpm2-pkcs11.override { fapiSupport = false; };
   };
-
-  lix-module = inputs.lix-module.overlays.default;
 }

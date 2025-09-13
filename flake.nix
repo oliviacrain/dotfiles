@@ -5,16 +5,6 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixos-hardware.url = "github:nixos/nixos-hardware";
 
-    lix = {
-      url = "git+https://git@git.lix.systems/lix-project/lix?ref=refs/heads/main";
-      flake = false;
-    };
-
-    lix-module = {
-      url = "git+https://git.lix.systems/lix-project/nixos-module";
-      inputs.lix.follows = "lix";
-    };
-
     home-manager.url = "github:nix-community/home-manager";
     lanzaboote.url = "github:nix-community/lanzaboote";
     sops-nix.url = "github:Mic92/sops-nix";
@@ -26,11 +16,6 @@
     sops-nix.inputs.nixpkgs.follows = "nixpkgs";
     treefmt-nix.inputs.nixpkgs.follows = "nixpkgs";
 
-    # These stable nixpkgs inputs are only used for checks, we don't care about that.
-    # We set to system nixpkgs because `follows = ""` is hacky, see https://github.com/NixOS/nix/issues/7807.
-    lix-module.inputs.nixpkgs.follows = "nixpkgs";
-
-    # Disregard the above. Actually, this isn't hacky, you're hacky!
     lanzaboote.inputs.pre-commit-hooks-nix.follows = "";
   };
 

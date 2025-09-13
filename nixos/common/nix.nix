@@ -1,33 +1,32 @@
 {
   lib,
+  pkgs,
   config,
   inputs,
   outputs,
   ...
-}: let
-  inherit
-    (lib)
+}:
+let
+  inherit (lib)
     mkDefault
     mkEnableOption
     mkIf
     mkAfter
     ;
   inherit (builtins) attrValues;
-in {
+in
+{
   options.olivia.nix.enable = mkEnableOption "common nix/nixpkgs options";
 
   config = mkIf config.olivia.nix.enable {
     nix = {
+      package = pkgs.lixPackageSets.stable.lix;
       settings = {
         experimental-features = mkDefault [
           "nix-command"
           "flakes"
         ];
-        trusted-users = ["olivia"];
-        #        extra-substituters = ["https://cache.lix.systems"];
-        #        trusted-public-keys = [
-        #          "cache.lix.systems:aBnZUw8zA7H35Cz2RyKFVs3H4PlGTLawyY5KRbvJR8o="
-        #        ];
+        trusted-users = [ "olivia" ];
       };
       extraOptions = ''
         builders-use-substitutes = true
@@ -55,11 +54,9 @@ in {
     };
     nixpkgs = {
       overlays = mkAfter (attrValues {
-        inherit
-          (outputs.overlays)
+        inherit (outputs.overlays)
           additions
           modifications
-          lix-module
           ;
       });
       config = {
