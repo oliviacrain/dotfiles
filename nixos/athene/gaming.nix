@@ -6,10 +6,7 @@
     localNetworkGameTransfers.openFirewall = true;
   };
 
-  hardware = {
-    graphics.enable = true;
-    amdgpu.amdvlk.enable = true;
-  };
+  hardware.graphics.enable = true;
 
   environment.systemPackages = [
     pkgs.steam-run
