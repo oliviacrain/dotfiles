@@ -57,6 +57,7 @@ in
         inherit (outputs.overlays)
           additions
           modifications
+          colmena
           ;
       });
       config = {

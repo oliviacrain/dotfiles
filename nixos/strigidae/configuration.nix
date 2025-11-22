@@ -3,7 +3,8 @@
   modulesPath,
   pkgs,
   ...
-}: {
+}:
+{
   imports = [
     "${modulesPath}/virtualisation/digital-ocean-image.nix"
     ../common
@@ -24,26 +25,28 @@
   networking.hostName = "strigidae";
   system.stateVersion = "25.05";
 
-  networking.firewall.allowedTCPPorts = [443];
+  networking.firewall.allowedTCPPorts = [ 443 ];
 
   services.kanidm = {
     enableServer = true;
     package = pkgs.kanidm_1_7;
-    serverSettings = let
-      certDir = config.security.acme.certs."auth.slug.gay".directory;
-    in {
-      bindaddress = "104.131.167.151:443";
-      domain = "auth.slug.gay";
-      origin = "https://auth.slug.gay";
-      tls_chain = "${certDir}/fullchain.pem";
-      tls_key = "${certDir}/key.pem";
-    };
+    serverSettings =
+      let
+        certDir = config.security.acme.certs."auth.slug.gay".directory;
+      in
+      {
+        bindaddress = "104.131.167.151:443";
+        domain = "auth.slug.gay";
+        origin = "https://auth.slug.gay";
+        tls_chain = "${certDir}/fullchain.pem";
+        tls_key = "${certDir}/key.pem";
+      };
   };
 
-  users.users.kanidm.extraGroups = ["acme"];
+  users.users.kanidm.extraGroups = [ "acme" ];
   systemd.services.kanidm = {
-    serviceConfig.AmbientCapabilities = ["CAP_NET_BIND_SERVICE"];
-    requires = ["acme-finished-auth.slug.gay.target"];
+    serviceConfig.AmbientCapabilities = [ "CAP_NET_BIND_SERVICE" ];
+    requires = [ "acme-finished-auth.slug.gay.target" ];
   };
 
   security.acme = {
@@ -58,8 +61,8 @@
 
   sops = {
     secrets = {
-      porkbunApiKey = {};
-      porkbunSecretApiKey = {};
+      porkbunApiKey = { };
+      porkbunSecretApiKey = { };
     };
     templates."acme.env" = {
       content = ''
@@ -73,7 +76,7 @@
     enable = true;
     exporters.node = {
       enable = true;
-      enabledCollectors = ["systemd"];
+      enabledCollectors = [ "systemd" ];
     };
     scrapeConfigs = [
       {
