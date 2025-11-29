@@ -1,8 +1,10 @@
-{pkgs, ...}: let
+{ pkgs, ... }:
+let
   userName = "Olivia Crain";
   userEmail = "olivia@olivia.dev";
-in {
-  home.packages = [pkgs.difftastic];
+in
+{
+  home.packages = [ pkgs.difftastic ];
   programs.gh.enable = true;
   programs.jujutsu = {
     enable = true;
@@ -12,7 +14,10 @@ in {
         email = "${userEmail}";
       };
       aliases = {
-        amend = ["squash" "--keep-emptied"];
+        amend = [
+          "squash"
+          "--keep-emptied"
+        ];
       };
     };
   };
@@ -23,7 +28,7 @@ in {
       s = "status -s";
       oops = "commit --amend --no-edit";
     };
-    extraConfig = {
+    settings = {
       merge.conflictStyle = "zdiff3";
       pull.ff = "only";
       push.autoSetupRemote = "true";
