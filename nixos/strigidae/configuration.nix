@@ -29,7 +29,7 @@
 
   services.kanidm = {
     enableServer = true;
-    package = pkgs.kanidm_1_7;
+    package = pkgs.kanidm_1_8;
     serverSettings =
       let
         certDir = config.security.acme.certs."auth.slug.gay".directory;
