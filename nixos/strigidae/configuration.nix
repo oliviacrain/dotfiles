@@ -46,7 +46,7 @@
   users.users.kanidm.extraGroups = [ "acme" ];
   systemd.services.kanidm = {
     serviceConfig.AmbientCapabilities = [ "CAP_NET_BIND_SERVICE" ];
-    requires = [ "acme-finished-auth.slug.gay.target" ];
+    requires = [ "acme-auth.slug.gay.service" ];
   };
 
   security.acme = {
