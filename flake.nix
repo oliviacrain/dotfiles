@@ -71,12 +71,15 @@
       packages = forAllSystems (system: import ./pkgs pkgs.${system});
 
       colmenaHive = mkColmenaHive pkgs.x86_64-linux {
-        apteryx = { };
+        apteryx = {
+          targetUser = "olivia";
+        };
         athene = {
           allowLocalDeployment = true;
           targetHost = null;
         };
         strigidae = {
+          targetUser = "olivia";
           targetHost = "auth.slug.gay";
         };
       };
