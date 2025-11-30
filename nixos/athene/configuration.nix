@@ -39,5 +39,12 @@
   programs.virt-manager.enable = true;
   programs.thunderbird.enable = true;
 
+  environment.systemPackages = builtins.attrValues {
+    inherit (pkgs)
+      kicad
+      obsidian
+      ;
+  };
+
   system.stateVersion = "24.11";
 }
