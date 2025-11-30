@@ -23,12 +23,16 @@ in
   };
   programs.git = {
     enable = true;
-    inherit userName userEmail;
-    aliases = {
-      s = "status -s";
-      oops = "commit --amend --no-edit";
-    };
     settings = {
+      user = {
+        name = userName;
+        email = userEmail;
+        signingkey = "${./id_ed25519_sk.pub}";
+      };
+      aliases = {
+        s = "status -s";
+        oops = "commit --amend --no-edit";
+      };
       merge.conflictStyle = "zdiff3";
       pull.ff = "only";
       push.autoSetupRemote = "true";
@@ -38,7 +42,6 @@ in
       diff.external = "difft";
       gpg.format = "ssh";
       commit.gpgsign = "true";
-      user.signingkey = "${./id_ed25519_sk.pub}";
       grep.patternType = "perl";
       branch.sort = "committerdate";
       column.ui = "auto";
