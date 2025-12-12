@@ -32,20 +32,6 @@ in
         builders-use-substitutes = true
       '';
       registry.nixpkgs.flake = mkDefault inputs.nixpkgs;
-      buildMachines = mkIf (config.networking.hostName != "apteryx") [
-        {
-          hostName = "apteryx";
-          sshUser = "nixremote";
-          system = "x86_64-linux";
-          maxJobs = 8;
-          supportedFeatures = [
-            "big-parallel"
-            "kvm"
-          ];
-        }
-      ];
-      distributedBuilds = mkDefault true;
-
       gc = {
         automatic = true;
         persistent = true;
