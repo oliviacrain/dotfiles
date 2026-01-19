@@ -45,6 +45,7 @@ in
       inherit (pkgs)
         firefox
         wl-clipboard-rs
+        fractal
         ;
     };
 
