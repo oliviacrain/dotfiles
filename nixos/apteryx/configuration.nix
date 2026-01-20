@@ -15,6 +15,7 @@
 
   networking.hostName = "apteryx";
   olivia.enable = true;
+  olivia.colmena.enable = true;
 
   systemd.sleep.extraConfig = ''
     AllowSuspend=no

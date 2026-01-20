@@ -8,6 +8,7 @@ in {
   imports = [
     ./nix.nix
     ./boot.nix
+    ./colmena.nix
     ./desktop.nix
     ./locale.nix
     ./network.nix
@@ -24,6 +25,7 @@ in {
   config = mkIf config.olivia.enable {
     olivia = {
       boot.enable = mkDefault true;
+      colmena.enable = mkDefault false;
       desktop.enable = mkDefault true;
       home-manager.enable = mkDefault true;
       locale.enable = mkDefault true;

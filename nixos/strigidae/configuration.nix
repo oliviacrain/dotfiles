@@ -12,6 +12,7 @@
 
   olivia = {
     boot.enable = false;
+    colmena.enable = true;
     desktop.enable = false;
     home-manager.enable = false;
     locale.enable = true;
