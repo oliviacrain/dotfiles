@@ -14,10 +14,21 @@ in {
     ];
   };
 
-  services.openssh.settings.AllowUsers = [username];
 
-  programs.ssh.startAgent = true;
-  programs.ssh.enableAskPassword = true;
+  services.openssh = {
+    enable = true;
+    settings = {
+      PermitRootLogin = "no";
+      PasswordAuthentication = false;
+      AllowUsers = [ username ];
+    };
+    openFirewall = true;
+  };
+
+  programs.ssh = {
+    startAgent = true;
+    enableAskPassword = true;
+  };
 
   environment.systemPackages = builtins.attrValues {
     inherit

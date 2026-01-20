@@ -15,7 +15,7 @@
         gopls
         gotools
         rust-analyzer
-        nixfmt-rfc-style
+        alejandra
         ;
       inherit (pkgs.nodePackages) bash-language-server;
     };
@@ -24,7 +24,7 @@
       language = [
         {
           name = "nix";
-          formatter.command = "${lib.getExe pkgs.nixfmt-rfc-style}";
+          formatter.command = "${lib.getExe pkgs.alejandra}";
         }
       ];
     };
