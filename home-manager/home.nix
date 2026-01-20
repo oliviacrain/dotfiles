@@ -34,6 +34,7 @@
   };
 
   programs.home-manager.enable = true;
+  services.tailscale-systray.enable = true;
 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
