@@ -5,6 +5,10 @@
 }: let
   inherit (builtins) toString;
 in {
+
+  services.expressvpn.enable = true;
+  
+  
   services.tailscale = {
     permitCertUid = config.services.caddy.user;
     authKeyFile = config.sops.secrets."tailscale/auth_key".path;
