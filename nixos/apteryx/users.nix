@@ -2,7 +2,7 @@
   users.users.slug = {
     isNormalUser = true;
     home = "/home/slug";
-    packages = [pkgs.firefox pkgs.expressvpn];
+    packages = [pkgs.firefox];
     extraGroups = [ "wheel" ];
   };
 }
