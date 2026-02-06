@@ -122,12 +122,6 @@ in
         import tailscale_service
         reverse_proxy unix/${config.services.hedgedoc.settings.path}
       }
-
-      # Atuin Sync
-      https://atuin.slug.gay {
-        import tailscale_service
-        reverse_proxy localhost:${toString config.services.atuin.port}
-      }
     '';
   };
 }
