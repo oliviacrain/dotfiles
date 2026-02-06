@@ -93,12 +93,6 @@ in
         reverse_proxy localhost:8096
       }
 
-      # Jellyseerr
-      https://requests.slug.gay {
-        import tailscale_service
-        reverse_proxy localhost:${builtins.toString config.services.jellyseerr.port}
-      }
-
       # Mealie
       https://recipes.slug.gay {
         import tailscale_service

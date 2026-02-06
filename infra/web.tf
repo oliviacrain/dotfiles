@@ -25,7 +25,7 @@ resource "porkbun_dns_record" "docs_slug_gay_fly_alias" {
 # Most subdomains of slug.gay should point to apteryx
 
 locals {
-  apteryx_ts_sudomains = ["budget", "git", "media", "minecraft", "notes", "recipes", "requests", "rss", "vault"]
+  apteryx_ts_sudomains = ["budget", "git", "media", "minecraft", "notes", "recipes", "rss", "vault"]
 }
 
 module "apteryx_ts_dns" {
