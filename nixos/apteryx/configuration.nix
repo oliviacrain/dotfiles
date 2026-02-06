@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   imports = [
     ./hardware-configuration.nix
     ../common
@@ -9,7 +10,6 @@
     ./forgejo.nix
     ./monitoring.nix
     ./miniflux.nix
-    ./actual.nix
     ./hedgedoc.nix
   ];
 
@@ -22,7 +22,7 @@
     AllowHibernation=no
   '';
 
-  environment.systemPackages = [pkgs.vlc];
+  environment.systemPackages = [ pkgs.vlc ];
 
   system.stateVersion = "23.11";
 }

@@ -2,9 +2,11 @@
   pkgs,
   config,
   ...
-}: let
+}:
+let
   inherit (builtins) toString;
-in {
+in
+{
   services.tailscale = {
     permitCertUid = config.services.caddy.user;
     authKeyFile = config.sops.secrets."tailscale/auth_key".path;
@@ -12,7 +14,10 @@ in {
 
   systemd.services.caddy.serviceConfig = {
     EnvironmentFile = config.sops.templates."caddy.env".path;
-    BindPaths = [config.services.tailscaleAuth.socketPath config.services.hedgedoc.settings.path];
+    BindPaths = [
+      config.services.tailscaleAuth.socketPath
+      config.services.hedgedoc.settings.path
+    ];
   };
 
   services.tailscaleAuth.enable = true;
@@ -20,7 +25,10 @@ in {
     "/var/run/tailscale/tailscaled.sock"
     "/run/tailscale/tailscaled.sock"
   ];
-  users.users.${config.services.caddy.user}.extraGroups = [config.services.tailscaleAuth.group "hedgedoc"];
+  users.users.${config.services.caddy.user}.extraGroups = [
+    config.services.tailscaleAuth.group
+    "hedgedoc"
+  ];
 
   sops = {
     secrets."caddy/porkbun_api" = {
@@ -43,7 +51,7 @@ in {
       mode = "0440";
     };
     secrets."tailscale/auth_key" = {
-      reloadUnits = ["tailscale-autoconnect.service"];
+      reloadUnits = [ "tailscale-autoconnect.service" ];
     };
   };
 
@@ -107,12 +115,6 @@ in {
       https://rss.slug.gay {
         import tailscale_service
         reverse_proxy localhost:6613
-      }
-
-      # Actual
-      https://budget.slug.gay {
-        import tailscale_service
-        reverse_proxy localhost:${toString config.services.actual.settings.port}
       }
 
       # Hedgedoc
