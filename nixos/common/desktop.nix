@@ -46,6 +46,7 @@ in
         firefox
         wl-clipboard-rs
         fractal
+        ghostty
         ;
     };
 
