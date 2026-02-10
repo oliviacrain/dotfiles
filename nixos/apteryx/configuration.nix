@@ -4,7 +4,7 @@
     ./hardware-configuration.nix
     ../common
     ./users.nix
-    ./networking.nix
+    ./caddy.nix
     ./media-server.nix
     ./mealie.nix
     ./forgejo.nix

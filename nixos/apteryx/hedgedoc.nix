@@ -1,4 +1,5 @@
-{config, ...}: {
+{ config, ... }:
+{
   services.hedgedoc = {
     enable = true;
     settings = {
@@ -12,8 +13,13 @@
     environmentFile = config.sops.templates."hedgedoc.env".path;
   };
 
+  services.caddy.virtualHosts."https://notes.slug.gay/".extraConfig = ''
+    import tailscale_service
+    reverse_proxy unix/${config.services.hedgedoc.settings.path}
+  '';
+
   sops = {
-    secrets."hedgedoc/oidc_client_secret" = {};
+    secrets."hedgedoc/oidc_client_secret" = { };
     templates."hedgedoc.env".content = ''
       CMD_OAUTH2_USER_PROFILE_URL=https://auth.slug.gay/oauth2/openid/hedgedoc/userinfo
       CMD_OAUTH2_USER_PROFILE_USERNAME_ATTR=preferred_username

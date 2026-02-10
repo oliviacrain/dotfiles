@@ -1,9 +1,13 @@
-{config, ...}: {
+{ config, ... }:
+let
+  port = "6613";
+in
+{
   services.miniflux = {
     enable = true;
     config = {
       CREATE_ADMIN = 0;
-      LISTEN_ADDR = "localhost:6613";
+      LISTEN_ADDR = "localhost:${port}";
       BASE_URL = "https://rss.slug.gay/";
       OAUTH2_OIDC_PROVIDER_NAME = "SlugID";
       OAUTH2_PROVIDER = "oidc";
@@ -16,10 +20,15 @@
     createDatabaseLocally = true;
   };
 
+  services.caddy.virtualHosts."https://rss.slug.gay/".extraConfig = ''
+    import tailscale_service
+    reverse_proxy localhost:${port}
+  '';
+
   systemd.services.miniflux.serviceConfig.EnvironmentFile = config.sops.templates."miniflux.env".path;
 
   sops = {
-    secrets."miniflux/oidc_client_secret" = {};
+    secrets."miniflux/oidc_client_secret" = { };
     templates."miniflux.env" = {
       content = ''
         OAUTH2_CLIENT_SECRET=${config.sops.placeholder."miniflux/oidc_client_secret"}

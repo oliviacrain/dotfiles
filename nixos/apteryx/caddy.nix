@@ -3,9 +3,6 @@
   config,
   ...
 }:
-let
-  inherit (builtins) toString;
-in
 {
   services.tailscale = {
     permitCertUid = config.services.caddy.user;
@@ -58,7 +55,7 @@ in
   services.caddy = {
     enable = true;
     package = pkgs.caddy-augmented;
-    configFile = pkgs.writeText "Caddyfile" ''
+    extraConfig = ''
       (tailscale_service) {
         bind 100.95.200.106 fd7a:115c:a1e0::891f:c86a
         @blocked not client_ip 100.64.0.0/10 fd7a:115c:a1e0::/96 192.168.0.0/16
@@ -85,36 +82,6 @@ in
         		Tailscale-Profile-Picture
         	}
         }
-      }
-
-      # Jellyfin
-      https://media.slug.gay {
-        import tailscale_service
-        reverse_proxy localhost:8096
-      }
-
-      # Mealie
-      https://recipes.slug.gay {
-        import tailscale_service
-        reverse_proxy localhost:${builtins.toString config.services.mealie.port}
-      }
-
-      # Forgejo
-      https://git.slug.gay {
-        import tailscale_service
-        reverse_proxy unix/${config.services.forgejo.settings.server.HTTP_ADDR}
-      }
-
-      # Miniflux
-      https://rss.slug.gay {
-        import tailscale_service
-        reverse_proxy localhost:6613
-      }
-
-      # Hedgedoc
-      https://notes.slug.gay {
-        import tailscale_service
-        reverse_proxy unix/${config.services.hedgedoc.settings.path}
       }
     '';
   };

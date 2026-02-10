@@ -1,4 +1,5 @@
-{config, ...}: {
+{ config, ... }:
+{
   services.mealie = {
     enable = true;
     settings = {
@@ -15,8 +16,13 @@
     credentialsFile = config.sops.templates."mealie.env".path;
   };
 
+  services.caddy.virtualHosts."https://recipes.slug.gay/".extraConfig = ''
+    import tailscale_service
+    reverse_proxy localhost:${builtins.toString config.services.mealie.port}
+  '';
+
   sops = {
-    secrets."mealie/oidc_client_secret" = {};
+    secrets."mealie/oidc_client_secret" = { };
     templates."mealie.env".content = ''
       OIDC_CLIENT_SECRET=${config.sops.placeholder."mealie/oidc_client_secret"}
     '';
