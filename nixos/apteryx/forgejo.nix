@@ -3,8 +3,7 @@
   lib,
   pkgs,
   ...
-}:
-{
+}: {
   services.forgejo = {
     enable = true;
     package = pkgs.forgejo; # LTS by default
@@ -36,7 +35,7 @@
     };
   };
 
-  services.openssh.settings.AllowUsers = [ config.services.forgejo.user ];
+  services.openssh.settings.AllowUsers = [config.services.forgejo.user];
 
   services.caddy.virtualHosts."https://git.slug.gay/".extraConfig = ''
     import tailscale_service

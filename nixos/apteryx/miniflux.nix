@@ -1,8 +1,6 @@
-{ config, ... }:
-let
+{config, ...}: let
   port = "6613";
-in
-{
+in {
   services.miniflux = {
     enable = true;
     config = {
@@ -28,7 +26,7 @@ in
   systemd.services.miniflux.serviceConfig.EnvironmentFile = config.sops.templates."miniflux.env".path;
 
   sops = {
-    secrets."miniflux/oidc_client_secret" = { };
+    secrets."miniflux/oidc_client_secret" = {};
     templates."miniflux.env" = {
       content = ''
         OAUTH2_CLIENT_SECRET=${config.sops.placeholder."miniflux/oidc_client_secret"}

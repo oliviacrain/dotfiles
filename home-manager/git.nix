@@ -1,10 +1,8 @@
-{ pkgs, ... }:
-let
+{pkgs, ...}: let
   userName = "Olivia Crain";
   userEmail = "olivia@olivia.dev";
-in
-{
-  home.packages = [ pkgs.difftastic ];
+in {
+  home.packages = [pkgs.difftastic];
   programs.gh.enable = true;
   programs.jujutsu = {
     enable = true;

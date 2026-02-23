@@ -3,6 +3,6 @@
     isNormalUser = true;
     home = "/home/slug";
     packages = [pkgs.firefox];
-    extraGroups = [ "wheel" ];
+    extraGroups = ["wheel"];
   };
 }

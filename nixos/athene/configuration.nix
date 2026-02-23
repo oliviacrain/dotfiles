@@ -4,8 +4,7 @@
   lib,
   config,
   ...
-}:
-{
+}: {
   imports = [
     inputs.nixos-hardware.nixosModules.framework-16-7040-amd
     ./hardware-configuration.nix
@@ -40,7 +39,8 @@
   programs.thunderbird.enable = true;
 
   environment.systemPackages = builtins.attrValues {
-    inherit (pkgs)
+    inherit
+      (pkgs)
       kicad
       obsidian
       ;

@@ -5,17 +5,16 @@
   inputs,
   outputs,
   ...
-}:
-let
-  inherit (lib)
+}: let
+  inherit
+    (lib)
     mkDefault
     mkEnableOption
     mkIf
     mkAfter
     ;
   inherit (builtins) attrValues;
-in
-{
+in {
   options.olivia.nix.enable = mkEnableOption "common nix/nixpkgs options";
 
   config = mkIf config.olivia.nix.enable {
@@ -26,7 +25,7 @@ in
           "nix-command"
           "flakes"
         ];
-        trusted-users = [ "olivia" ];
+        trusted-users = ["olivia"];
       };
       extraOptions = ''
         builders-use-substitutes = true
@@ -40,7 +39,8 @@ in
     };
     nixpkgs = {
       overlays = mkAfter (attrValues {
-        inherit (outputs.overlays)
+        inherit
+          (outputs.overlays)
           additions
           modifications
           colmena

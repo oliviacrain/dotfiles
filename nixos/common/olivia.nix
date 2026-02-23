@@ -14,13 +14,12 @@ in {
     ];
   };
 
-
   services.openssh = {
     enable = true;
     settings = {
       PermitRootLogin = "no";
       PasswordAuthentication = false;
-      AllowUsers = [ username ];
+      AllowUsers = [username];
     };
     openFirewall = true;
   };

@@ -3,16 +3,15 @@
   config,
   pkgs,
   ...
-}:
-let
-  inherit (lib)
+}: let
+  inherit
+    (lib)
     mkIf
     mkEnableOption
     mkDefault
     ;
   inherit (builtins) attrValues;
-in
-{
+in {
   options.olivia.desktop.enable = mkEnableOption "common desktop settings";
 
   config = mkIf config.olivia.desktop.enable {
@@ -42,7 +41,8 @@ in
     services.dbus.implementation = mkDefault "broker";
 
     environment.systemPackages = attrValues {
-      inherit (pkgs)
+      inherit
+        (pkgs)
         firefox
         wl-clipboard-rs
         fractal
@@ -50,6 +50,6 @@ in
         ;
     };
 
-    fonts.packages = [ pkgs.berkeley-mono ];
+    fonts.packages = [pkgs.berkeley-mono];
   };
 }

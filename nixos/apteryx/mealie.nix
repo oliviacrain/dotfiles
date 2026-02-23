@@ -1,5 +1,4 @@
-{ config, ... }:
-{
+{config, ...}: {
   services.mealie = {
     enable = true;
     settings = {
@@ -22,7 +21,7 @@
   '';
 
   sops = {
-    secrets."mealie/oidc_client_secret" = { };
+    secrets."mealie/oidc_client_secret" = {};
     templates."mealie.env".content = ''
       OIDC_CLIENT_SECRET=${config.sops.placeholder."mealie/oidc_client_secret"}
     '';

@@ -1,5 +1,4 @@
-{ config, ... }:
-{
+{config, ...}: {
   services.hedgedoc = {
     enable = true;
     settings = {
@@ -19,7 +18,7 @@
   '';
 
   sops = {
-    secrets."hedgedoc/oidc_client_secret" = { };
+    secrets."hedgedoc/oidc_client_secret" = {};
     templates."hedgedoc.env".content = ''
       CMD_OAUTH2_USER_PROFILE_URL=https://auth.slug.gay/oauth2/openid/hedgedoc/userinfo
       CMD_OAUTH2_USER_PROFILE_USERNAME_ATTR=preferred_username

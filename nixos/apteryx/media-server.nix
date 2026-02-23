@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   services.jellyfin.enable = true;
 
   services.caddy.virtualHosts."https://media.slug.gay/".extraConfig = ''
@@ -12,5 +11,5 @@
     "video"
   ];
 
-  environment.systemPackages = [ pkgs.amdgpu_top ];
+  environment.systemPackages = [pkgs.amdgpu_top];
 }

@@ -2,8 +2,7 @@
   pkgs,
   config,
   ...
-}:
-{
+}: {
   services.tailscale = {
     permitCertUid = config.services.caddy.user;
     authKeyFile = config.sops.secrets."tailscale/auth_key".path;
@@ -48,7 +47,7 @@
       mode = "0440";
     };
     secrets."tailscale/auth_key" = {
-      reloadUnits = [ "tailscale-autoconnect.service" ];
+      reloadUnits = ["tailscale-autoconnect.service"];
     };
   };
 
