@@ -8,11 +8,16 @@ in {
   options.olivia.network.enable = mkEnableOption "common network settings";
 
   config = mkIf config.olivia.network.enable {
-    networking.useNetworkd = mkDefault true;
-    services.resolved.enable = true;
-    networking.wireless.iwd = {
-      enable = mkDefault true;
-      settings.General.EnableNetworkConfiguration = mkDefault true;
+    services.resolved.enable = mkDefault true;
+    networking = {
+      networkmanager = {
+        enable = mkDefault true;
+        wifi.backend = mkDefault "iwd";
+      };
+      wireless.iwd = {
+        enable = mkDefault true;
+        settings.General.EnableNetworkConfiguration = mkDefault true;
+      };
     };
   };
 }
