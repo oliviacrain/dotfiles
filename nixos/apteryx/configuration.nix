@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   imports = [
     ./hardware-configuration.nix
     ../common
@@ -10,6 +11,7 @@
     ./monitoring.nix
     ./miniflux.nix
     ./hedgedoc.nix
+    ./bentopdf.nix
   ];
 
   networking.hostName = "apteryx";
@@ -21,7 +23,7 @@
     AllowHibernation=no
   '';
 
-  environment.systemPackages = [pkgs.vlc];
+  environment.systemPackages = [ pkgs.vlc ];
 
   system.stateVersion = "23.11";
 }
