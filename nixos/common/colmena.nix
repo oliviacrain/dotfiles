@@ -9,7 +9,7 @@ let
     mkEnableOption
     mkIf
     ;
-  username = "colmena-deploy";
+  username = "colmena-deployer";
 in
 {
   options.olivia.colmena.enable = mkEnableOption "colmena update user";

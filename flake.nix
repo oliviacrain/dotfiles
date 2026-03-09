@@ -69,14 +69,14 @@
 
     colmenaHive = mkColmenaHive pkgs.x86_64-linux {
       apteryx = {
-        targetUser = "colmena-deploy";
+        targetUser = "colmena-deployer";
       };
       athene = {
         allowLocalDeployment = true;
         targetHost = null;
       };
       strigidae = {
-        targetUser = "colmena-deploy";
+        targetUser = "colmena-deployer";
         targetHost = "auth.slug.gay";
       };
     };
