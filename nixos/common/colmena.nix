@@ -16,14 +16,11 @@ in
 
   config = mkIf config.olivia.colmena.enable {
     users.users.${username} = {
-      isSystemUser = true;
-      shell = pkgs.bashInteractive;
-      group = username;
+      isNormalUser = true;
       openssh.authorizedKeys.keys = [
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIC87Km2/XgeYLt9C164Bo6eCRS5iPaI4hCRLPGo9Nw3b colmena deploy"
       ];
     };
-    users.groups.${username} = { };
 
     security.sudo = {
       extraRules = [
