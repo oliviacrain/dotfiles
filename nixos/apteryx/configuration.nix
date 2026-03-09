@@ -17,10 +17,10 @@
   olivia.enable = true;
   olivia.colmena.enable = true;
 
-  systemd.sleep.extraConfig = ''
-    AllowSuspend=no
-    AllowHibernation=no
-  '';
+  systemd.sleep.settings.Sleep = {
+    AllowSuspend = "no";
+    AllowHibernation = "no";
+  };
 
   environment.systemPackages = [pkgs.vlc];
 
