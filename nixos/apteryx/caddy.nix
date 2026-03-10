@@ -2,7 +2,8 @@
   pkgs,
   config,
   ...
-}: {
+}:
+{
   services.tailscale = {
     permitCertUid = config.services.caddy.user;
     authKeyFile = config.sops.secrets."tailscale/auth_key".path;
@@ -47,18 +48,20 @@
       mode = "0440";
     };
     secrets."tailscale/auth_key" = {
-      reloadUnits = ["tailscale-autoconnect.service"];
+      reloadUnits = [ "tailscale-autoconnect.service" ];
     };
   };
 
   services.caddy = {
     enable = true;
+    openFirewall = true;
     package = pkgs.caddy-augmented;
     extraConfig = ''
       (tailscale_service) {
         bind 100.95.200.106 fd7a:115c:a1e0::891f:c86a
         @blocked not client_ip 100.64.0.0/10 fd7a:115c:a1e0::/96 192.168.0.0/16
         tls {
+          propagation_timeout 120s
           dns porkbun {
             api_key {env.PORKBUN_API}
             api_secret_key {env.PORKBUN_SECRET}

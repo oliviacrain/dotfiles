@@ -15,7 +15,7 @@
     credentialsFile = config.sops.templates."mealie.env".path;
   };
 
-  services.caddy.virtualHosts."https://recipes.slug.gay/".extraConfig = ''
+  services.caddy.virtualHosts."https://recipes.slug.gay".extraConfig = ''
     import tailscale_service
     reverse_proxy localhost:${builtins.toString config.services.mealie.port}
   '';

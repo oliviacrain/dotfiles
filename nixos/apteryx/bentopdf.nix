@@ -2,15 +2,22 @@
   pkgs,
   config,
   ...
-}: {
+}:
+let
+  domain = "pdf.slug.gay";
+in
+{
   services.bentopdf = {
+    inherit domain;
     enable = true;
-    domain = "pdf.slug.gay";
     caddy = {
       enable = true;
-      virtualHost.extraConfig = ''
-        import tailscale_service
-      '';
+      virtualHost = {
+        hostName = "https://${domain}";
+        extraConfig = ''
+          import tailscale_service
+        '';
+      };
     };
   };
 }

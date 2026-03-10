@@ -37,7 +37,7 @@
 
   services.openssh.settings.AllowUsers = [config.services.forgejo.user];
 
-  services.caddy.virtualHosts."https://git.slug.gay/".extraConfig = ''
+  services.caddy.virtualHosts."https://git.slug.gay".extraConfig = ''
     import tailscale_service
     reverse_proxy unix/${config.services.forgejo.settings.server.HTTP_ADDR}
   '';

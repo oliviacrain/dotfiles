@@ -18,7 +18,7 @@ in {
     createDatabaseLocally = true;
   };
 
-  services.caddy.virtualHosts."https://rss.slug.gay/".extraConfig = ''
+  services.caddy.virtualHosts."https://rss.slug.gay".extraConfig = ''
     import tailscale_service
     reverse_proxy localhost:${port}
   '';

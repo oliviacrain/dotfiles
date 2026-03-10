@@ -12,7 +12,7 @@
     environmentFile = config.sops.templates."hedgedoc.env".path;
   };
 
-  services.caddy.virtualHosts."https://notes.slug.gay/".extraConfig = ''
+  services.caddy.virtualHosts."https://notes.slug.gay".extraConfig = ''
     import tailscale_service
     reverse_proxy unix/${config.services.hedgedoc.settings.path}
   '';

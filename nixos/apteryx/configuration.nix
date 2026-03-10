@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   imports = [
     ./hardware-configuration.nix
     ../common
@@ -22,7 +23,7 @@
     AllowHibernation = "no";
   };
 
-  environment.systemPackages = [pkgs.vlc];
+  environment.systemPackages = [ pkgs.vlc ];
 
   system.stateVersion = "23.11";
 }
