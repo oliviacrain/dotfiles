@@ -9,12 +9,16 @@
     authKeyFile = config.sops.secrets."tailscale/auth_key".path;
   };
 
-  systemd.services.caddy.serviceConfig = {
-    EnvironmentFile = config.sops.templates."caddy.env".path;
-    BindPaths = [
-      config.services.tailscaleAuth.socketPath
-      config.services.hedgedoc.settings.path
-    ];
+  systemd.services.caddy = {
+    requires = [ "tailscale-online.target" ];
+    after = [ "tailscale-online.target" ];
+    serviceConfig = {
+      EnvironmentFile = config.sops.templates."caddy.env".path;
+      BindPaths = [
+        config.services.tailscaleAuth.socketPath
+        config.services.hedgedoc.settings.path
+      ];
+    };
   };
 
   services.tailscaleAuth.enable = true;

@@ -16,8 +16,8 @@
         gotools
         rust-analyzer
         alejandra
+        bash-language-server
         ;
-      inherit (pkgs.nodePackages) bash-language-server;
     };
 
     languages = {
