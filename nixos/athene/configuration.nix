@@ -37,6 +37,7 @@
 
   programs.virt-manager.enable = true;
   programs.thunderbird.enable = true;
+  programs.nix-ld.enable = true;
 
   environment.systemPackages = builtins.attrValues {
     inherit
