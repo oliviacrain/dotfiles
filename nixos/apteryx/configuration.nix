@@ -3,7 +3,6 @@
   imports = [
     ./hardware-configuration.nix
     ../common
-    ./users.nix
     ./caddy.nix
     ./media-server.nix
     ./mealie.nix
@@ -15,15 +14,11 @@
   ];
 
   networking.hostName = "apteryx";
-  olivia.enable = true;
-  olivia.colmena.enable = true;
-
-  systemd.sleep.settings.Sleep = {
-    AllowSuspend = "no";
-    AllowHibernation = "no";
+  olivia = {
+    enable = true;
+    colmena.enable = true;
+    desktop.enable = false;
   };
-
-  environment.systemPackages = [ pkgs.vlc ];
 
   system.stateVersion = "23.11";
 }
