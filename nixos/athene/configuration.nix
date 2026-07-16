@@ -4,7 +4,8 @@
   lib,
   config,
   ...
-}: {
+}:
+{
   imports = [
     inputs.nixos-hardware.nixosModules.framework-16-7040-amd
     ./hardware-configuration.nix
@@ -33,15 +34,14 @@
     dockerCompat = true;
   };
 
-  services.deluge.enable = true;
+  services.deluge.enable = false;
 
   programs.virt-manager.enable = true;
   programs.thunderbird.enable = true;
   programs.nix-ld.enable = true;
 
   environment.systemPackages = builtins.attrValues {
-    inherit
-      (pkgs)
+    inherit (pkgs)
       kicad
       obsidian
       ;
