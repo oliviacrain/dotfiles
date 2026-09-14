@@ -44,6 +44,7 @@
     inherit (pkgs)
       kicad
       obsidian
+      libreoffice-qt
       ;
   };
 
