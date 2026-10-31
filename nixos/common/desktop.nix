@@ -50,6 +50,6 @@ in {
         ;
     };
 
-    fonts.packages = [pkgs.berkeley-mono];
+    fonts.packages = [pkgs.berkeley-mono pkgs.maple-mono.NF];
   };
 }
