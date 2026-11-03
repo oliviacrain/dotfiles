@@ -3,7 +3,7 @@
 in {
   caddy-augmented = pkgs.caddy.withPlugins {
     plugins = ["github.com/caddy-dns/porkbun@v0.3.1"];
-    hash = "sha256-CjL8dMdnsiawaPiQGRvL3he4Ydd3nIbQs6tBWMwUbaw=";
+    hash = "sha256-3XnnBdOW8A+LmmcqR94v1ZkyMoMB3EfBWFv0uBzz4cA=";
   };
 
   witchhazel = callPackage ./witchhazel.nix {};
